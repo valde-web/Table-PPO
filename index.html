@@ -63,15 +63,19 @@
     justify-content: space-between;
     align-items: center;
   }
+  
   .section-header:hover {
     background-color: #01585b;
   }
+
   .toggle-icon {
   display: inline-block;
   }
+
   .toggle-icon.collapsed {
     transform: rotate(-180deg);
   }
+
   .items {
     display: grid;
     grid-template-columns: repeat(6, 1fr); /* 6 колонок равной ширины */
@@ -79,6 +83,7 @@
     padding: 15px 20px;
     background-color: #131320;
   }
+
   .item {
     background: #131320;
     border-radius: 8px;
@@ -88,11 +93,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+    }
 
   .item-text {
     font-family: 'Arial', sans-serif;
-    padding: 10px 11px 10px; /* уменьшено сверху и сбоку, увеличено снизу */
+    padding: 10px 11px 10px; 
     font-size: 17px;
     color: #ffffff;
     flex-shrink: 0;
