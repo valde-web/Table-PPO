@@ -5468,24 +5468,32 @@ display: none;
 </div>
 
 <script>
-  document.querySelectorAll('.cell').forEach(cell => {
-    cell.addEventListener('click', () => {
-      // Получаем текст из ячейки и обрезаем пробелы с обеих сторон
-      const text = cell.textContent.trim();
+  document.querySelectorAll('.cell').forEach(item => {
+  item.addEventListener('click', () => {
+    const textElem = item.querySelector('.item-text');
+    let text;
 
-      navigator.clipboard.writeText(text)
-        .then(() => {
-          cell.classList.add('highlight');
-          setTimeout(() => {
-            cell.classList.remove('highlight');
-          }, 1500);
-          console.log('Текст скопирован: ' + text);
-        })
-        .catch(err => {
-          console.error('Не удалось скопировать: ', err);
-        });
+    if (textElem) {
+      text = textElem.innerText || textElem.textContent;
+    } else {
+      text = item.innerText || item.textContent;
+    }
+    // Заменяем множественные пробелы на один
+    text = text.replace(/\s+/g, ' ');
+
+    // Копируем текст в буфер обмена
+    navigator.clipboard.writeText(text).then(() => {
+      // Добавляем подсветку
+      item.classList.add('highlight');
+      // Убираем подсветку через 1.5 секунды
+      setTimeout(() => {
+        item.classList.remove('highlight');
+      }, 1500);
+    }).catch(err => {
+      console.error('Не удалось скопировать текст: ', err);
     });
   });
+});
 </script>
 
  <script>
