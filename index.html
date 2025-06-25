@@ -369,8 +369,6 @@ display: none;
             gap: 15px; /* Отступ между ячейками */
         }
 
-
-
     /*  Стили для колонок и элементов  */
     .container5 {
       display: flex;
@@ -461,6 +459,27 @@ display: none;
 }
 
 #itemm {
+    width: 100%;
+    box-sizing: border-box; /* Важно для правильной ширины с учетом padding и border */
+}
+
+    #itemmmSearch {
+  width: 100%; /*  Занимает всю ширину колонки */
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  border: 2px solid #008979;
+  background-color: #131320;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  border-radius: 8px;
+  color: white;
+  outline: none; /*  Убираем стандартный outline чтоб после нажатия рамка была того же цвета */
+}
+
+#itemmm {
     width: 100%;
     box-sizing: border-box; /* Важно для правильной ширины с учетом padding и border */
 }
@@ -2085,7 +2104,7 @@ display: none;
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м	Бумер М3 "Классика"	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м	Бумер М3 2006	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м	Бумер М4-2022	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div></div>
-<div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м	Бумер М8	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div></div>
+<div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м	"Бумер" М8	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м	ЗАЗИК "965"	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м	Бумер М635	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м	Гелик Мини	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div></div>
@@ -2341,7 +2360,7 @@ display: none;
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м	Бумер М3 "Классика"	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м	Бумер М3 2006	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м	Бумер М4-2022	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div></div>
-<div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м	Бумер М8	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div></div>
+<div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м	"Бумер" М8	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м	ЗАЗИК "965"	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м	Бумер М635	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м	Гелик Мини	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div></div>
@@ -4629,7 +4648,7 @@ display: none;
 <div class="cell">	Куплю а/м	Бумер М3 "Классика"	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div>
 <div class="cell">	Куплю а/м	Бумер М3 2006	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div>
 <div class="cell">	Куплю а/м	Бумер М4-2022	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div>
-<div class="cell">	Куплю а/м	Бумер М8	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div>
+<div class="cell">	Куплю а/м	"Бумер" М8	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div>
 <div class="cell">	Куплю а/м	ЗАЗИК "965"	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div>
 <div class="cell">	Куплю а/м	Бумер М635	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div>
 <div class="cell">	Куплю а/м	Гелик Мини	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div>
@@ -4876,7 +4895,7 @@ display: none;
 <div class="cell">	Продам а/м	Бумер М3 "Классика"	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div>
 <div class="cell">	Продам а/м	Бумер М3 2006	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div>
 <div class="cell">	Продам а/м	Бумер М4-2022	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div>
-<div class="cell">	Продам а/м	Бумер М8	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div>
+<div class="cell">	Продам а/м	"Бумер" М8	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div>
 <div class="cell">	Продам а/м	ЗАЗИК "965"	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div>
 <div class="cell">	Продам а/м	Бумер М635	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div>
 <div class="cell">	Продам а/м	Гелик Мини	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div>
@@ -5766,13 +5785,13 @@ display: none;
     </div>
 
 <div class="column">
-    <label for="itemm">Знач. без тюнинга:</label>
+    <label for="itemmm">Знач. без тюнинга:</label>
     <div class="search-container">
-    <input type="text" id="itemmSearch" placeholder="Поиск..." />
-    <div class="select-wrapper"><select id="itemm">
+    <input type="text" id="itemmmSearch" placeholder="Поиск..." onkeyup="filterOptions()" />
+    <div class="select-wrapper"><select id="itemmm">
 <option value="">(Выберите)</option>
-<option value="а/м Бумер Ешка 34.">а/м Бумер "Ешка" 34.</option>
-<option value="а/м Бумер Икс Шестой.">а/м Бумер "Икс Шестой".</option>
+<option value="а/м Бумер &quot;Ешка&quot; 34.">а/м Бумер "Ешка" 34.</option>
+<option value="а/м Бумер &quot;Икс Шестой&quot;.">а/м Бумер "Икс Шестой".</option>
 <option value="а/м Бумер I8.">а/м "Бумер" I8.</option>
 <option value="а/м Джимни Пж-20.">а/м Джимни "Пж-20".</option>
 <option value="а/м Фолькс Кафер.">а/м Фолькс Кафер.</option>
@@ -5781,7 +5800,7 @@ display: none;
 <option value="а/м Бумер М3 Классика.">а/м Бумер М3 "Классика".</option>
 <option value="а/м Бумер М3 2006.">а/м "Бумер" М3 2006.</option>
 <option value="а/м Бумер М4-2022.">а/м Бумер М4-2022.</option>
-<option value="а/м Бумер М8.">а/м "Бумер" М8.</option>
+<option value="а/м &quot;Бумер&quot; М8.">а/м "Бумер" М8.</option>
 <option value="а/м ЗАЗИК 965.">а/м ЗАЗИК "965".</option>
 <option value="а/м Бумер М635.">а/м "Бумер" М635.</option>
 <option value="а/м Гелик Мини.">а/м Гелик Мини.</option>
@@ -6128,7 +6147,7 @@ display: none;
 <option value="а/м Бумер М3 Классика">а/м Бумер М3 "Классика"</option>
 <option value="а/м Бумер М3 2006">а/м "Бумер" М3 2006</option>
 <option value="а/м Бумер М4-2022">а/м "Бумер" М4-2022</option>
-<option value="а/м Бумер М8">а/м "Бумер" М8</option>
+<option value="а/м &quot;Бумер&quot; М8">а/м "Бумер" М8</option>
 <option value="а/м ЗАЗИК 965">а/м ЗАЗИК "965"</option>
 <option value="а/м Бумер М635">а/м "Бумер" М635</option>
 <option value="а/м Гелик Мини">а/м Гелик Мини</option>
@@ -6715,6 +6734,25 @@ display: none;
 </div>
 
 <script>
+function filterOptions() {
+  let input, filter, select, options, i, txtValue;
+  input = document.getElementById("itemmmSearch");
+  filter = input.value.toUpperCase();
+  select = document.getElementById("itemmm");
+  options = select.getElementsByTagName("option");
+
+  for (i = 0; i < options.length; i++) {
+    txtValue = options[i].textContent || options[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1 || options[i].value.toUpperCase().indexOf(filter) > -1) { // Ищем и в value
+      options[i].style.display = "";
+    } else {
+      options[i].style.display = "none";
+    }
+  }
+}
+</script>
+
+<script>
 const itemmSearchInput = document.getElementById('itemmSearch');
 const itemmSelect = document.getElementById('itemm');
 
@@ -6737,6 +6775,7 @@ itemmSearchInput.addEventListener('input', function() {
 
   <script>
 const actionSelect = document.getElementById('action');
+const itemmmSelect = document.getElementById('itemmm');
 const itemSelect = document.getElementById('itemm');
 const tuningSelect = document.getElementById('tuning');
 const priceTypeSelect = document.getElementById('price_type');
@@ -6751,6 +6790,7 @@ function updateResult() {
   let resultText = '';
 
   if (actionSelect.value) resultText += actionSelect.value + ' ';
+  if (itemmmSelect.value) resultText += itemmmSelect.value + ' ';
   if (itemmSelect.value) resultText += itemmSelect.value + ' ';
   if (tuningSelect.value) resultText += tuningSelect.value + ' ';
   if (priceTypeSelect.value) resultText += priceTypeSelect.value + ' ';
@@ -6762,6 +6802,7 @@ function updateResult() {
 }
 
 actionSelect.addEventListener('change', updateResult);
+itemmmSelect.addEventListener('change', updateResult);
 itemmSelect.addEventListener('change', updateResult);
 tuningSelect.addEventListener('change', updateResult);
 priceTypeSelect.addEventListener('change', updateResult);
