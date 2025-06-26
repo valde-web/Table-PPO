@@ -7063,5 +7063,17 @@ document.querySelectorAll('.item').forEach(item => {
         table4.classList.add('hidden');
         table5.classList.add('hidden');
     </script>
+
+        <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (localStorage.getItem('reloaded') == null) {
+        localStorage.setItem('reloaded', 'yes');
+        location.reload();
+      } else {
+        localStorage.removeItem('reloaded');
+      }
+    });
+    </script>
+
 </body>
 </html>
