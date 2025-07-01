@@ -189,6 +189,7 @@
 
 .text-block.right {
     width: 500px;
+    border-radius: 30px;
 }
 
 .container-columns {
@@ -4002,7 +4003,7 @@ display: none;
 <div class="cell">	Продам а/м Бумер М5 КС. Цена: 1.000.000 рублей.	</div>
 <div class="cell">	Продам а/м Панама Турбо С Туризмо. Цена: 1.000.000 рублей.	</div>
 <div class="cell">	Продам а/м Ровер Дефендер 2023. Цена: 1.000.000 рублей.	</div>
-<div class="cell">	Продам а/м Ферра Ф40. Бюджет: 1.000.000 рублей.	</div>
+<div class="cell">	Продам а/м Ферра Ф40. Цена: 1.000.000 рублей.	</div>
 <div class="cell">	Продам а/м Хантер 4х4. Цена: 1.000.000 рублей.	</div>
 <div class="cell">	Продам а/м Аура Комендант. Цена: 1.000.000 рублей.	</div>
 <div class="cell">	Куплю велосипед BMX. Бюджет: 1.000.000 рублей.	</div>
@@ -7106,7 +7107,8 @@ document.querySelectorAll('.item').forEach(item => {
         table5.classList.add('hidden');
     </script>
 
-        <script>
+    <script>
+          // Скрипт обновления сайта при загрузке браузера
     document.addEventListener("DOMContentLoaded", function() {
       if (localStorage.getItem('reloaded') == null) {
         localStorage.setItem('reloaded', 'yes');
