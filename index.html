@@ -462,6 +462,25 @@ display: none;
       text-align: center;
     }
 
+    .sww-button {
+    text-align: center;
+    }
+
+    .sw-button {
+    display: block;
+    margin: 0 auto 3px auto;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 8px;
+    border: none;
+    background: #131320;
+    color: white;
+    cursor: pointer;
+    display: inline-block; /* Добавлено */
+    margin-right: 28px; /* Добавлено для небольшого отступа */
+    margin-left: 5px;
+  }
+
 #copyButton {
   font-family: Arial, sans-serif;
     background-color: #131320;
@@ -472,10 +491,27 @@ display: none;
     border: 2px solid #008979;
     border-radius: 8px;
     font-size: 20px;
-    margin-left: 800px;
 }
 
 #copyButton.copied {
+    border: 2px solid #00c58a;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+#clearButton {
+  font-family: Arial, sans-serif;
+    background-color: #131320;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border: 2px solid #008979;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+#clearButton.copied {
     border: 2px solid #00c58a;
     border-radius: 8px;
     font-size: 20px;
@@ -7054,7 +7090,10 @@ display: none;
 
   <div id="result"></div>
 
-  <button id="copyButton">Копировать</button>
+<div class="sww-button">
+<button id="copyButton" class="sw-button">Копировать</button> 
+<button id="clearButton" class="sw-button">Стереть</button>
+</div>
 
 <div id="draft-area-5" contenteditable="true" data-placeholder="Черновик для подготовки объявления перед его публикацией"></div>
 </div>
@@ -7113,6 +7152,7 @@ const exchangeSelect = document.getElementById('exchange');
 
 const resultDiv = document.getElementById('result');
 const copyButton = document.getElementById('copyButton');
+const clearButton = document.getElementById('clearButton'); // Получаем ссылку на кнопку Стереть
 
 function updateResult() {
   let resultText = '';
@@ -7160,6 +7200,19 @@ copyButton.addEventListener('click', () => {
       }, 2000)
     });
 });
+//  Обработчик события для кнопки "Стереть"
+  clearButton.addEventListener('click', () => {
+    actionSelect.selectedIndex = 0;    //  Вернуть значение по умолчанию (Выберите)
+    itemmmSelect.selectedIndex = 0;    //  Вернуть значение по умолчанию (Выберите)
+    itemSelect.selectedIndex = 0;     //  Вернуть значение по умолчанию (Выберите)
+    tuningSelect.selectedIndex = 0;    //  Вернуть значение по умолчанию (Выберите)
+    priceTypeSelect.selectedIndex = 0; //  Вернуть значение по умолчанию (Выберите)
+    priceSelect.selectedIndex = 0;     //  Вернуть значение по умолчанию (Выберите)
+    tradeSelect.selectedIndex = 0;    //  Вернуть значение по умолчанию (Выберите)
+    exchangeSelect.selectedIndex = 0;   //  Вернуть значение по умолчанию (Выберите)
+
+    updateResult();   //  Обновить отображаемый результат
+  });
   </script>
 
 <script>
