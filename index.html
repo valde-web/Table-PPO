@@ -7146,7 +7146,7 @@ display: none;
 <option value="клад &quot;Сломанный тетрис&quot;.">клад "Сломанный тетрис".</option>
 <option value="клад &quot;Сухпаек&quot;.">клад "Сухпаек".</option>
 <option value="клад &quot;Статуэтка льва&quot;.">клад "Статуэтка льва".</option>
-    </select>
+  </select>
   </div>
   </div>
   </div>
@@ -7191,7 +7191,7 @@ display: none;
         <option value="">(Выберите)</option>
         <option value="Свободный.">Свободный.</option>
         <option value="Договорная.">Договорная.</option>
-        <option value="10.000 рублей.">1.000 рублей.</option>
+        <option value="1.000 рублей.">1.000 рублей.</option>
         <option value="10.000 рублей.">10.000 рублей.</option>
         <option value="100.000 рублей.">100.000 рублей.</option>
         <option value="1.000.000 рублей.">1.000.000 рублей.</option>
@@ -7217,6 +7217,7 @@ display: none;
         <option value="Возможен торг. Возможен обмен. Писать СМС.">Возможен торг. Возможен обмен. Писать СМС.</option>
         <option value="Без торга. Возможен обмен. Писать СМС.">Без торга. Возможен обмен. Писать СМС.</option>
       </select>
+    </div>
     </div>
     </div>
 
@@ -7280,7 +7281,6 @@ const tuningSelect = document.getElementById('tuning');
 const priceTypeSelect = document.getElementById('price_type');
 const priceSelect = document.getElementById('price');
 const tradeSelect = document.getElementById('trade');
-const exchangeSelect = document.getElementById('exchange');
 
 const resultDiv = document.getElementById('result');
 const copyButton = document.getElementById('copyButton');
@@ -7296,7 +7296,6 @@ function updateResult() {
   if (priceTypeSelect.value) resultText += priceTypeSelect.value + ' ';
   if (priceSelect.value) resultText += priceSelect.value + ' ';
   if (tradeSelect.value) resultText += tradeSelect.value + ' ';
-  if (exchangeSelect.value) resultText += exchangeSelect.value;
 
   resultDiv.textContent = resultText.trim();
 }
@@ -7308,7 +7307,6 @@ tuningSelect.addEventListener('change', updateResult);
 priceTypeSelect.addEventListener('change', updateResult);
 priceSelect.addEventListener('change', updateResult);
 tradeSelect.addEventListener('change', updateResult);
-exchangeSelect.addEventListener('change', updateResult);
 
 copyButton.addEventListener('click', () => {
   const originalText = copyButton.textContent; // Сохраняем оригинальный текст
@@ -7341,7 +7339,6 @@ copyButton.addEventListener('click', () => {
     priceTypeSelect.selectedIndex = 0; //  Вернуть значение по умолчанию (Выберите)
     priceSelect.selectedIndex = 0;     //  Вернуть значение по умолчанию (Выберите)
     tradeSelect.selectedIndex = 0;    //  Вернуть значение по умолчанию (Выберите)
-    exchangeSelect.selectedIndex = 0;   //  Вернуть значение по умолчанию (Выберите)
 
     updateResult();   //  Обновить отображаемый результат
   });
