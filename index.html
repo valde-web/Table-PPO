@@ -457,10 +457,9 @@ display: none;
     #itemmSearch {
   width: 100%; /*  Занимает всю ширину колонки */
   padding: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   border-radius: 4px;
   box-sizing: border-box;
-  margin-bottom: 10px;
   border: 2px solid #008979;
   background-color: #131320;
   font-family: Arial, sans-serif;
@@ -590,6 +589,20 @@ display: none;
     }
 }
 
+    @media (max-width: 1800px) {
+    .column {
+      padding: 10px 10px;
+      font-size: 20px;
+      grid-gap: 3px; /* Отступ между колонками */
+      width: 9.7%;
+      height: 140px;
+    }
+
+    #itemmSearch {
+  margin-top: 25px;
+  }
+}
+
   @media (max-width: 1450px) {
     .container-columns {
     flex-direction: column;          /* Располагаем элементы вертикально */
@@ -618,33 +631,11 @@ display: none;
         }
 
         #search-input {
-            padding: 17px;
-            width: 400px;
-            height: 44px;
-            background-color: #131320;
-            border: 2px solid #00685a;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            font-size: 26px;
-            border-radius: 8px;
-            margin-right: 10px; /* Отступ справа от поля поиска */
             margin-left: 50px;
-            outline: none; /*  Убираем стандартный outline чтоб после нажатия рамка была того же цвета */
         }
 
         #search-input-4 {
-            padding: 17px;
-            width: 400px;
-            height: 44px;
-            background-color: #131320;
-            border: 2px solid #00685a;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            font-size: 26px;
-            border-radius: 8px;
-            margin-right: 10px; /* Отступ справа от поля поиска */
             margin-left: 50px;
-            outline: none; /*  Убираем стандартный outline чтоб после нажатия рамка была того же цвета */
         }
 
         #draft-area {
@@ -697,6 +688,14 @@ display: none;
         #search-input-4 {
             margin-left: 20px;
         }
+
+    .column {
+      padding: 5px 10px;
+      font-size: 19px;
+      grid-gap: 3px; /* Отступ между колонками */
+      width: 10.7%;
+      height: 140px;
+    }
   }
 
   @media (max-width: 1000px) {
