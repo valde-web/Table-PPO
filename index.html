@@ -15,7 +15,6 @@
 
 .table-title {
     font-size: 28px;
-    margin-bottom: 20px; /* Отступ между названием и картинкой */
     color: #ffffff;
     cursor: pointer;
     text-align: center;
@@ -109,72 +108,6 @@
   box-shadow: 0 0 15px 3px #00de9b; /* яркая зелёная подсветка */
   transition: box-shadow 0.3s ease;
 }
-
-@media (min-width: 1921px) {
-    .items {
-        grid-template-columns: repeat(7, 1fr); /* 7 колонок на широкоформатных мониторах */
-        gap: 20px; /* Увеличим отступ */
-        padding: 20px 250px; /* Увеличим padding */
-    }
-    .item-text {
-        font-size: 20px; /* Немного увеличим размер шрифта */
-    }
-    .container-columns {
-    padding: 300px 450px; /* большой отступ слева и справа от колонок до краёв */
-    }
-}
-
-  @media (max-width: 1200px) {
-    .items {
-      grid-template-columns: repeat(4, 1fr); /* на средних экранах 4 в ряд */
-    }
-
-    .table-title {
-    margin-bottom: 20px;
-    }
-
-    .container-columns {
-    flex-direction: column;          /* Располагаем элементы вертикально */
-    align-items: center;             /* Центрируем элементы по горизонтали */
-    padding: 20px;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
-  }
-
-  .text-block, .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
-    width: 90%;                      /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
-    margin: 10px auto;                /* Добавляем внешние отступы сверху и снизу и автоматически центрируем по горизонтали */
-    margin-left: 5%; /* Отступ слева (5% от ширины контейнера) */
-    margin-right: 5%; /* Отступ справа (5% от ширины контейнера) */
-    }
-  }
-
-  @media (max-width: 800px) {
-    .items {
-      grid-template-columns: repeat(1, 1fr); /* на мобильных 1 в ряд */
-    } 
-
-    .item-text {
-      margin-left: 1%; /* Отступ слева (1% от ширины контейнера) */
-      margin-right: 1%; /* Отступ справа (1% от ширины контейнера) */
-      font-size: 16px; /* Уменьшаем размер шрифта на маленьких экранах */
-    }
-
-    .table-title {
-    margin-bottom: 20px;
-    }
-
-    .container-columns {
-    flex-direction: column;          /* Располагаем элементы вертикально */
-    align-items: center;             /* Центрируем элементы по горизонтали */
-    padding: 20px;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
-  }
-
-  .text-block, .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
-    width: 60%;                      /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
-    margin: 10px auto;                /* Добавляем внешние отступы сверху и снизу и автоматически центрируем по горизонтали */
-    margin-left: 1%; /* Отступ слева (1% от ширины контейнера) */
-    margin-right: 1%; /* Отступ справа (1% от ширины контейнера) */
-  }
-  }
 
     .text-block {
     background-color: #131320;
@@ -416,7 +349,6 @@ display: none;
     /*  Стили для колонок и элементов  */
     .container5 {
       display: flex;
-      flex-wrap: wrap; /* Перенос на новую строку, если не помещается */
       gap: 10px;
       text-align: left;
       margin: 10px 10px;
@@ -430,9 +362,9 @@ display: none;
       color: white;
       font-size: 20px;
       display: grid;
-      grid-template-columns: 8 2; /* Два столбца: auto для label, auto для select */
+      grid-template-columns: 7 2; /* Два столбца: auto для label, auto для select */
       grid-gap: 7px; /* Отступ между колонками */
-      width: 10%;
+      width: 9.7%;
       height: 120px;
     }
 
@@ -456,10 +388,10 @@ display: none;
       border-radius: 8px;
       color: white;
       white-space: pre-wrap; /* Сохраняет форматирование текста */
-      height: 30px;
+      height: 90px;
       font-size: 26px;
-      width: 81%;
-      margin-left: 153px;
+      width: 82.53%;
+      margin-left: 141.2px;
       text-align: center;
     }
 
@@ -566,10 +498,10 @@ display: none;
 
         #draft-area-5 {
             padding: 14px;
-            width: 82%;
-            height: 84px;
+            width: 83.7%;
+            height: 140px;
             border: 2px solid #008979;
-            margin-left: 154px;
+            margin-left: 141.4px;
             resize: none;
             overflow: auto;
             position: relative;
@@ -643,6 +575,186 @@ display: none;
       height: 45px; /* ОНО */
       line-height: 92px;
     }
+
+    @media (min-width: 1921px) {
+    .items {
+        grid-template-columns: repeat(7, 1fr); /* 7 колонок на широкоформатных мониторах */
+        gap: 20px; /* Увеличим отступ */
+        padding: 20px 250px; /* Увеличим padding */
+    }
+    .item-text {
+        font-size: 20px; /* Немного увеличим размер шрифта */
+    }
+    .container-columns {
+    padding: 300px 450px; /* большой отступ слева и справа от колонок до краёв */
+    }
+}
+
+  @media (max-width: 1450px) {
+    .container-columns {
+    flex-direction: column;          /* Располагаем элементы вертикально */
+    align-items: center;             /* Центрируем элементы по горизонтали */
+    padding: 20px;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
+  }
+
+  .container3 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(4, 1fr); /* 5 колонок равной ширины */
+            flex-wrap: wrap;        /* Разрешаем перенос на новую строку */
+            background-color: #131320;
+            padding: 15px;
+            margin: 15px 140px; /* Отступ контейнера от краев страницы */
+            gap: 15px; /* Отступ между ячейками */
+        }
+
+        .container4 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(4, 1fr); /* 5 колонок равной ширины */
+            flex-wrap: wrap;        /* Разрешаем перенос на новую строку */
+            background-color: #131320;
+            padding: 15px;
+            margin: 15px 140px; /* Отступ контейнера от краев страницы */
+            gap: 15px; /* Отступ между ячейками */
+        }
+
+        #search-input {
+            padding: 17px;
+            width: 400px;
+            height: 44px;
+            background-color: #131320;
+            border: 2px solid #00685a;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 26px;
+            border-radius: 8px;
+            margin-right: 10px; /* Отступ справа от поля поиска */
+            margin-left: 50px;
+            outline: none; /*  Убираем стандартный outline чтоб после нажатия рамка была того же цвета */
+        }
+
+        #search-input-4 {
+            padding: 17px;
+            width: 400px;
+            height: 44px;
+            background-color: #131320;
+            border: 2px solid #00685a;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 26px;
+            border-radius: 8px;
+            margin-right: 10px; /* Отступ справа от поля поиска */
+            margin-left: 50px;
+            outline: none; /*  Убираем стандартный outline чтоб после нажатия рамка была того же цвета */
+        }
+
+        #draft-area {
+            margin-left: 20px;
+        }
+
+        #draft-area-4 {
+            margin-left: 20px;
+        }
+}
+  @media (max-width: 1200px) {
+    .items {
+      grid-template-columns: repeat(4, 1fr); /* на средних экранах 4 в ряд */
+    }
+
+    .container-columns {
+    flex-direction: column;          /* Располагаем элементы вертикально */
+    align-items: center;             /* Центрируем элементы по горизонтали */
+    padding: 20px;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
+  }
+
+  .text-block, .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
+    width: 90%;                      /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
+    margin: 10px auto;                /* Добавляем внешние отступы сверху и снизу и автоматически центрируем по горизонтали */
+    margin-left: 5%; /* Отступ слева (5% от ширины контейнера) */
+    margin-right: 5%; /* Отступ справа (5% от ширины контейнера) */
+    }
+
+  #result {
+      width: 80%;
+    }
+      #draft-area-5 {
+      width: 83.1%;
+      }
+
+      .container3 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(3, 1fr); /* 5 колонок равной ширины */
+        }
+
+        .container4 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(3, 1fr); /* 5 колонок равной ширины */
+        }
+
+        #search-input {
+            margin-left: 20px;
+        }
+
+        #search-input-4 {
+            margin-left: 20px;
+        }
+  }
+
+  @media (max-width: 1000px) {
+  .table-title {
+    margin-bottom: 20px;
+    }
+
+    #draft-area {
+            margin-left: 10px;
+        }
+
+        #draft-area-4 {
+            margin-left: 10px;
+        }
+  }  
+
+  @media (max-width: 860px) {
+    .items {
+      grid-template-columns: repeat(1, 1fr); /* на мобильных 1 в ряд */
+    } 
+
+    .item-text {
+      margin-left: 1%; /* Отступ слева (1% от ширины контейнера) */
+      margin-right: 1%; /* Отступ справа (1% от ширины контейнера) */
+      font-size: 16px; /* Уменьшаем размер шрифта на маленьких экранах */
+    }
+
+    .table-title {
+    margin-bottom: 20px;
+    }
+
+    .container-columns {
+    flex-direction: column;          /* Располагаем элементы вертикально */
+    align-items: center;             /* Центрируем элементы по горизонтали */
+    padding: 20px;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
+  }
+
+  .text-block, .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
+    width: 60%;                      /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
+    margin: 10px auto;                /* Добавляем внешние отступы сверху и снизу и автоматически центрируем по горизонтали */
+    margin-left: 1%; /* Отступ слева (1% от ширины контейнера) */
+    margin-right: 1%; /* Отступ справа (1% от ширины контейнера) */
+  }
+  .container5 {
+      display: flex;
+      flex-wrap: wrap; /* Перенос на новую строку, если не помещается */
+    }
+
+    .container3 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(1, 1fr); /* 5 колонок равной ширины */
+        }
+
+        .container4 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(1, 1fr); /* 5 колонок равной ширины */
+        }
+  }
 
 </style>
 </head>
@@ -7497,7 +7609,7 @@ display: none;
     </div>
 
     <div class="column">
-      <label for="price_type">Бюджет или Цена:</label>
+      <label for="price_type">Бюджет & Цена:</label>
       <div class="select-wrapper"><select id="price_type">
         <option value="">(Выберите)</option>
         <option value="Бюджет:">Бюджет:</option>
@@ -7523,7 +7635,7 @@ display: none;
     </div>
 
     <div class="column">
-      <label for="trade">Торг, Обмен, СМС:</label>
+      <label for="trade">Торг Обмен СМС:</label>
       <div class="select-wrapper"><select id="trade">
         <option value="">(Выберите)</option>
         <option value="Возможен торг.">Возможен торг.</option>
