@@ -7947,6 +7947,19 @@ document.querySelectorAll('.item').forEach(item => {
     });
   });
 </script>
+
+<script>
+  actionSelect.addEventListener('change', function() {
+    if (this.value === 'Куплю') {
+      priceTypeSelect.value = 'Бюджет:';
+    } else if (this.value === 'Продам') {
+      priceTypeSelect.value = 'Цена:';
+    } else {
+      priceTypeSelect.value = ''; // Сброс, если выбрано "Обменяю" или ничего не выбрано
+    }
+  });
+</script>
+
 <script>
         const showTable1Btn = document.getElementById('showTable1Btn');
         const showTable2Btn = document.getElementById('showTable2Btn');
