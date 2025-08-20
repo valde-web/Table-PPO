@@ -7825,7 +7825,7 @@ display: none;
     <button id="close-notification" class="close-button">&times;</button>
     <div>
     <h3>Уведомление об изменениях</h3>
-    <p>В ааа Таблица ППО и в Поиск ППО изменился бюджет и цена на покупку и продажу рыбы, номерных рамок и кладов, теперь для кладов и рыбы это 10.000 рублей, для номерных рамок 100.000 рублей. Также был добавлен Хабар Деда Мороза.</p>
+    <p>В Таблица ППО и в Поиск ППО изменился бюджет и цена на покупку и продажу рыбы, номерных рамок и кладов, теперь для кладов и рыбы это 10.000 рублей, для номерных рамок 100.000 рублей. Также был добавлен Хабар Деда Мороза.</p>
   </div>
 </div>
 </div>
@@ -8197,52 +8197,34 @@ document.querySelectorAll('.item').forEach(item => {
     </script>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
   const notification = document.getElementById('update-notification');
   const closeButton = document.getElementById('close-notification');
+  const currentVersion = '1.1'; // <--  УКАЖИТЕ ТЕКУЩУЮ ВЕРСИЮ ОБНОВЛЕНИЯ
 
-  // Функция для установки cookie
-  function setCookie(name, value, days) {
-    let expires = "";
-    if (days) {
-      let date = new Date();
-      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-      expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
-  }
+  function getCookie(name) { /* ... функция getCookie из предыдущих примеров ... */ }
+  function setCookie(name, value, days) { /* ... функция setCookie из предыдущих примеров ... */ }
 
-  // Функция для получения значения cookie
-  function getCookie(name) {
-    let nameEQ = name + "=";
-    let ca = document.cookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-  }
-
-
-  // Проверка, было ли уведомление уже показано
-  if (!getCookie('updateNotificationClosed')) { // Или localStorage.getItem('updateNotificationClosed') === null
+  if (localStorage.getItem('updateVersion') !== currentVersion) { // <-- Используем localStorage
     notification.classList.add('show');
   }
 
-  // Обработчик нажатия на кнопку закрытия
   closeButton.addEventListener('click', function() {
     notification.classList.remove('show');
-    notification.classList.add('hide'); // Запускаем анимацию скрытия
-    // Устанавливаем cookie, чтобы больше не показывать уведомление (на 30 дней, например)
-    setCookie('updateNotificationClosed', 'true', 30); // Или localStorage.setItem('updateNotificationClosed', 'true');
+    notification.classList.add('hide');
 
-    // После завершения анимации скрываем элемент полностью
+    localStorage.setItem('updateVersion', currentVersion); // <-- Сохраняем текущую версию
     setTimeout(() => {
       notification.style.display = 'none';
-    }, 300); // 300 - время анимации slideOut
+    }, 300);
   });
+
+  // Принудительное закрытие при первой загрузке, если версия уже совпадает
+  if (localStorage.getItem('updateVersion') === currentVersion) {
+    notification.style.display = 'none';
+  }
 });
+
 </script>
 
 </body>
