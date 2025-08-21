@@ -846,6 +846,28 @@ display: none;
     font-weight: bold; /* Жирный шрифт */
     text-align: center;
 }
+
+#customPrice {
+    font-size: 16px;
+    width: 96%;
+    background-color: #131320;
+    border: 1px solid #00685a;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: -2px;
+    margin-top: -5px;
+}
+
+#setPrice {
+    font-size: 14px;
+    width: 100%;
+    background-color: #131320;
+    border: 1px solid #00685a;
+    color: white;
+    border-radius: 5px;
+    margin-top: 0px;
+    margin-bottom: -5px;
+}
 </style>
 </head>
 <body>
@@ -7775,6 +7797,8 @@ display: none;
 
     <div class="column">
       <label for="price">Бюджет/Цена:</label>
+      <input type="text" id="customPrice" style="display: none;" placeholder="Введите сумму" />
+      <button id="setPrice" style="display: none;">Готово</button>
       <div class="select-wrapper"><select id="price">
         <option value="">(Выберите)</option>
         <option value="Свободный.">Свободный.</option>
@@ -7785,6 +7809,7 @@ display: none;
         <option value="1.000.000 рублей.">1.000.000 рублей.</option>
         <option value="10.000.000 рублей.">10.000.000 рублей.</option>
         <option value="100.000.000 рублей.">100.000.000 рублей.</option>
+        <option value="input">Введите сумму</option>
       </select>
     </div>
     </div>
@@ -7825,7 +7850,7 @@ display: none;
     <button id="close-notification" class="close-button">&times;</button>
     <div>
     <h3>Уведомление об изменениях</h3>
-    <p>В Таблица ППО и в Поиск ППО изменился бюджет и цена на покупку и продажу рыбы, номерных рамок и кладов, теперь для кладов и рыбы это 10.000 рублей, для номерных рамок 100.000 рублей. Также был добавлен Хабар Деда Мороза.</p>
+    <p>В Выбор ППО изменилась колонка "Бюджет/Цена:", там появилась графа "Введите сумму" и при нажатии появляется поле ввода и кнопка "Готово", в поле ввода вводите нужное вам число и точки и рубли автоматически подставятся в конечном результате и нажимаете кнопку готово, попробуйте и вы поймете. Самое важное, что выбирать "Введите сумму" нужно в последнюю очередь, потому что если выбрать ее, а потом выбрать что-либо еще, то введённая вами сумма пропадает, поэтому выбирайте всё что нужно и только потом эту функцию.</p>
   </div>
 </div>
 </div>
@@ -7871,75 +7896,126 @@ itemmSearchInput.addEventListener('input', function() {
 </script>
 
   <script>
-const actionSelect = document.getElementById('action');
-const itemmmSelect = document.getElementById('itemmm');
-const itemSelect = document.getElementById('itemm');
-const tuningSelect = document.getElementById('tuning');
-const priceTypeSelect = document.getElementById('price_type');
-const priceSelect = document.getElementById('price');
-const tradeSelect = document.getElementById('trade');
+  const actionSelect = document.getElementById('action');
+  const itemmmSelect = document.getElementById('itemmm');
+  const itemSelect = document.getElementById('itemm');
+  const tuningSelect = document.getElementById('tuning');
+  const priceTypeSelect = document.getElementById('price_type');
+  const priceSelect = document.getElementById('price');
+  const tradeSelect = document.getElementById('trade');
 
-const resultDiv = document.getElementById('result');
-const copyButton = document.getElementById('copyButton');
-const clearButton = document.getElementById('clearButton'); // Получаем ссылку на кнопку Стереть
+  const customPriceInput = document.getElementById('customPrice');
+  const setPriceButton = document.getElementById('setPrice');
 
-function updateResult() {
-  let resultText = '';
+  const resultDiv = document.getElementById('result');
+  const copyButton = document.getElementById('copyButton');
+  const clearButton = document.getElementById('clearButton'); // Получаем ссылку на кнопку Стереть
 
-  if (actionSelect.value) resultText += actionSelect.value + ' ';
-  if (itemmmSelect.value) resultText += itemmmSelect.value + ' ';
-  if (itemmSelect.value) resultText += itemmSelect.value + ' ';
-  if (tuningSelect.value) resultText += tuningSelect.value + ' ';
-  if (priceTypeSelect.value) resultText += priceTypeSelect.value + ' ';
-  if (priceSelect.value) resultText += priceSelect.value + ' ';
-  if (tradeSelect.value) resultText += tradeSelect.value + ' ';
+  function updateResult() {
+    let resultText = '';
 
-  resultDiv.textContent = resultText.trim();
-}
+    if (actionSelect.value) resultText += actionSelect.value + ' ';
+    if (itemmmSelect.value) resultText += itemmmSelect.value + ' ';
+    if (itemSelect.value) resultText += itemSelect.value + ' ';
+    if (tuningSelect.value) resultText += tuningSelect.value + ' ';
+    if (priceTypeSelect.value) resultText += priceTypeSelect.value + ' ';
 
-actionSelect.addEventListener('change', updateResult);
-itemmmSelect.addEventListener('change', updateResult);
-itemmSelect.addEventListener('change', updateResult);
-tuningSelect.addEventListener('change', updateResult);
-priceTypeSelect.addEventListener('change', updateResult);
-priceSelect.addEventListener('change', updateResult);
-tradeSelect.addEventListener('change', updateResult);
+    if (priceSelect.value === 'input') {
+        // Если выбрано "Введите сумму", используем значение из поля ввода
+        if(customPriceInput.value) {
+          resultText += formatNumber(customPriceInput.value) + ' рублей. ';
+        }
+    } else if (priceSelect.value) {
+        // Иначе используем значение из выпадающего списка price
+        resultText += priceSelect.value + ' ';
+    }
+        if (tradeSelect.value) resultText += tradeSelect.value + ' ';
 
-copyButton.addEventListener('click', () => {
-  const originalText = copyButton.textContent; // Сохраняем оригинальный текст
-  copyButton.classList.add('copied'); // Добавляем класс для подсветки
+    resultDiv.textContent = resultText.trim();
+  }
 
-  navigator.clipboard.writeText(resultDiv.textContent)
-    .then(() => {
-      copyButton.textContent = 'Скопировано!'; // Меняем текст (можно убрать)
-      setTimeout(() => {
-        copyButton.classList.remove('copied'); // Убираем подсветку
-        copyButton.textContent = originalText; // Возвращаем текст (если меняли)
-      }, 2000);
-    })
-    .catch(err => {
-      console.error('Не удалось скопировать: ', err);
-      //  Можно добавить отображение ошибки в интерфейсе
-      copyButton.classList.remove('copied');  // Убираем класс, если была ошибка (чтобы не остаться подсвеченным навсегда)
-      copyButton.textContent = 'Ошибка!'; // Например, показать ошибку (можно убрать)
-      setTimeout(() => {
-        copyButton.textContent = originalText;  // Возвращаем текст
-      }, 2000)
-    });
-});
-//  Обработчик события для кнопки "Стереть"
-  clearButton.addEventListener('click', () => {
-    actionSelect.selectedIndex = 0;    //  Вернуть значение по умолчанию (Выберите)
-    itemmmSelect.selectedIndex = 0;    //  Вернуть значение по умолчанию (Выберите)
-    itemSelect.selectedIndex = 0;     //  Вернуть значение по умолчанию (Выберите)
-    tuningSelect.selectedIndex = 0;    //  Вернуть значение по умолчанию (Выберите)
-    priceTypeSelect.selectedIndex = 0; //  Вернуть значение по умолчанию (Выберите)
-    priceSelect.selectedIndex = 0;     //  Вернуть значение по умолчанию (Выберите)
-    tradeSelect.selectedIndex = 0;    //  Вернуть значение по умолчанию (Выберите)
-
-    updateResult();   //  Обновить отображаемый результат
+  actionSelect.addEventListener('change', updateResult);
+  itemmmSelect.addEventListener('change', updateResult);
+  itemSelect.addEventListener('change', updateResult);
+  tuningSelect.addEventListener('change', updateResult);
+  priceTypeSelect.addEventListener('change', updateResult);
+  priceSelect.addEventListener('change', function() {
+    if (this.value === 'input') {
+      customPriceInput.style.display = 'block';
+      setPriceButton.style.display = 'inline-block';
+    } else {
+      customPriceInput.style.display = 'none';
+      setPriceButton.style.display = 'none';
+      updateResult(); // Обновляем результат при выборе предустановленной цены
+    }
   });
-  </script>
+
+  tradeSelect.addEventListener('change', updateResult);
+
+  setPriceButton.addEventListener('click', function() {
+      if (customPriceInput.value) {
+        updateResult();
+        customPriceInput.value = ''; // Очищаем поле ввода
+        customPriceInput.style.display = 'none';
+        setPriceButton.style.display = 'none';
+        priceSelect.value = ""; // Сбрасываем значение select
+      } else {
+        alert('Пожалуйста, введите сумму.');
+      }
+    });
+
+    customPriceInput.addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        setPriceButton.click(); // Эмулируем нажатие кнопки "Готово"
+      }
+    });
+
+  copyButton.addEventListener('click', () => {
+    const originalText = copyButton.textContent; // Сохраняем оригинальный текст
+    copyButton.classList.add('copied'); // Добавляем класс для подсветки
+
+    navigator.clipboard.writeText(resultDiv.textContent)
+      .then(() => {
+        copyButton.textContent = 'Скопировано!'; // Меняем текст (можно убрать)
+        setTimeout(() => {
+          copyButton.classList.remove('copied'); // Убираем подсветку
+          copyButton.textContent = originalText; // Возвращаем текст (если меняли)
+        }, 2000);
+      })
+      .catch(err => {
+        console.error('Не удалось скопировать: ', err);
+        //  Можно добавить отображение ошибки в интерфейсе
+        copyButton.classList.remove('copied'); // Убираем класс, если была ошибка (чтобы не остаться подсвеченным навсегда)
+        copyButton.textContent = 'Ошибка!'; // Например, показать ошибку (можно убрать)
+        setTimeout(() => {
+          copyButton.textContent = originalText; // Возвращаем текст
+        }, 2000)
+      });
+  });
+  //  Обработчик события для кнопки "Стереть"
+  clearButton.addEventListener('click', () => {
+    actionSelect.selectedIndex = 0; // Вернуть значение по умолчанию (Выберите)
+    itemmmSelect.selectedIndex = 0; // Вернуть значение по умолчанию (Выберите)
+    itemSelect.selectedIndex = 0; // Вернуть значение по умолчанию (Выберите)
+    tuningSelect.selectedIndex = 0; // Вернуть значение по умолчанию (Выберите)
+    priceTypeSelect.selectedIndex = 0; // Вернуть значение по умолчанию (Выберите)
+    priceSelect.selectedIndex = 0; // Вернуть значение по умолчанию (Выберите)
+    tradeSelect.selectedIndex = 0; // Вернуть значение по умолчанию (Выберите)
+    customPriceInput.value = ''; // Очищаем поле ввода
+
+    updateResult(); // Обновить отображаемый результат
+  });
+
+  function formatNumber(number) {
+    const num = parseInt(number); // Преобразуем в число
+    if(isNaN(num)){
+       return ""; // Возвращаем пустую строку если не число
+    }
+
+    const formattedNumber = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return formattedNumber;
+  }
+</script>
 
 <script>
   document.querySelectorAll('.cell').forEach(item => {
@@ -8200,7 +8276,7 @@ document.querySelectorAll('.item').forEach(item => {
 document.addEventListener('DOMContentLoaded', function() {
   const notification = document.getElementById('update-notification');
   const closeButton = document.getElementById('close-notification');
-  const currentVersion = '1.1'; // <--  УКАЖИТЕ ТЕКУЩУЮ ВЕРСИЮ ОБНОВЛЕНИЯ
+  const currentVersion = '1.2'; // <--  УКАЖИТЕ ТЕКУЩУЮ ВЕРСИЮ ОБНОВЛЕНИЯ
 
   function getCookie(name) { /* ... функция getCookie из предыдущих примеров ... */ }
   function setCookie(name, value, days) { /* ... функция setCookie из предыдущих примеров ... */ }
