@@ -24,6 +24,7 @@
     max-width: 450px;
     padding: 8px 13px;
     margin-bottom: -65px;
+    
     }
 
    .table-header {
@@ -604,13 +605,17 @@ display: none;
     #itemmSearch {
   margin-top: 25px;
   }
+
+  .container-columns {
+    align-items: center;             /* Центрируем элементы по горизонтали */
+    padding: 13%;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
+  }
 }
 
   @media (max-width: 1450px) {
     .container-columns {
-    flex-direction: column;          /* Располагаем элементы вертикально */
     align-items: center;             /* Центрируем элементы по горизонтали */
-    padding: 20px;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
+    padding: 5%;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
   }
 
   .container3 {
@@ -648,7 +653,9 @@ display: none;
         #draft-area-4 {
             margin-left: 20px;
         }
-}
+
+        
+      }
   @media (max-width: 1200px) {
     .items {
       grid-template-columns: repeat(4, 1fr); /* на средних экранах 4 в ряд */
@@ -657,7 +664,7 @@ display: none;
     .container-columns {
     flex-direction: column;          /* Располагаем элементы вертикально */
     align-items: center;             /* Центрируем элементы по горизонтали */
-    padding: 20px;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
+    padding: 1px;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
   }
 
   .text-block, .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
@@ -665,6 +672,9 @@ display: none;
     margin: 10px auto;                /* Добавляем внешние отступы сверху и снизу и автоматически центрируем по горизонтали */
     margin-left: 5%; /* Отступ слева (5% от ширины контейнера) */
     margin-right: 5%; /* Отступ справа (5% от ширины контейнера) */
+    padding: 13px 30px;
+    margin-bottom: 7px;
+    margin-top: -2px;
     }
 
   #result {
@@ -726,22 +736,23 @@ display: none;
       font-size: 16px; /* Уменьшаем размер шрифта на маленьких экранах */
     }
 
-    .table-title {
-    margin-bottom: 20px;
-    }
-
     .container-columns {
+    display: flex;
     flex-direction: column;          /* Располагаем элементы вертикально */
-    align-items: center;             /* Центрируем элементы по горизонтали */
-    padding: 20px;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
+    align-items: center;          /* Центрируем элементы по горизонтали */
+    padding: 1px;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
   }
 
   .text-block, .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
-    width: 60%;                      /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
-    margin: 10px auto;                /* Добавляем внешние отступы сверху и снизу и автоматически центрируем по горизонтали */
+    width: 90%;                      /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
+    margin: auto;                /* Добавляем внешние отступы сверху и снизу и автоматически центрируем по горизонтали */
     margin-left: 1%; /* Отступ слева (1% от ширины контейнера) */
     margin-right: 1%; /* Отступ справа (1% от ширины контейнера) */
+    padding: 17px 30px;
+    margin-bottom: 7px;
+    margin-top: -5px;
   }
+
   .container5 {
       display: flex;
       flex-wrap: wrap; /* Перенос на новую строку, если не помещается */
@@ -778,6 +789,10 @@ display: none;
   width: 75%;
 }
 
+#update-notification {
+  text-align: center; /* Центрируем содержимое контейнера */
+}
+
 .notification-container.show {
   opacity: 1;
   visibility: visible;
@@ -786,6 +801,9 @@ display: none;
 .notification-content {
   display: flex;
   align-items: center;
+  text-align: center; /* Центрируем текст внутри notification content*/
+  display: inline-block; /* Важно!  Позволяет контенту адаптироваться к ширине текста */
+  width: 100%; /* Текст будет занимать всю ширину рамки */
 }
 
 .notification-content p {
@@ -868,6 +886,13 @@ display: none;
     margin-top: 0px;
     margin-bottom: -5px;
 }
+
+p {
+          font-size: 20px;
+          color: #ffffff;
+          line-height: 1.2;
+          text-align: left;
+        }
 </style>
 </head>
 <body>
@@ -882,20 +907,42 @@ display: none;
 
 <section id="table1" class="sectionTWO">
 
+  
     <div class="container">
         <div class="table-header">
             <h2 class="table-title">Таблица ППО ♡ RMRP</h2>
         </div>
 
 <!-- Оборачиваем ссылку в блок с центровкой -->
-  <div style="text-align: right; margin-bottom: 25px;">
-    <a href="https://discord.gg/NURVUYuanQ" target="_blank" rel="noopener noreferrer">
-    Связь с владельцем
-    <img src="discord.jpg" alt="Discord" width="75" height="70"> 
+  <div style="text-align: left; margin-bottom: -76px;">
+    <a href="https://drive.usercontent.google.com/download?id=1rTz6U0xPhIFMRutF8yp4A8js5xBy4rO5&export=download&authuser=0&confirm=t&uuid=2045c193-5a50-4c23-bb48-df1487c18849&at=AN8xHorQHR5_VT0-fx_cRyva7pYq:1756763936377" target="_blank" rel="noopener noreferrer">
+    <img src="https://i.postimg.cc/3w1f2h5z/App.png" alt="Приложение" width="70" height="65"> 
+    Приложение
     </a>
   </div>
 <style>
   a {
+    font-family: Arial, sans-serif;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    font-size: 22px;
+    gap: 8px; /* расстояние между изображением и текстом */
+    text-decoration: none; /* убрать подчеркивание, если нужно */
+    color: #ffffff; /* цвет текста будет как в остальном документе */
+  }
+</style>
+
+<!-- Оборачиваем ссылку в блок с центровкой -->
+  <div style="text-align: right; margin-bottom: 25px; margin-top: 4px;">
+    <a href="https://discord.gg/NURVUYuanQ" target="_blank" rel="noopener noreferrer">
+    Связь с владельцем
+    <img src="https://i.postimg.cc/gJ9CZjHs/discord.jpg" alt="Discord" width="75" height="70"> 
+    </a>
+  </div>
+<style>
+  a {
+    font-family: Arial, sans-serif;
     display: inline-flex;
     align-items: center;
     text-align: center;
@@ -940,7 +987,7 @@ display: none;
     Adidas - Три Полоски<br>
     Versace - MEDUSA<br>
     Yeezy - Изики<br>
-    Balenciaga - БЛНГС<br>
+    Balenciaga - Баленсия<br>
     Off-White - О-Уайт, УАЙТЫ<br>
     Tommy Hilfiger - Томик<br>
     Supreme - SUP<br>
@@ -948,7 +995,8 @@ display: none;
     Palm Angels - ЭЙНДЖЕЛЗ<br>
     Saint Lauren - Лорен<br>
     Levi's - L.STRAUSS<br>
-    Stone Island - Стоник
+    Stone Island - Стоник<br>
+    The North Face - THF
   </div>
 </div>
 </div>
@@ -2457,14 +2505,35 @@ display: none;
         </div>
 
 <!-- Оборачиваем ссылку в блок с центровкой -->
-  <div style="text-align: right; margin-bottom: 25px;">
-    <a href="https://discord.gg/NURVUYuanQ" target="_blank" rel="noopener noreferrer">
-    Связь с владельцем
-    <img src="discord.jpg" alt="Discord" width="75" height="70"> 
+  <div style="text-align: left; margin-bottom: -76px;">
+    <a href="https://drive.usercontent.google.com/download?id=1rTz6U0xPhIFMRutF8yp4A8js5xBy4rO5&export=download&authuser=0&confirm=t&uuid=2045c193-5a50-4c23-bb48-df1487c18849&at=AN8xHorQHR5_VT0-fx_cRyva7pYq:1756763936377" target="_blank" rel="noopener noreferrer">
+    <img src="https://i.postimg.cc/3w1f2h5z/App.png" alt="Приложение" width="70" height="65"> 
+    Приложение
     </a>
   </div>
 <style>
   a {
+    font-family: Arial, sans-serif;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    font-size: 22px;
+    gap: 8px; /* расстояние между изображением и текстом */
+    text-decoration: none; /* убрать подчеркивание, если нужно */
+    color: #ffffff; /* цвет текста будет как в остальном документе */
+  }
+</style>
+
+<!-- Оборачиваем ссылку в блок с центровкой -->
+  <div style="text-align: right; margin-bottom: 25px; margin-top: 4px;">
+    <a href="https://discord.gg/NURVUYuanQ" target="_blank" rel="noopener noreferrer">
+    Связь с владельцем
+    <img src="https://i.postimg.cc/gJ9CZjHs/discord.jpg" alt="Discord" width="75" height="70"> 
+    </a>
+  </div>
+<style>
+  a {
+    font-family: Arial, sans-serif;
     display: inline-flex;
     align-items: center;
     text-align: center;
@@ -2509,7 +2578,7 @@ display: none;
     Adidas - Три Полоски<br>
     Versace - MEDUSA<br>
     Yeezy - Изики<br>
-    Balenciaga - БЛНГС<br>
+    Balenciaga - Баленсия<br>
     Off-White - О-Уайт, УАЙТЫ<br>
     Tommy Hilfiger - Томик<br>
     Supreme - SUP<br>
@@ -2517,7 +2586,8 @@ display: none;
     Palm Angels - ЭЙНДЖЕЛЗ<br>
     Saint Lauren - Лорен<br>
     Levi's - L.STRAUSS<br>
-    Stone Island - Стоник
+    Stone Island - Стоник<br>
+    The North Face - THF
   </div>
 </div>
 </div>
@@ -4026,14 +4096,35 @@ display: none;
         </div>
 
 <!-- Оборачиваем ссылку в блок с центровкой -->
-  <div style="text-align: right; margin-bottom: 25px;">
-    <a href="https://discord.gg/NURVUYuanQ" target="_blank" rel="noopener noreferrer">
-    Связь с владельцем
-    <img src="discord.jpg" alt="Discord" width="75" height="70"> 
+  <div style="text-align: left; margin-bottom: -76px;">
+    <a href="https://drive.usercontent.google.com/download?id=1rTz6U0xPhIFMRutF8yp4A8js5xBy4rO5&export=download&authuser=0&confirm=t&uuid=2045c193-5a50-4c23-bb48-df1487c18849&at=AN8xHorQHR5_VT0-fx_cRyva7pYq:1756763936377" target="_blank" rel="noopener noreferrer">
+    <img src="https://i.postimg.cc/3w1f2h5z/App.png" alt="Приложение" width="70" height="65"> 
+    Приложение
     </a>
   </div>
 <style>
   a {
+    font-family: Arial, sans-serif;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    font-size: 22px;
+    gap: 8px; /* расстояние между изображением и текстом */
+    text-decoration: none; /* убрать подчеркивание, если нужно */
+    color: #ffffff; /* цвет текста будет как в остальном документе */
+  }
+</style>
+
+<!-- Оборачиваем ссылку в блок с центровкой -->
+  <div style="text-align: right; margin-bottom: 25px; margin-top: 4px;">
+    <a href="https://discord.gg/NURVUYuanQ" target="_blank" rel="noopener noreferrer">
+    Связь с владельцем
+    <img src="https://i.postimg.cc/gJ9CZjHs/discord.jpg" alt="Discord" width="75" height="70"> 
+    </a>
+  </div>
+<style>
+  a {
+    font-family: Arial, sans-serif;
     display: inline-flex;
     align-items: center;
     text-align: center;
@@ -4078,7 +4169,7 @@ display: none;
     Adidas - Три Полоски<br>
     Versace - MEDUSA<br>
     Yeezy - Изики<br>
-    Balenciaga - БЛНГС<br>
+    Balenciaga - Баленсия<br>
     Off-White - О-Уайт, УАЙТЫ<br>
     Tommy Hilfiger - Томик<br>
     Supreme - SUP<br>
@@ -4086,7 +4177,8 @@ display: none;
     Palm Angels - ЭЙНДЖЕЛЗ<br>
     Saint Lauren - Лорен<br>
     Levi's - L.STRAUSS<br>
-    Stone Island - Стоник
+    Stone Island - Стоник<br>
+    The North Face - THF
   </div>
 </div>
 </div>
@@ -5355,14 +5447,35 @@ display: none;
         </div>
 
 <!-- Оборачиваем ссылку в блок с центровкой -->
-  <div style="text-align: right; margin-bottom: 25px;">
-    <a href="https://discord.gg/NURVUYuanQ" target="_blank" rel="noopener noreferrer">
-    Связь с владельцем
-    <img src="discord.jpg" alt="Discord" width="75" height="70"> 
+  <div style="text-align: left; margin-bottom: -76px;">
+    <a href="https://drive.usercontent.google.com/download?id=1rTz6U0xPhIFMRutF8yp4A8js5xBy4rO5&export=download&authuser=0&confirm=t&uuid=2045c193-5a50-4c23-bb48-df1487c18849&at=AN8xHorQHR5_VT0-fx_cRyva7pYq:1756763936377" target="_blank" rel="noopener noreferrer">
+    <img src="https://i.postimg.cc/3w1f2h5z/App.png" alt="Приложение" width="70" height="65"> 
+    Приложение
     </a>
   </div>
 <style>
   a {
+    font-family: Arial, sans-serif;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    font-size: 22px;
+    gap: 8px; /* расстояние между изображением и текстом */
+    text-decoration: none; /* убрать подчеркивание, если нужно */
+    color: #ffffff; /* цвет текста будет как в остальном документе */
+  }
+</style>
+
+<!-- Оборачиваем ссылку в блок с центровкой -->
+  <div style="text-align: right; margin-bottom: 25px; margin-top: 4px;">
+    <a href="https://discord.gg/NURVUYuanQ" target="_blank" rel="noopener noreferrer">
+    Связь с владельцем
+    <img src="https://i.postimg.cc/gJ9CZjHs/discord.jpg" alt="Discord" width="75" height="70"> 
+    </a>
+  </div>
+<style>
+  a {
+    font-family: Arial, sans-serif;
     display: inline-flex;
     align-items: center;
     text-align: center;
@@ -5407,7 +5520,7 @@ display: none;
     Adidas - Три Полоски<br>
     Versace - MEDUSA<br>
     Yeezy - Изики<br>
-    Balenciaga - БЛНГС<br>
+    Balenciaga - Баленсия<br>
     Off-White - О-Уайт, УАЙТЫ<br>
     Tommy Hilfiger - Томик<br>
     Supreme - SUP<br>
@@ -5415,7 +5528,8 @@ display: none;
     Palm Angels - ЭЙНДЖЕЛЗ<br>
     Saint Lauren - Лорен<br>
     Levi's - L.STRAUSS<br>
-    Stone Island - Стоник
+    Stone Island - Стоник<br>
+    The North Face - THF
   </div>
 </div>
 </div>
@@ -6678,14 +6792,35 @@ display: none;
         </div>
 
 <!-- Оборачиваем ссылку в блок с центровкой -->
-  <div style="text-align: right; margin-bottom: 25px;">
-    <a href="https://discord.gg/NURVUYuanQ" target="_blank" rel="noopener noreferrer">
-    Связь с владельцем
-    <img src="discord.jpg" alt="Discord" width="75" height="70"> 
+  <div style="text-align: left; margin-bottom: -76px;">
+    <a href="https://drive.usercontent.google.com/download?id=1rTz6U0xPhIFMRutF8yp4A8js5xBy4rO5&export=download&authuser=0&confirm=t&uuid=2045c193-5a50-4c23-bb48-df1487c18849&at=AN8xHorQHR5_VT0-fx_cRyva7pYq:1756763936377" target="_blank" rel="noopener noreferrer">
+    <img src="https://i.postimg.cc/3w1f2h5z/App.png" alt="Приложение" width="70" height="65"> 
+    Приложение
     </a>
   </div>
 <style>
   a {
+    font-family: Arial, sans-serif;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    font-size: 22px;
+    gap: 8px; /* расстояние между изображением и текстом */
+    text-decoration: none; /* убрать подчеркивание, если нужно */
+    color: #ffffff; /* цвет текста будет как в остальном документе */
+  }
+</style>
+
+<!-- Оборачиваем ссылку в блок с центровкой -->
+  <div style="text-align: right; margin-bottom: 25px; margin-top: 4px;">
+    <a href="https://discord.gg/NURVUYuanQ" target="_blank" rel="noopener noreferrer">
+    Связь с владельцем
+    <img src="https://i.postimg.cc/gJ9CZjHs/discord.jpg" alt="Discord" width="75" height="70"> 
+    </a>
+  </div>
+<style>
+  a {
+    font-family: Arial, sans-serif;
     display: inline-flex;
     align-items: center;
     text-align: center;
@@ -6730,7 +6865,7 @@ display: none;
     Adidas - Три Полоски<br>
     Versace - MEDUSA<br>
     Yeezy - Изики<br>
-    Balenciaga - БЛНГС<br>
+    Balenciaga - Баленсия<br>
     Off-White - О-Уайт, УАЙТЫ<br>
     Tommy Hilfiger - Томик<br>
     Supreme - SUP<br>
@@ -6738,7 +6873,8 @@ display: none;
     Palm Angels - ЭЙНДЖЕЛЗ<br>
     Saint Lauren - Лорен<br>
     Levi's - L.STRAUSS<br>
-    Stone Island - Стоник
+    Stone Island - Стоник<br>
+    The North Face - THF
   </div>
 </div>
 </div>
@@ -7860,7 +7996,8 @@ display: none;
     <button id="close-notification" class="close-button">&times;</button>
     <div>
     <h3>Уведомление об изменениях</h3>
-    <p>Теперь во всех таблицах ППО вот в этих значениях: рыбацкий катер "Гидра" и рыбацкая яхта "Спортфиш", слово рыбацкий пишется с маленькой буквы. Также во всех таблицах изменилось значение: номерную рамку "Нужда в скорости", изменилось слово Нужды на Нужда.</p>
+    <p>&middot; Бренд Balenciaga теперь пишется не "БЛНСГ", а "Баленсия", посмотреть можно во вкладке "Обозначения".</p>
+    <p>&middot; Была создана как бы новая версия таблицы ППО в формате приложения, скачать можно по ссылке в самой таблице, просто закройте уведомление и слева от названия таблицы, под кнопками переключения между таблицами, будет ссылка, в скачанной папке вы найдете файл инструкция и соответственно прочитав её, вы сможете скачать таблицу. Суть этого приложения в том, что оно висит поверх других окон и когда вы нажимаете на телефон или чат чтобы отправить объявление, то вам не надо по несколько раз заходить в браузер, все будет перед вами постоянно.</p>
   </div>
 </div>
 </div>
@@ -8286,7 +8423,7 @@ document.querySelectorAll('.item').forEach(item => {
 document.addEventListener('DOMContentLoaded', function() {
   const notification = document.getElementById('update-notification');
   const closeButton = document.getElementById('close-notification');
-  const currentVersion = '1.2'; // <--  УКАЖИТЕ ТЕКУЩУЮ ВЕРСИЮ ОБНОВЛЕНИЯ
+  const currentVersion = '1.5'; // <--  УКАЖИТЕ ТЕКУЩУЮ ВЕРСИЮ ОБНОВЛЕНИЯ
 
   function getCookie(name) { /* ... функция getCookie из предыдущих примеров ... */ }
   function setCookie(name, value, days) { /* ... функция setCookie из предыдущих примеров ... */ }
