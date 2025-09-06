@@ -887,12 +887,93 @@ display: none;
     margin-bottom: -5px;
 }
 
-p {
+        p {
           font-size: 20px;
           color: #ffffff;
           line-height: 1.2;
           text-align: left;
         }
+
+        #setShortcutButton {
+        font-size: 20px;
+        width: 220px;
+        display: block;
+        margin: 15px 0px;
+        padding: 10px 10px;
+        border-radius: 8px;
+        border: 1px solid #ffffff;
+        background: #000000;
+        color: white;
+        display: inline-block; /* Добавлено */
+        cursor: pointer;
+        }
+
+        #setShortcutButton:hover {
+        background: #0e0e0e;
+      }
+
+        #shortcutInput {
+        font-size: 20px;
+        width: 170px;
+        display: block;
+        padding: 10px 10px;
+        border-radius: 8px;
+        border: 1px solid #ffffff;
+        background: #000000;
+        color: white;
+        display: inline-block; /* Добавлено */
+        margin-right: 5px; /* Добавлено для небольшого отступа */
+        margin-left: 5px;
+      }
+
+        #currentShortcut {
+        font-size: 20px;
+        display: inline-block;
+      }
+
+      #A332 {
+        font-size: 20px;
+        width: 260px;
+        display: block;
+        padding: 10px 10px;
+        border-radius: 8px;
+        border: 1px solid #ffffff;
+        background: #000000;
+        color: white;
+        display: inline-block; /* Добавлено */
+        margin-left: 25px;
+        cursor: pointer;
+      }
+
+      #A332:hover {
+        background: #0e0e0e;
+      }
+
+    #toggleControlsButton {
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    background-color: transparent; /* Прозрачный фон */
+    border: none; /* Без рамки */
+    color: #ffffff; /* Светло-серый цвет текста */
+    font-size: 1.2em; /* Размер значка */
+    cursor: pointer;
+    opacity: 0.8; /* Полупрозрачность */
+    transition: opacity 0.3s ease; /* Плавный переход прозрачности */
+  }
+
+  #toggleControlsButton:hover {
+    color: #d7d7d7; /* Более темный цвет текста при наведении */
+  }
+
+  /* Добавьте значок (например, шестеренку) с помощью CSS или Font Awesome */
+  #toggleControlsButton::before {
+    content: "\2699"; /* Unicode символ шестеренки */
+  }
+
+      #controlsContainer {
+      display: none; /* Скрываем блок по умолчанию */
+    }
 </style>
 </head>
 <body>
@@ -903,6 +984,19 @@ p {
 <button id="showTable3Btn" class="switch-button">Поиск ППО</button>
 <button id="showTable4Btn" class="switch-button">Поиск ППО 2.0</button>
 <button id="showTable5Btn" class="switch-button">Выбор ППО</button>
+</div>
+
+
+<button id="toggleControlsButton" style="font-size: 20px;">Настройки бинда для приложения</button>
+
+      <div id="controlsContainer" style="display: none;">
+<div>
+    <label for="shortcutInput" style="font-size: 20px;">Горячая клавиша:</label>
+    <input type="text" id="shortcutInput" value="Insert">
+    <button id="setShortcutButton">Установить клавишу</button>
+  </div>
+
+<div id="currentShortcut">Текущая горячая клавиша: </div> <button id="A332" onclick="window.api.reloadPage()">Перезагрузить страницу</button>
 </div>
 
 <section id="table1" class="sectionTWO">
@@ -1249,7 +1343,7 @@ p {
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м Ламба СЦ-20. Бюджет: 1.000.000 рублей.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м Спортедж. Бюджет: 1.000.000 рублей.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м Мак "Спидтейл". Бюджет: 1.000.000 рублей.	</div></div>
-<div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м Мерин "Майб Г900". Бюджет: 1.000.000 рублей.	</div></div>
+<div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м МБ "Майб Г900". Бюджет: 1.000.000 рублей.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м Тундра "ПРО 23". Бюджет: 1.000.000 рублей.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м Бумер "Е36 Ракета". Бюджет: 1.000.000 рублей.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м Ровер "Защитник 1997". Бюджет: 1.000.000 рублей.	</div></div>
@@ -1529,7 +1623,7 @@ p {
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м Ламба СЦ-20. Цена: 1.000.000 рублей.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м Спортедж. Цена: 1.000.000 рублей.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м Мак "Спидтейл". Цена: 1.000.000 рублей.	</div></div>
-<div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м Мерин "Майб Г900". Цена: 1.000.000 рублей.	</div></div>
+<div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м МБ "Майб Г900". Цена: 1.000.000 рублей.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м Тундра "ПРО 23". Цена: 1.000.000 рублей.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м Бумер "Е36 Ракета". Цена: 1.000.000 рублей.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м Ровер "Защитник 1997". Цена: 1.000.000 рублей.	</div></div>
@@ -2856,7 +2950,7 @@ p {
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м	Ламба СЦ-20	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м	Спортедж	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м	Мак "Спидтейл"	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div></div>
-<div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м	Мерин "Майб Г900"	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div></div>
+<div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м	МБ "Майб Г900"	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м	Тундра "ПРО 23"	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м	Бумер "Е36 Ракета"	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Куплю а/м	Ровер "Защитник 1997"	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div></div>
@@ -3136,7 +3230,7 @@ p {
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м	Ламба СЦ-20	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м	Спортедж	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м	Мак "Спидтейл"	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div></div>
-<div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м	Мерин "Майб Г900"	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div></div>
+<div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м	МБ "Майб Г900"	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м	Тундра "ПРО 23"	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м	Бумер "Е36 Ракета"	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div></div>
 <div class="item"><onclick="openModal(this)" /><div class="item-text">	Продам а/м	Ровер "Защитник 1997"	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div></div>
@@ -4454,7 +4548,7 @@ p {
 <div class="cell">	Куплю а/м Ламба СЦ-20. Бюджет: 1.000.000 рублей.	</div>
 <div class="cell">	Куплю а/м Спортедж. Бюджет: 1.000.000 рублей.	</div>
 <div class="cell">	Куплю а/м Мак "Спидтейл". Бюджет: 1.000.000 рублей.	</div>
-<div class="cell">	Куплю а/м Мерин "Майб Г900". Бюджет: 1.000.000 рублей.	</div>
+<div class="cell">	Куплю а/м МБ "Майб Г900". Бюджет: 1.000.000 рублей.	</div>
 <div class="cell">	Куплю а/м Тундра "ПРО 23". Бюджет: 1.000.000 рублей.	</div>
 <div class="cell">	Куплю а/м Бумер "Е36 Ракета". Бюджет: 1.000.000 рублей.	</div>
 <div class="cell">	Куплю а/м Ровер "Защитник 1997". Бюджет: 1.000.000 рублей.	</div>
@@ -4725,7 +4819,7 @@ p {
 <div class="cell">	Продам а/м Ламба СЦ-20. Цена: 1.000.000 рублей.	</div>
 <div class="cell">	Продам а/м Спортедж. Цена: 1.000.000 рублей.	</div>
 <div class="cell">	Продам а/м Мак "Спидтейл". Цена: 1.000.000 рублей.	</div>
-<div class="cell">	Продам а/м Мерин "Майб Г900". Цена: 1.000.000 рублей.	</div>
+<div class="cell">	Продам а/м МБ "Майб Г900". Цена: 1.000.000 рублей.	</div>
 <div class="cell">	Продам а/м Тундра "ПРО 23". Цена: 1.000.000 рублей.	</div>
 <div class="cell">	Продам а/м Бумер "Е36 Ракета". Цена: 1.000.000 рублей.	</div>
 <div class="cell">	Продам а/м Ровер "Защитник 1997". Цена: 1.000.000 рублей.	</div>
@@ -5821,7 +5915,7 @@ p {
 <div class="cell">	Куплю а/м	Ламба СЦ-20	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div>
 <div class="cell">	Куплю а/м	Спортедж	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div>
 <div class="cell">	Куплю а/м	Мак "Спидтейл"	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div>
-<div class="cell">	Куплю а/м	Мерин "Майб Г900"	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div>
+<div class="cell">	Куплю а/м	МБ "Майб Г900"	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div>
 <div class="cell">	Куплю а/м	Тундра "ПРО 23"	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div>
 <div class="cell">	Куплю а/м	Бумер "Е36 Ракета"	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div>
 <div class="cell">	Куплю а/м	Ровер "Защитник 1997"	FT DT ET.	Бюджет: 1.000.000 рублей. Свободный.	</div>
@@ -6092,7 +6186,7 @@ p {
 <div class="cell">	Продам а/м	Ламба СЦ-20	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div>
 <div class="cell">	Продам а/м	Спортедж	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div>
 <div class="cell">	Продам а/м	Мак "Спидтейл"	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div>
-<div class="cell">	Продам а/м	Мерин "Майб Г900"	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div>
+<div class="cell">	Продам а/м	МБ "Майб Г900"	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div>
 <div class="cell">	Продам а/м	Тундра "ПРО 23"	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div>
 <div class="cell">	Продам а/м	Бумер "Е36 Ракета"	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div>
 <div class="cell">	Продам а/м	Ровер "Защитник 1997"	FT DT ET.	Цена: 1.000.000 рублей. Договорная. Возможен торг. Возможен обмен.	</div>
@@ -7122,7 +7216,7 @@ p {
 <option value="а/м Ламба СЦ-20">а/м Ламба СЦ-20</option>
 <option value="а/м Спортедж">а/м Спортедж</option>
 <option value="а/м Мак &quot;Спидтейл&quot;">а/м Мак "Спидтейл"</option>
-<option value="а/м Мерин &quot;Майб Г900&quot;">а/м Мерин "Майб Г900"</option>
+<option value="а/м МБ &quot;Майб Г900&quot;">а/м МБ "Майб Г900"</option>
 <option value="а/м Тундра &quot;ПРО 23&quot;">а/м Тундра "ПРО 23"</option>
 <option value="а/м Бумер &quot;Е36 Ракета&quot;">а/м Бумер "Е36 Ракета"</option>
 <option value="а/м Ровер &quot;Защитник 1997&quot;">а/м Ровер "Защитник 1997"</option>
@@ -7521,7 +7615,7 @@ p {
 <option value="а/м Ламба СЦ-20.">а/м Ламба СЦ-20.</option>
 <option value="а/м Спортедж.">а/м Спортедж.</option>
 <option value="а/м Мак &quot;Спидтейл&quot;.">а/м Мак "Спидтейл".</option>
-<option value="а/м Мерин &quot;Майб Г900&quot;.">а/м Мерин "Майб Г900".</option>
+<option value="а/м МБ &quot;Майб Г900&quot;.">а/м МБ "Майб Г900".</option>
 <option value="а/м Тундра &quot;ПРО 23&quot;.">а/м Тундра "ПРО 23".</option>
 <option value="а/м Бумер &quot;Е36 Ракета&quot;.">а/м Бумер "Е36 Ракета".</option>
 <option value="а/м Ровер &quot;Защитник 1997&quot;.">а/м Ровер "Защитник 1997".</option>
@@ -8069,9 +8163,9 @@ p {
     <div>
     <h3>Уведомление об изменениях</h3>
     <p>&middot; Бренд Balenciaga теперь пишется не "БЛНСГ", а "Баленсия", посмотреть можно во вкладке "Обозначения".</p>
-    <p>&middot; В каждой таблице теперь есть покупка/продажа конкретного бизнеса в любом районе, посмотреть можете в Куплю бизнес и Продам бизнес. Вот примеры: Куплю бизнес АЗС в любом районе. Продам бизнес 24/7 в любом районе.</p>
-    <p>&middot; Была создана как бы новая версия таблицы ППО в формате приложения, скачать можно по ссылке в самой таблице, ссылка не прямая, вы там перейдете в Google диск и там просто скачайте этот файл, закройте уведомление и слева от названия таблицы, под кнопками переключения между таблицами, будет ссылка на скачивание.</p>
-    <p>&middot; Все обновленные данные будут подгружаться и в приложение, но для этого надо будет заново скачивать приложение, после каждого уведомления об изменениях, чтоб изменения вступили в силу, потому что пока синхронизация с сайтом не сделана, но я попытаюсь сделать так, чтоб данные обновлялись автоматически.</p>
+    <p>&middot; Теперь есть покупка/продажа конкретного бизнеса в любом районе, посмотреть можете в Куплю бизнес и Продам бизнес. Вот примеры: Куплю бизнес АЗС в любом районе. Продам бизнес 24/7 в любом районе.</p>
+    <p>&middot; Было а/м Мерин "Майб Г900" стало а/м МБ "Майб Г900".
+    <p>&middot; Кто устанавливал приложение до 7 сентября перечитайте это уведомление и установите новую версию. Была создана как бы новая версия таблицы ППО в формате приложения, скачать можно по ссылке в самой таблице, закройте уведомление и слева от названия таблицы, под кнопками переключения между таблицами, будет ссылка на скачивание. Ссылка не прямая, вы там перейдете в Google диск и там просто скачайте файл Таблица ППО.7z. Теперь это приложение с автоматическим обновлением данных, то есть всё, что появляется на сайте, одновременно будет появляться и в приложении. В правом верхнем углу вы увидите "Настройки бинда" это для приложения, подробнее рассказал в инструкции к приложению, а если вы пользуетесь сайтом, то просто забейте, это вам не надо.</p>
   </div>
 </div>
 </div>
@@ -8481,23 +8575,47 @@ document.querySelectorAll('.item').forEach(item => {
         table5.classList.add('hidden');
     </script>
 
-    <script>
-          // Скрипт обновления сайта при загрузке браузера
-    document.addEventListener("DOMContentLoaded", function() {
-      if (localStorage.getItem('reloaded') == null) {
-        localStorage.setItem('reloaded', 'yes');
-        location.reload();
-      } else {
-        localStorage.removeItem('reloaded');
-      }
-    });
-    </script>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const toggleControlsButton = document.getElementById('toggleControlsButton');
+        const controlsContainer = document.getElementById('controlsContainer');
+        const setShortcutButton = document.getElementById('setShortcutButton');
+        const shortcutInput = document.getElementById('shortcutInput');
+        const currentShortcut = document.getElementById('currentShortcut');
 
-    <script>
+        // Обработчик клика по кнопке-триггеру
+        toggleControlsButton.addEventListener('click', toggleControls);
+
+        setShortcutButton.addEventListener('click', () => {
+              const newShortcut = shortcutInput.value;
+              window.api.setShortcut(newShortcut);
+            });
+
+        // Функция для отображения/скрытия блока управления
+        function toggleControls() {
+  console.log("controlsContainer.style.display:", controlsContainer.style.display);
+  if (controlsContainer.style.display === 'none') {
+    controlsContainer.style.display = 'block'; // Показываем блок
+    toggleControlsButton.textContent = 'Закрыть настройки'; // Меняем текст кнопки
+  } else {
+    controlsContainer.style.display = 'none'; // Скрываем блок
+    toggleControlsButton.textContent = 'Настройки бинда для приложения'; // Меняем текст кнопки
+  }
+}
+
+
+        window.api.onShortcutChanged((event, shortcut) => {
+        currentShortcut.textContent = `Текущая горячая клавиша: ${shortcut}`; // Исправлено!
+        shortcutInput.value = shortcut;
+        });
+            });
+  </script>
+
+  <script>
 document.addEventListener('DOMContentLoaded', function() {
   const notification = document.getElementById('update-notification');
   const closeButton = document.getElementById('close-notification');
-  const currentVersion = '1.4'; // <--  УКАЖИТЕ ТЕКУЩУЮ ВЕРСИЮ ОБНОВЛЕНИЯ
+  const currentVersion = '1.6'; // <--  УКАЖИТЕ ТЕКУЩУЮ ВЕРСИЮ ОБНОВЛЕНИЯ
 
   function getCookie(name) { /* ... функция getCookie из предыдущих примеров ... */ }
   function setCookie(name, value, days) { /* ... функция setCookie из предыдущих примеров ... */ }
@@ -8521,8 +8639,19 @@ document.addEventListener('DOMContentLoaded', function() {
     notification.style.display = 'none';
   }
 });
-
 </script>
+
+<script>
+          // Скрипт обновления сайта при загрузке браузера
+    document.addEventListener("DOMContentLoaded", function() {
+      if (localStorage.getItem('reloaded') == null) {
+        localStorage.setItem('reloaded', 'yes');
+        location.reload();
+      } else {
+        localStorage.removeItem('reloaded');
+      }
+    });
+    </script>
 
 </body>
 </html>
