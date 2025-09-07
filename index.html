@@ -186,12 +186,14 @@ display: none;
             display: flex;
             align-items: center;
             margin-bottom: 15px;
+            justify-content: center
         }
 
         #search-input {
             padding: 17px;
-            width: 400px;
-            height: 44px;
+            min-width: 180px;
+            max-width: 400px;
+            height: 70.3px;
             background-color: #131320;
             border: 2px solid #00685a;
             color: #fff;
@@ -199,14 +201,16 @@ display: none;
             font-size: 26px;
             border-radius: 8px;
             margin-right: 10px; /* Отступ справа от поля поиска */
-            margin-left: 200px;
             outline: none; /*  Убираем стандартный outline чтоб после нажатия рамка была того же цвета */
+            word-break: break-word; /* Перенос длинных слов, если они не помещаются */
+            resize: none;
         }
 
         #search-input-4 {
             padding: 17px;
-            width: 400px;
-            height: 44px;
+            min-width: 180px;
+            max-width: 400px;
+            height: 70.3px;
             background-color: #131320;
             border: 2px solid #00685a;
             color: #fff;
@@ -214,8 +218,9 @@ display: none;
             font-size: 26px;
             border-radius: 8px;
             margin-right: 10px; /* Отступ справа от поля поиска */
-            margin-left: 200px;
             outline: none; /*  Убираем стандартный outline чтоб после нажатия рамка была того же цвета */
+            word-break: break-word; /* Перенос длинных слов, если они не помещаются */
+            resize: none;
         }
 
         #search-input::placeholder {
@@ -229,7 +234,7 @@ display: none;
         #draft-area {
             padding: 14px;
             width: 900px;
-            height: 84px;
+            height: 109px;
             border: 2px solid #00685a;
             margin-left: 100px;
             resize: none;
@@ -247,7 +252,7 @@ display: none;
         #draft-area-4 {
             padding: 14px;
             width: 900px;
-            height: 84px;
+            height: 109px;
             border: 2px solid #00685a;
             margin-left: 100px;
             resize: none;
@@ -353,23 +358,24 @@ display: none;
     /*  Стили для колонок и элементов  */
     .container5 {
       display: flex;
+      flex-wrap: wrap;
       gap: 10px;
       text-align: left;
-      margin: 10px 10px;
+      margin: 10px 0px;
       justify-content: center;
     }
 
     .column {
       border: 2px solid #008979;
       border-radius: 8px;
-      padding: 10px 15px;
+      padding: 5px 10px;
       color: white;
-      font-size: 20px;
+      font-size: 19px;
       display: grid;
-      grid-template-columns: 7 2; /* Два столбца: auto для label, auto для select */
-      grid-gap: 7px; /* Отступ между колонками */
-      width: 9.7%;
-      height: 120px;
+      grid-template-columns: 7 2; 
+      grid-gap: 3px; /* Отступ между колонками */
+      height: 112px;
+      flex: 0 0 160px;
     }
 
     select {
@@ -392,11 +398,10 @@ display: none;
       border-radius: 8px;
       color: white;
       white-space: pre-wrap; /* Сохраняет форматирование текста */
-      height: 90px;
+      min-height: 90px;
       font-size: 26px;
-      width: 82.53%;
-      margin-left: 141.2px;
       text-align: center;
+      width: 98.5%;
     }
 
     .sww-button {
@@ -461,7 +466,7 @@ display: none;
     #itemmSearch {
   width: 100%; /*  Занимает всю ширину колонки */
   padding: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   border-radius: 4px;
   box-sizing: border-box;
   border: 2px solid #008979;
@@ -481,10 +486,9 @@ display: none;
     #itemmmSearch {
   width: 100%; /*  Занимает всю ширину колонки */
   padding: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
   border-radius: 4px;
   box-sizing: border-box;
-  margin-bottom: 10px;
   border: 2px solid #008979;
   background-color: #131320;
   font-family: Arial, sans-serif;
@@ -501,10 +505,9 @@ display: none;
 
         #draft-area-5 {
             padding: 14px;
-            width: 83.7%;
             height: 140px;
             border: 2px solid #008979;
-            margin-left: 141.4px;
+            width: 100%;
             resize: none;
             overflow: auto;
             position: relative;
@@ -593,18 +596,7 @@ display: none;
     }
 }
 
-    @media (max-width: 1800px) {
-    .column {
-      padding: 10px 10px;
-      font-size: 20px;
-      grid-gap: 3px; /* Отступ между колонками */
-      width: 9.7%;
-      height: 140px;
-    }
-
-    #itemmSearch {
-  margin-top: 25px;
-  }
+    @media (max-width: 1920px) {
 
   .container-columns {
     align-items: center;             /* Центрируем элементы по горизонтали */
@@ -618,13 +610,17 @@ display: none;
     padding: 5%;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
   }
 
+  .items {
+      padding: 15px 15px;
+    }
+
   .container3 {
             display: grid; /* Используем Grid */
             grid-template-columns: repeat(4, 1fr); /* 5 колонок равной ширины */
             flex-wrap: wrap;        /* Разрешаем перенос на новую строку */
             background-color: #131320;
             padding: 15px;
-            margin: 15px 140px; /* Отступ контейнера от краев страницы */
+            margin: 15px 15px; /* Отступ контейнера от краев страницы */
             gap: 15px; /* Отступ между ячейками */
         }
 
@@ -634,28 +630,31 @@ display: none;
             flex-wrap: wrap;        /* Разрешаем перенос на новую строку */
             background-color: #131320;
             padding: 15px;
-            margin: 15px 140px; /* Отступ контейнера от краев страницы */
+            margin: 15px 15px; /* Отступ контейнера от краев страницы */
             gap: 15px; /* Отступ между ячейками */
         }
 
         #search-input {
-            margin-left: 50px;
+            margin-left: 10px;
         }
 
         #search-input-4 {
-            margin-left: 50px;
+            margin-left: 10px;
         }
 
         #draft-area {
-            margin-left: 20px;
+            margin-left: 10px;
         }
 
         #draft-area-4 {
-            margin-left: 20px;
+            margin-left: 10px;
         }
 
-        
+        #result {
+          width: 98%;
+        }
       }
+
   @media (max-width: 1200px) {
     .items {
       grid-template-columns: repeat(4, 1fr); /* на средних экранах 4 в ряд */
@@ -677,37 +676,28 @@ display: none;
     margin-top: -2px;
     }
 
-  #result {
-      width: 80%;
-    }
-      #draft-area-5 {
-      width: 83.1%;
-      }
-
       .container3 {
             display: grid; /* Используем Grid */
-            grid-template-columns: repeat(3, 1fr); /* 5 колонок равной ширины */
+            grid-template-columns: repeat(4, 1fr); /* 5 колонок равной ширины */
+            flex-wrap: wrap;
         }
 
         .container4 {
             display: grid; /* Используем Grid */
-            grid-template-columns: repeat(3, 1fr); /* 5 колонок равной ширины */
+            grid-template-columns: repeat(4, 1fr); /* 5 колонок равной ширины */
+            flex-wrap: wrap;
         }
 
         #search-input {
-            margin-left: 20px;
+            margin-left: 1px;
         }
 
         #search-input-4 {
-            margin-left: 20px;
+            margin-left: 1px;
         }
 
     .column {
-      padding: 5px 10px;
       font-size: 19px;
-      grid-gap: 3px; /* Отступ между колонками */
-      width: 10.7%;
-      height: 140px;
     }
   }
 
@@ -717,17 +707,35 @@ display: none;
     }
 
     #draft-area {
-            margin-left: 10px;
+            margin-left: 1px;
         }
 
         #draft-area-4 {
-            margin-left: 10px;
+            margin-left: 1px;
+        }
+
+        #result {
+          width: 96%;
+        }
+
+        .items {
+      grid-template-columns: repeat(3, 1fr); /* на мобильных 1 в ряд */
+    } 
+
+    .container3 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(3, 1fr); /* 5 колонок равной ширины */
+        }
+
+        .container4 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(3, 1fr); /* 5 колонок равной ширины */
         }
   }  
 
-  @media (max-width: 860px) {
+  @media (max-width: 800px) {
     .items {
-      grid-template-columns: repeat(1, 1fr); /* на мобильных 1 в ряд */
+      grid-template-columns: repeat(2, 1fr); /* на мобильных 1 в ряд */
     } 
 
     .item-text {
@@ -760,12 +768,12 @@ display: none;
 
     .container3 {
             display: grid; /* Используем Grid */
-            grid-template-columns: repeat(1, 1fr); /* 5 колонок равной ширины */
+            grid-template-columns: repeat(2, 1fr); /* 5 колонок равной ширины */
         }
 
         .container4 {
             display: grid; /* Используем Grid */
-            grid-template-columns: repeat(1, 1fr); /* 5 колонок равной ширины */
+            grid-template-columns: repeat(2, 1fr); /* 5 колонок равной ширины */
         }
   }
 
@@ -4309,7 +4317,7 @@ display: none;
 </div>
 
     <div class="search-and-draft">
-        <input type="text" id="search-input" placeholder="Введите текст для поиска...">
+        <textarea id="search-input" placeholder="Введите текст для поиска..."></textarea>
         <div id="draft-area" contenteditable="true" data-placeholder="Черновик для подготовки объявления перед его публикацией"></div>
     </div>
 
@@ -5676,7 +5684,7 @@ display: none;
 </div>
 
 <div class="search-and-draft">
-   <input type="text" id="search-input-4" class="search-input" data-table="4" placeholder="Введите текст для поиска...">
+   <textarea id="search-input-4" class="search-input" data-table="4" placeholder="Введите текст для поиска..."></textarea>
    <div id="draft-area-4" contenteditable="true" data-placeholder="Черновик для подготовки объявления перед его публикацией"></div>
 </div>
 
@@ -8145,6 +8153,7 @@ display: none;
     </div>
     </div>
 
+<div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
   <div id="result"></div>
 
 <div class="sww-button">
@@ -8153,6 +8162,7 @@ display: none;
 </div>
 
 <div id="draft-area-5" contenteditable="true" data-placeholder="Черновик для подготовки объявления перед его публикацией"></div>
+</div>
 </div>
 </section>
 
