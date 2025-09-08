@@ -1068,7 +1068,7 @@ display: none;
       <div id="controlsContainer" style="display: none;">
 <div>
     <label for="shortcutInput" style="font-size: 20px;">Назначить горячую клавишу:</label>
-    <input type="text" id="shortcutInput" value="Insert">
+     <input type="text" id="shortcutInput" value="Insert" readonly placeholder="Нажмите здесь и введите клавиши">
     <button id="setShortcutButton">Установить клавишу</button>
     <button id="cancelShortcutButton" style="display: none;">Отмена</button>
   </div>
@@ -8541,86 +8541,121 @@ document.querySelectorAll('.item').forEach(item => {
         const toggleControlsButton = document.getElementById('toggleControlsButton');
         const controlsContainer = document.getElementById('controlsContainer');
         const setShortcutButton = document.getElementById('setShortcutButton');
+        const cancelShortcutButton = document.getElementById('cancelShortcutButton');
         const shortcutInput = document.getElementById('shortcutInput');
         const currentShortcut = document.getElementById('currentShortcut');
-        const cancelShortcutButton = document.getElementById('cancelShortcutButton');
 
-        let recording = false; // Флаг, указывающий, идет ли запись клавиши
+        let recording = false;
+        let recordedKeys = [];
+        let currentBinds = [];
 
         // Обработчик клика по кнопке-триггеру
         toggleControlsButton.addEventListener('click', toggleControls);
 
-        // Функция для отображения/скрытия блока управления
         function toggleControls() {
-            console.log("controlsContainer.style.display:", controlsContainer.style.display);
             if (controlsContainer.style.display === 'none') {
-                controlsContainer.style.display = 'block'; // Показываем блок
-                toggleControlsButton.textContent = 'Закрыть настройки'; // Меняем текст кнопки
-                startRecording();
+                controlsContainer.style.display = 'block';
+                toggleControlsButton.textContent = 'Закрыть настройки';
             } else {
-                controlsContainer.style.display = 'none'; // Скрываем блок
-                toggleControlsButton.textContent = 'Настройки бинда для приложения'; // Меняем текст кнопки
-                stopRecording();
+                controlsContainer.style.display = 'none';
+                toggleControlsButton.textContent = 'Настройки бинда для приложения';
+                resetRecording();
             }
         }
 
-        //Функция начать запись нажатий
+        // Обработчик фокуса на поле ввода
+        shortcutInput.addEventListener('focus', () => {
+            startRecording();
+        });
+
         function startRecording() {
-            recording = true;
-            shortcutInput.value = 'Нажмите клавишу...';
-            shortcutInput.classList.add('recording'); // Добавляем класс для стилизации
-            setShortcutButton.disabled = true; // Деактивируем кнопку "Установить"
-            cancelShortcutButton.style.display = 'inline-block'; // Показываем кнопку "Отмена"
+            if (!recording) {
+                recording = true;
+                recordedKeys = [];
+                shortcutInput.value = ''; // Очищаем поле ввода
+                shortcutInput.classList.add('recording');
+                setShortcutButton.disabled = true;
 
-             // Обработчик нажатия клавиш (keydown) на document
-            document.addEventListener('keydown', recordKey);
-
-             // Добавляем обработчик для кнопки отмены записи
-            cancelShortcutButton.addEventListener('click', cancelRecording);
+                document.addEventListener('keydown', recordKey);
+            }
         }
 
-          // Функция отмены записи клавиши
-        function cancelRecording() {
-            stopRecording();
-            shortcutInput.value = window.api.getShortcut();  // Возвращаем предыдущее значение
-            shortcutInput.classList.remove('recording');
-        }
-
-        //Функция остановить запись нажатий
         function stopRecording() {
+          document.removeEventListener('keydown', recordKey);
             recording = false;
             shortcutInput.classList.remove('recording');
-            document.removeEventListener('keydown', recordKey);
-            setShortcutButton.disabled = false; // Активируем кнопку "Установить"
-            cancelShortcutButton.style.display = 'none'; // Скрываем кнопку "Отмена"
         }
 
-        // Функция записи нажатой клавиши
+        function resetRecording() {
+            stopRecording();
+            shortcutInput.value = currentBinds.join(' + ');
+        }
+
         function recordKey(event) {
             if (recording) {
-                event.preventDefault(); // Предотвращаем стандартное поведение браузера
-                const key = event.code; // Получаем код клавиши
-                shortcutInput.value = key;
-                stopRecording();
-                setShortcutButton.disabled = false; // Активируем кнопку "Установить"
-                shortcutInput.classList.remove('recording');
+                event.preventDefault();
+                const key = event.code;
+
+                if (!recordedKeys.includes(key)) {
+                    recordedKeys.push(key);
+                }
+
+                shortcutInput.value = recordedKeys.join(' + ');
+
+                if (recordedKeys.length >= 3) {
+                    stopRecording();
+                    setShortcutButton.disabled = false;
+                }
             }
         }
 
+        // Обработчик расфокуса на поле ввода
+        shortcutInput.addEventListener('blur', () => {
+            // Задержка нужна, чтобы дать recordKey отработать перед остановкой записи
+            setTimeout(() => {
+                if (recording) {
+                  stopRecording();
+                  if(recordedKeys.length > 0){
+                      shortcutInput.value = recordedKeys.join(' + ');
+                  } else {
+                      shortcutInput.value = currentBinds.join(' + ');
+                  }
+
+                }
+
+            }, 100);
+        });
+
+        // Обработчик для кнопки "Отмена"
+        cancelShortcutButton.addEventListener('click', () => {
+            resetRecording();
+        });
+
         setShortcutButton.addEventListener('click', () => {
-            const newShortcut = shortcutInput.value;
-            window.api.setShortcut(newShortcut);
+            const shortcuts = recordedKeys;
+            window.api.setShortcuts(shortcuts);
+            currentBinds = shortcuts;
+            setShortcutButton.disabled = true;
+            updateCurrentShortcut();
+            stopRecording();
         });
 
-        window.api.onShortcutChanged((event, shortcut) => {
-            currentShortcut.textContent = `Текущая горячая клавиша: ${shortcut}`;
-            shortcutInput.value = shortcut;
+        window.api.onShortcutsChanged((event, shortcuts) => {
+            currentBinds = shortcuts;
+            updateCurrentShortcut();
+            shortcutInput.value = shortcuts.join(' + ');
         });
 
-        // При загрузке страницы получаем текущий шорткат из бэкенда и отображаем его
-        window.api.getShortcut((shortcut) => {
-            currentShortcut.textContent = `Текущая горячая клавиша: ${shortcut}`;
-            shortcutInput.value = shortcut;
+        // Функция для обновления текста текущего шортката
+        function updateCurrentShortcut() {
+            currentShortcut.textContent = `Текущая горячая клавиша: ${currentBinds.join(' + ')}`;
+        }
+
+        // При загрузке страницы получаем текущие шорткаты
+        window.api.getShortcuts((shortcuts) => {
+            currentBinds = shortcuts;
+            updateCurrentShortcut();
+            shortcutInput.value = shortcuts.join(' + ');
         });
     });
 </script>
