@@ -1,0 +1,1059 @@
+  body {
+    font-family: Arial, sans-serif;
+    background: #131320;
+    color: white;
+    padding: 20px;
+    margin: 0;
+  }
+
+.table-title {
+    font-size: 26px;
+    color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+    border: 4px solid;
+    border-image: linear-gradient(45deg, #008fc2, #00ac89) 1;
+    border-radius: 8px;
+    max-width: 450px;
+    padding: 5px 13px 8px 13px;
+    margin-bottom: 15px;
+    margin-top: 18px;
+    position: relative; /*  позиционирование */
+    left: 50%; /* Сдвигаем на половину ширины контейнера */
+    transform: translateX(-50%); /* Сдвигаем обратно на половину ширины элемента, чтобы он был точно по центру */
+    display: inline-block; /* Чтобы width работала */
+    width: auto; /* Автоматическая ширина */
+    }
+
+   .table-header {
+     display: flex;
+     justify-content: space-between; /* Распределяем пространство между заголовком и кнопкой */
+    align-items: center; /*  элементы по вертикали */
+    position: relative; /*  для абсолютного позиционирования заголовка */
+    padding: 0 2px; /*  отступы по бокам */
+   }
+
+  .container {
+    max-width: 100vw; /* ширина по всей странице */
+    margin: 0 auto;
+    padding: 0 10px; /* небольшой отступ слева и справа */
+  }
+
+  .section {
+    border: 2px solid #008979;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+
+  .sectionTWO {
+    border: 2px solid #131320;
+    border-radius: 8px;
+    margin-bottom: 2px;
+    overflow: hidden;
+  }
+
+  .section-header {
+    background-color: #008979;
+    padding: 15px 20px;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .section-header:hover {
+    background-color: #01585b;
+  }
+
+  .toggle-icon {
+  display: inline-block;
+  }
+
+  .toggle-icon.collapsed {
+    transform: rotate(-180deg);
+  }
+
+  .items {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 колонок равной ширины */
+    gap: 15px;
+    padding: 15px 160px;
+    background-color: #131320;
+  }
+
+  .item {
+    background: #131320;
+    border-radius: 8px;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 0 0 15px #006919;
+    border: 1px solid #006919;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+  .item-text {
+    font-family: 'Arial', sans-serif;
+    padding: 10px 11px 10px; 
+    font-size: 17px;
+    color: #ffffff;
+    flex-shrink: 0;
+    line-height: 1.2;
+  }
+
+.item.highlight {
+  box-shadow: 0 0 15px 3px #00de9b; /* яркая зелёная подсветка */
+  transition: box-shadow 0.3s ease;
+}
+
+    .text-block {
+    background-color: #131320;
+    width: 500px;
+    box-sizing: border-box; /* чтобы padding и border учитывались внутри ширины */
+    box-shadow: 0 0 15px #006919;
+    border: 1px solid #006919;
+    padding: 30px;
+    border-radius: 30px;
+    font-size: 20px;
+    color: #ffffff;
+    line-height: 1.3; /* Междустрочный интервал */
+    word-wrap: break-word;      /* Для большинства браузеров */
+    overflow-wrap: break-word; /* Для новых версий браузеров */
+}
+
+.text-block.right {
+    width: 490px;
+    border-radius: 30px;
+    word-wrap: break-word;      /* Для большинства браузеров */
+    overflow-wrap: break-word; /* Для новых версий браузеров */
+    box-sizing: border-box; /* чтобы padding и border учитывались внутри ширины */
+}
+
+.container-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px; /* маленький отступ между колонками */
+  box-sizing: border-box; /* чтобы padding учитывался внутри ширины */
+  padding: 200px 350px; /* большой отступ слева и справа от колонок до краёв */
+}
+
+  #legend-content {
+    overflow: hidden;
+    max-height: 1000px; /* открыто по умолчанию */
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  #legend-content.collapsed {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+/* Скрываем таблицу по умолчанию */
+.hidden {
+display: none;
+}
+
+  /* Стили для кнопки переключения */
+  .switch-button {
+    display: block;
+    margin: 0 auto 30px auto;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(45deg, #007daa, #00a282);
+    color: white;
+    cursor: pointer;
+    display: inline-block; /* Добавлено */
+    margin-right: 15px; /* Добавлено для небольшого отступа */
+    margin-left: 5px;
+  }
+
+  .switch-button:hover {
+    background: linear-gradient(45deg, #00a282, #007daa);
+  }
+
+/* Контейнер для кнопок */
+  .button-container {
+  text-align: center; /* Центрирование внутри контейнера */
+  margin-top: 15px;
+  margin-bottom: -25px;
+}
+
+        .search-and-draft {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            justify-content: center
+        }
+
+        .search-input {
+            padding: 17px;
+            min-width: 180px;
+            max-width: 400px;
+            height: 70.3px;
+            background-color: #131320;
+            border: 2px solid #00685a;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 26px;
+            border-radius: 8px;
+            margin-right: 10px; /* Отступ справа от поля поиска */
+            outline: none; /*  Убираем стандартный outline чтоб после нажатия рамка была того же цвета */
+            word-break: break-word; /* Перенос длинных слов, если они не помещаются */
+            resize: none;
+        }
+
+        .search-input::placeholder {
+            color: #888;
+        }
+
+        .draft-area {
+            padding: 14px;
+            width: 900px;
+            height: 109px;
+            border: 2px solid #00685a;
+            margin-left: 100px;
+            resize: none;
+            overflow: auto;
+            position: relative;
+            box-sizing: border-box;
+            background-color: #131320;
+            color: #fff;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            font-size: 22px;
+            outline: none; /*  Убираем стандартный outline чтоб после нажатия рамка была того же цвета */
+        }
+
+        .draft-area::before {
+            content: attr(data-placeholder);
+            position: absolute;
+            left: 16px;
+            top: 16px;
+            color: #888;
+            pointer-events: none;
+            opacity: 1;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+        }
+
+        .hidden-cell {
+        display: none;
+        }
+
+        .draft-area:empty::before {
+            opacity: 1;
+        }
+
+        .draft-area:not(:empty)::before {
+            opacity: 0;
+        }
+
+        .cell {
+            box-shadow: 0 0 15px #006919;
+            border: 1px solid #006919;
+            text-align: left;
+            border-radius: 8px;
+            background-color: #131320;
+            width: 100%; /* Важный момент: каждая ячейка занимает всю ширину своей колонки */
+            box-sizing: border-box;  /* Важно для учета padding и border */
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer; /* Изменяем курсор при наведении, чтобы показать, что ячейка кликабельна */
+            font-family: 'Arial', sans-serif;
+            padding: 10px 11px; 
+            font-size: 17px;
+            color: #ffffff;
+            flex-shrink: 0;
+            line-height: 1.2;
+        }
+
+    .cell.highlight {
+    box-shadow: 0 0 15px 3px #00b881; /* яркая зелёная подсветка */
+    transition: box-shadow 0.3s ease;
+  }
+
+.container4 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(5, 1fr); /* 5 колонок равной ширины */
+            flex-wrap: wrap;        /* Разрешаем перенос на новую строку */
+            background-color: #131320;
+            padding: 15px;
+            margin: 15px 140px; /* Отступ контейнера от краев страницы */
+            gap: 15px; /* Отступ между ячейками */
+        }
+
+    /*  Стили для колонок и элементов  */
+    .container5 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      text-align: left;
+      margin: 10px 0px;
+      justify-content: center;
+    }
+
+    .column {
+      border: 2px solid #008979;
+      border-radius: 8px;
+      padding: 5px 10px;
+      color: white;
+      font-size: 19px;
+      display: grid;
+      grid-template-columns: 7 2; 
+      grid-gap: 3px; /* Отступ между колонками */
+      height: 112px;
+      flex: 0 0 160px;
+    }
+
+    select {
+      width: 100%;
+      font-size: 18px;
+      border: 2px solid #008979;
+      background-color: #131320;
+      font-family: Arial, sans-serif;
+      color: white;
+      border-radius: 8px;
+      height: 45px;
+      outline: none; /*  Убираем стандартный outline чтоб после нажатия рамка была того же цвета */
+    }
+
+    #result {
+      margin-top: 20px;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 2px solid #008979;
+      border-radius: 8px;
+      color: white;
+      white-space: pre-wrap; /* Сохраняет форматирование текста */
+      min-height: 90px;
+      font-size: 26px;
+      text-align: center;
+      width: 98.5%;
+    }
+
+    .sww-button {
+    text-align: center;
+    }
+
+    .sw-button {
+    display: block;
+    margin: 0 auto 3px auto;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 8px;
+    border: none;
+    background: #131320;
+    color: white;
+    cursor: pointer;
+    display: inline-block; /* Добавлено */
+    margin-right: 28px; /* Добавлено для небольшого отступа */
+    margin-left: 5px;
+  }
+
+#copyButton {
+  font-family: Arial, sans-serif;
+    background-color: #131320;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border: 2px solid #008979;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+#copyButton.copied {
+    border: 2px solid #00c58a;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+#clearButton {
+  font-family: Arial, sans-serif;
+    background-color: #131320;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border: 2px solid #008979;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+#clearButton.copied {
+    border: 2px solid #00c58a;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+   .search-container {
+  position: relative; /*  Для позиционирования списка */
+}
+
+    #itemmSearch {
+  width: 100%; /*  Занимает всю ширину колонки */
+  padding: 5px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 2px solid #008979;
+  background-color: #131320;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  border-radius: 8px;
+  color: white;
+  outline: none; /*  Убираем стандартный outline чтоб после нажатия рамка была того же цвета */
+}
+
+#itemm {
+    width: 100%;
+    box-sizing: border-box; /* Важно для правильной ширины с учетом padding и border */
+}
+
+    #itemmmSearch {
+  width: 100%; /*  Занимает всю ширину колонки */
+  padding: 5px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 2px solid #008979;
+  background-color: #131320;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  border-radius: 8px;
+  color: white;
+  outline: none; /*  Убираем стандартный outline чтоб после нажатия рамка была того же цвета */
+}
+
+#itemmm {
+    width: 100%;
+    box-sizing: border-box; /* Важно для правильной ширины с учетом padding и border */
+}
+
+        #draft-area-5 {
+            padding: 14px;
+            height: 140px;
+            border: 2px solid #008979;
+            width: 100%;
+            resize: none;
+            overflow: auto;
+            position: relative;
+            box-sizing: border-box;
+            background-color: #131320;
+            color: #fff;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            font-size: 22px;
+            margin-top: 15px;
+            outline: none; /*  Убираем стандартный outline чтоб после нажатия рамка была того же цвета */
+        }
+
+        #draft-area-5::before {
+            content: attr(data-placeholder);
+            position: absolute;
+            left: 16px;
+            top: 16px;
+            color: #888;
+            pointer-events: none;
+            opacity: 1;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+        }
+
+        #draft-area-5:empty::before {
+            opacity: 1;
+        }
+
+        #draft-area-5:not(:empty)::before {
+            opacity: 0;
+        }
+
+    .select-wrapper {
+      position: relative; /* Для позиционирования своей стрелки */
+      margin-top: auto;
+    }
+
+    .select-wrapper select {
+      appearance: none; /* Убираем стандартные стили стрелки */
+      -webkit-appearance: none; /* Для Safari */
+      -moz-appearance: none; /* Для Firefox */
+      background-color: #131320; /* Или ваш текущий цвет фона ячейки */
+      color: white;
+      padding: 7px;
+      width: 100%;
+      border: 2px solid #00685a;
+      border-radius: 8px;
+      box-sizing: border-box;
+      outline: none; /* Убираем стандартную обводку при фокусе */
+      cursor: pointer; /* Меняем курсор на указатель */
+      height: 45px;
+    }
+
+    /* Убираем отступы в IE */
+    select::-ms-expand {
+      display: none;
+    }
+
+    .select-wrapper::after {
+      content: '\25BC'; /* Код символа для стрелки вниз (▼) */
+      position: absolute;
+      /* top: 34%; */
+      top: 0; /* Привязываем к верху ячейки */
+      bottom: 0; /* Привязываем к низу ячейки */
+      align-items: center; /* Центрируем по вертикали */
+      right: 12px;
+      transform: translateY(-50%);
+      color: white;
+      pointer-events: none; /* Чтобы клики проходили сквозь стрелку к select */
+      height: 45px; /* ОНО */
+      line-height: 92px;
+    }
+
+    @media (min-width: 1921px) {
+    .items {
+        grid-template-columns: repeat(7, 1fr); /* 7 колонок на широкоформатных мониторах */
+        gap: 20px; /* Увеличим отступ */
+        padding: 20px 250px; /* Увеличим padding */
+    }
+    .item-text {
+        font-size: 20px; /* Немного увеличим размер шрифта */
+    }
+    .container-columns {
+  padding: 200px 350px; /* большой отступ слева и справа от колонок до краёв */
+    }
+}
+
+    @media (max-width: 1920px) {
+  .container-columns {
+    align-items: center;             /* Центрируем элементы по горизонтали */
+    padding: 20%;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
+  }
+}
+
+    @media (max-width: 1700px) {
+  .container-columns {
+    padding: 13%;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
+  }
+}
+
+  @media (max-width: 1450px) {
+    .container-columns {
+    align-items: center;             /* Центрируем элементы по горизонтали */
+    padding: 5%;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
+  }
+
+  .items {
+      padding: 15px 15px;
+    }
+
+  .container3 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(4, 1fr); /* 5 колонок равной ширины */
+            flex-wrap: wrap;        /* Разрешаем перенос на новую строку */
+            background-color: #131320;
+            padding: 15px;
+            margin: 15px 15px; /* Отступ контейнера от краев страницы */
+            gap: 15px; /* Отступ между ячейками */
+        }
+
+        .container4 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(4, 1fr); /* 5 колонок равной ширины */
+            flex-wrap: wrap;        /* Разрешаем перенос на новую строку */
+            background-color: #131320;
+            padding: 15px;
+            margin: 15px 15px; /* Отступ контейнера от краев страницы */
+            gap: 15px; /* Отступ между ячейками */
+        }
+
+        .search-input {
+            margin-left: 10px;
+        }
+
+        .draft-area {
+            margin-left: 10px;
+        }
+
+        #result {
+          width: 98%;
+        }
+      }
+
+  @media (max-width: 1200px) {
+    .items {
+      grid-template-columns: repeat(4, 1fr); /* на средних экранах 4 в ряд */
+    }
+
+    .container-columns {
+    flex-direction: column;          /* Располагаем элементы вертикально */
+    align-items: center;             /* Центрируем элементы по горизонтали */
+    padding: 1px;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
+  }
+
+  .text-block {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
+    width: 60%;                      /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
+    margin-left: 2%; /* Отступ слева (5% от ширины контейнера) */
+    margin-right: 2%; /* Отступ справа (5% от ширины контейнера) */
+    padding: 13px 30px;
+    margin-bottom: 7px;
+    margin-top: -11.5px;
+    }
+
+    .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
+    width: 60%;                      /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
+    margin-left: 2%; /* Отступ слева (5% от ширины контейнера) */
+    margin-right: 2%; /* Отступ справа (5% от ширины контейнера) */
+    padding: 13px 30px;
+    margin-bottom: 7px;
+    margin-top: -20px;
+    }
+
+      .container3 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(4, 1fr); /* 5 колонок равной ширины */
+            flex-wrap: wrap;
+        }
+
+        .container4 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(4, 1fr); /* 5 колонок равной ширины */
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            margin-left: 1px;
+        }
+
+    .column {
+      font-size: 19px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+
+    .text-block, .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
+    width: 70%;  
+    }
+
+    .draft-area {
+            margin-left: 1px;
+        }
+
+        #result {
+          width: 96%;
+        }
+
+        .items {
+      grid-template-columns: repeat(3, 1fr); /* на мобильных 1 в ряд */
+    } 
+
+    .container3 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(3, 1fr); /* 5 колонок равной ширины */
+        }
+
+        .container4 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(3, 1fr); /* 5 колонок равной ширины */
+        }
+  }  
+
+  @media (max-width: 800px) {
+    .items {
+      grid-template-columns: repeat(2, 1fr); /* на мобильных 1 в ряд */
+    } 
+
+    .item-text {
+      margin-left: 1%; /* Отступ слева (1% от ширины контейнера) */
+      margin-right: 1%; /* Отступ справа (1% от ширины контейнера) */
+      font-size: 16px; /* Уменьшаем размер шрифта на маленьких экранах */
+    }
+
+    .container-columns {
+    display: flex;
+    flex-direction: column;          /* Располагаем элементы вертикально */
+    align-items: center;          /* Центрируем элементы по горизонтали */
+    padding: 1px;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
+  }
+
+  .text-block, .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
+    width: 80%;                      /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
+    margin: auto;                /* Добавляем внешние отступы сверху и снизу и автоматически центрируем по горизонтали */
+    margin-left: 1%; /* Отступ слева (1% от ширины контейнера) */
+    margin-right: 1%; /* Отступ справа (1% от ширины контейнера) */
+    padding: 17px 30px;
+    margin-bottom: 7px;
+    margin-top: -5px;
+  }
+
+  .container5 {
+      display: flex;
+      flex-wrap: wrap; /* Перенос на новую строку, если не помещается */
+    }
+
+    .container3 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(2, 1fr); /* 5 колонок равной ширины */
+        }
+
+        .container4 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(2, 1fr); /* 5 колонок равной ширины */
+        }
+  }
+
+  /* Общие стили уведомления */
+.notification-container {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  position: fixed; /* Фиксированное положение на экране */
+  top: 20px; /* Отступ от верха */
+  left: 50%; /* Центрирование по горизонтали */
+  transform: translateX(-50%); /* Точное центрирование */
+  background-color: #030308;
+  border: 2px solid #383838;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Убедитесь, что уведомление поверх всего */
+  border-radius: 5px;
+  opacity: 0; /* Начальная прозрачность */
+  visibility: hidden; /* Скрыто изначально */
+  transition: all 0.3s ease-in-out; /* Плавные переходы */
+  width: 75%;
+}
+
+#update-notification {
+  text-align: center; /* Центрируем содержимое контейнера */
+}
+
+.notification-container.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  text-align: center; /* Центрируем текст внутри notification content*/
+  display: inline-block; /* Важно!  Позволяет контенту адаптироваться к ширине текста */
+  width: 100%; /* Текст будет занимать всю ширину рамки */
+}
+
+.notification-content p {
+  margin-top: 13px;
+  margin-bottom: 0;
+}
+
+.close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #ffffff; /* Цвет крестика по умолчанию */
+}
+
+.close-button:hover {
+  color: #949494;
+}
+
+/* Анимация появления (пример) */
+@keyframes slideIn {
+  from {
+    transform: translateX(-50%) translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Анимация исчезновения (пример) */
+@keyframes slideOut {
+  from {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-50%) translateY(-50px);
+    opacity: 0;
+  }
+}
+
+.notification-container.show {
+  animation: slideIn 0.3s ease-in-out forwards;
+}
+
+.notification-container.hide {
+  animation: slideOut 0.3s ease-in-out forwards;
+}
+
+.notification-content h3 {
+    margin: 0 0 5px 0; /* Отступ снизу */
+    font-size: 1.2em; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    text-align: center;
+}
+
+#customPrice {
+    font-size: 16px;
+    width: 96%;
+    background-color: #131320;
+    border: 1px solid #00685a;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: -2px;
+    margin-top: -5px;
+}
+
+#setPrice {
+    font-size: 14px;
+    width: 100%;
+    background-color: #131320;
+    border: 1px solid #00685a;
+    color: white;
+    border-radius: 5px;
+    margin-top: 0px;
+    margin-bottom: -5px;
+}
+
+        p {
+          font-size: 20px;
+          color: #ffffff;
+          line-height: 1.2;
+          text-align: left;
+        }
+
+        #setShortcutButton {
+        font-size: 20px;
+        width: 220px;
+        display: block;
+        margin: 15px 0px;
+        padding: 10px 10px;
+        border-radius: 8px;
+        border: 1px solid #ffffff;
+        background: #000000;
+        color: white;
+        display: inline-block; /* Добавлено */
+        cursor: pointer;
+        }
+
+        #setShortcutButton:hover {
+        background: #0e0e0e;
+      }
+
+      #clearShortcutButton {
+        font-size: 20px;
+        width: 320px;
+        display: block;
+        margin: 15px 0px;
+        padding: 10px 10px;
+        border-radius: 8px;
+        border: 1px solid #ffffff;
+        background: #000000;
+        color: white;
+        display: inline-block; /* Добавлено */
+        cursor: pointer;
+        margin-left: 15px;
+        }
+
+        #shortcutInput {
+        font-size: 20px;
+        width: 170px;
+        display: block;
+        padding: 10px 10px;
+        border-radius: 8px;
+        border: 1px solid #ffffff;
+        background: #000000;
+        color: #ffffff83;
+        display: inline-block; /* Добавлено */
+        margin-right: 5px; /* Добавлено для небольшого отступа */
+        margin-left: 5px;
+      }
+
+        #currentShortcut {
+        font-size: 20px;
+        display: inline-block;
+      }
+
+    #toggleControlsButton {
+    position: absolute;
+    right: 5px;
+    top: 14px;
+    transform: translateY(-50%);
+    width: 30px; /* Ширина полоски */
+    height: 30px; /* Высота полоски */
+    border: none;
+    cursor: pointer;
+    transition: width 0.3s ease; /* Плавное изменение ширины */
+    overflow: hidden; /* Скрываем текст, пока полоска узкая */
+    white-space: nowrap; /* Запрещаем перенос текста */
+    color: white; 
+    background-color: #00000000;
+  }
+
+  #toggleControlsButton:hover {
+    width: 400px; /* Расширяем полоску при наведении */
+    color: white; /* Показываем текст при наведении */
+    background-color: #00000000;
+  }
+
+  /* Добавьте значок (например, шестеренку) с помощью CSS или Font Awesome */
+  #toggleControlsButton::before {
+    content: "\2699"; /* Unicode символ шестеренки */
+    margin-right: 7px;
+    font-size: 24px;
+  }
+
+      #controlsContainer {
+      display: none; /* Скрываем блок по умолчанию */
+      margin-left: 50px;
+      margin-top: 20px;
+    }
+
+.container93 {
+  display: flex;
+  flex-direction: column; /* Располагаем ссылки вертикально */
+  justify-content: flex-start; /* Выравниваем по верхнему краю */
+  align-items: flex-start; /* Выравниваем по левому краю */
+  margin-bottom: -75px;
+  margin-top: -10px;
+  margin-left: -7px;
+}
+
+.link-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px; /* Отступ между ссылками */
+}
+
+.image-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.image-link img {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.image-link:hover img {
+  transform: scale(1.1);
+}
+
+.image-link-text {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  white-space: nowrap;
+  position: absolute;   /* Абсолютное позиционирование */
+  top: 50%;              /* Центрирование по вертикали */
+  left: 0;               /* Выравнивание по левому краю контейнера */
+  transform: translateY(-50%) translateX(-100%); /* Для левой */
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 1;
+}
+
+.link-wrapper.left-linkk {
+margin-left: -2.8px;
+}
+
+/* Начальное положение текста и анимация для правой ссылки */
+.link-wrapper.left-link .image-link-text {
+  left: -100%; /* Начинаем с левого края картинки (правая ссылка) */
+  transform: translateY(-50%) translateX(40%); /* Скрываем текст сразу за границей */
+}
+
+.link-wrapper.left-link:hover .image-link-text {
+  opacity: 1;
+  transform: translateY(-45%) translateX(70%); /* Выезд текста вправо */
+}
+
+.link-wrapper.left-linkk .image-link-text {
+  left: -100%; /* Начинаем с левого края картинки (правая ссылка) */
+  transform: translateY(-50%) translateX(40%); /* Скрываем текст сразу за границей */
+}
+
+.link-wrapper.left-linkk:hover .image-link-text {
+  opacity: 1;
+  transform: translateY(-50%) translateX(70%); /* Выезд текста вправо */
+}
+
+/* Стили для выпадающего списка */
+.container57 {
+    display: flex;
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Выравниваем по вертикали (опционально) */
+  }
+
+  .header-wrapper {
+  width: 100%; /* Занимает всю ширину */
+  display: flex;
+  justify-content: center; /*Центрируем container */
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  align-items: center; /* Выравниваем по вертикали (опционально) */
+}
+
+.dropdown-button {
+  background-color: #131320;
+  color: white;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 0px;
+  margin-right: -9px;
+  transform: translateY(-12%); /* Сдвигаем обратно на половину ширины элемента, чтобы он был точно по центру */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #131320;
+  z-index: 1;
+  border-radius: 6px; /* Закругленные углы */
+  border: 2px solid #00685a;
+  font-size: 22px;
+  width: 98.5%;
+  margin-top: -10px;
+}
+
+.dropdown-content a {
+  color: #ffffff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #323232;
+  border-radius: 4px; /* Закругленные углы */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+  /*--------------------------------------------------- Скрываем маски по умолчанию------------------------------------------------ */
+#itemm option:contains("маск") {
+  display: none;
+}
