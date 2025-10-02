@@ -1230,9 +1230,6 @@ body.light {
       }
 
   body.light #clearShortcutButton {
-        margin: 15px 0px;
-        padding: 10px 10px;
-        border-radius: 8px;
         border: 1px solid #000000;
         background: #ffffff;
         color: #000000;
@@ -1464,8 +1461,6 @@ body.light {
       }
 
   body.pink #clearShortcutButton {
-        margin: 15px 0px;
-        padding: 10px 10px;
         border-radius: 100px;
         border: 1px solid #000000;
         background: #ffffff;
