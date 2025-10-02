@@ -1033,7 +1033,7 @@ margin-left: -2.8px;
   
 /* ---- Контейнер полукруга справа ---- */
 .theme-arc {
-  position: fixed;
+  position: absolute;
   right: -16px;
   top: 65px;
   transform: translateY(-50%);
