@@ -1015,12 +1015,140 @@ margin-left: -2.8px;
   display: none;
 }
 
-.theme-switcher {
-  text-align: right;
-  margin-top: 21px;
-  margin-bottom: -47px;
+/* ---- Базовые темы: по умолчанию — темная ---- */
+:root{
+  --btn-size: 40px;
+  --r1: 1px; /* радиусы смещения для дуги (можно подправить) */
+  --r2: 1px;
+  --r3: 1px;
+  --bg-dark:#000000;
+  --fg-dark:#ffffff;
+  --bg-light:#ffffff;
+  --fg-light:#000000;
+  --bg-pink:#ffffff;
+  --fg-pink:#000000;
+  --accent:#00685a;
+  --menu-bg:#131320;
 }
   
+/* ---- Контейнер полукруга справа ---- */
+.theme-arc {
+  position: fixed;
+  right: -16px;
+  top: 65px;
+  transform: translateY(-50%);
+  width: calc(var(--btn-size));
+  height: calc(var(--btn-size));
+  pointer-events: none; /* по умолчанию клики проходят — включаем для открытых элементов */
+  z-index: 10000;
+}
+
+/* Стрелка-тоггл (видна всегда) */
+.theme-toggle {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  box-sizing: border-box;
+  padding: 0 2px 1.9px 0;
+  transform: translateY(-50%);
+  width: var(--btn-size);
+  height: var(--btn-size);
+  border-radius: 1000px;
+  background: var(--menu-bg);
+  color: var(--fg-dark);
+  border: 2px solid var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform .2s ease, background .2s;
+}
+
+/* поворот стрелки когда открыт */
+.theme-arc.open .theme-toggle { transform: translateY(-50%) translateX(-10px) rotate(180deg); }
+
+/* общие стили для опций */
+.theme-option {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%); /* стартовая позиция — по центру стрелки */
+  width: var(--btn-size);
+  height: var(--btn-size);
+  border-radius: 50%;
+  background: var(--menu-bg);
+  color: var(--fg-dark);
+  border: 2px solid var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  pointer-events: none; /* пока закрыто — не кликабельны */
+  opacity: 0;
+  transition: transform .35s cubic-bezier(.2,.9,.2,1), opacity .25s, box-shadow .2s;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  font-size: 20px;
+  user-select: none;
+}
+
+/* Когда меню открыто — делаем опции видимыми и кликабельными */
+.theme-arc.open { pointer-events: auto; }
+.theme-arc.open .theme-option {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Положение опций в дуге (подберите под себя) */
+.theme-arc.open .opt-1 { transform: translate(-45px, -60px); box-sizing: border-box; padding: 0 0 3.2px 0; } /* верхний */
+.theme-arc.open .opt-2 { transform: translate(-63px, -20px); box-sizing: border-box; padding: 0 0 1.5px 0; }   /* средний */
+.theme-arc.open .opt-3 { transform: translate(-45px, 20px); box-sizing: border-box; padding: 0 0 5px 0; }  /* нижний */
+
+/* hover эффект */
+.theme-option:hover { transform: scale(1.06); box-shadow: 0 10px 26px rgba(0,0,0,.35); }
+
+/* ---- Подсказки (tooltip) ---- */
+.theme-option::after{
+  content: attr(data-tip);
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  white-space: nowrap;
+  background: #ffffff;
+  color: #000000;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .12s, transform .12s;
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);
+}
+
+/* Адаптация подсказки под текущую тему (чтобы на светлой теме подсказка была темной и наоборот) */
+body.light .theme-option::after{ background:#000000;color:#ffffff; }
+body.pink .theme-option::after{ background:#000000;color:#ffffff; }
+
+/* Показ подсказки при hover и focus */
+.theme-option:hover::after,
+.theme-option:focus::after{
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Скрываем стрелку фокуса outline, но оставляем доступность */
+.theme-toggle:focus, .theme-option:focus { outline: 2px solid #00685a7e; outline-offset: 2px; }
+
+/* Убираем текстовый выбор */
+.theme-toggle, .theme-option { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+
+/* Немного стилизации для разных тем (кнопки) */
+body.light .theme-toggle,
+body.light .theme-option { background: #969696; color: var(--fg-light); border-color: #000000;  }
+body.pink .theme-toggle,
+body.pink .theme-option { background: #969696; color: var(--fg-pink); border-color: #000000; }
+
     /*----------------------------------------------------------------------------------- Светлая тема----------------------------------------------------------------- */
 body.light {
     font-family: Arial, sans-serif;
