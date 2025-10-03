@@ -1048,7 +1048,7 @@ margin-left: -2.8px;
   --bg-light:#ffffff;
   --fg-light:#000000;
   --bg-pink:#ffffff;
-  --fg-pink:#000000;
+  --fg-pink:#fbc3d5;
   --accent:#008979;
   --menu-bg:#131320;
 }
@@ -1169,7 +1169,7 @@ body.pink .theme-option::after{ background:#000000;color:#ffffff; }
 body.light .theme-toggle,
 body.light .theme-option { background: #ffffff00; color: var(--fg-light); border-color: #000000;  }
 body.pink .theme-toggle,
-body.pink .theme-option { background: #fffbee00; color: var(--fg-pink); border-color: #000000; }
+body.pink .theme-option { background: #fffbf000; color: var(--fg-pink); border-color: #fbc3d5; }
 
     /*----------------------------------------------------------------------------------- Светлая тема----------------------------------------------------------------- */
   body.light {
