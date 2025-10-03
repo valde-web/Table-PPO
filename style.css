@@ -987,7 +987,7 @@ margin-left: -2.8px;
   position: absolute;
   z-index: 1;
   border-radius: 6px; /* Закругленные углы */
-  border: 2px solid #00685a;
+  border: 2px solid #008979;
   font-size: 22px;
   width: 98.5%;
   margin-top: -10px;
@@ -1010,6 +1010,28 @@ margin-left: -2.8px;
   display: block;
 }
 
+/* Ползунок (thumb) */
+::-webkit-scrollbar-thumb {
+  background-color: #008979; /* Цвет ползунка */
+  border-radius: 100px;   /* Скругление углов ползунка */
+}
+
+/* Трек (track) */
+::-webkit-scrollbar-track {
+  background-color: #131320; /* Цвет фона трека */
+}
+
+/* Улучшение внешнего вида при наведении курсора на ползунок */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #01585b; /* Цвет ползунка при наведении */
+}
+
+/* Общая ширина полосы прокрутки */
+::-webkit-scrollbar {
+  width: 12px; /* Ширина вертикальной полосы прокрутки */
+  height: 12px; /* Высота горизонтальной полосы прокрутки */
+}
+
   /*--------------------------------------------------- Скрываем маски по умолчанию------------------------------------------------ */
 #itemm option:contains("маск") {
   display: none;
@@ -1027,14 +1049,14 @@ margin-left: -2.8px;
   --fg-light:#000000;
   --bg-pink:#ffffff;
   --fg-pink:#000000;
-  --accent:#00685a;
+  --accent:#008979;
   --menu-bg:#131320;
 }
   
 /* ---- Контейнер полукруга справа ---- */
 .theme-arc {
   position: absolute;
-  right: -16px;
+  right: 12px; /* ----------- Было -16 ------------- */
   top: 65px;
   transform: translateY(-50%);
   width: calc(var(--btn-size));
@@ -1100,9 +1122,9 @@ margin-left: -2.8px;
 }
 
 /* Положение опций в дуге (подберите под себя) */
-.theme-arc.open .opt-1 { transform: translate(-45px, -60px); box-sizing: border-box; padding: 0 0 3.2px 0; } /* верхний */
-.theme-arc.open .opt-2 { transform: translate(-63px, -20px); box-sizing: border-box; padding: 0 0 1.5px 0; }   /* средний */
-.theme-arc.open .opt-3 { transform: translate(-45px, 20px); box-sizing: border-box; padding: 0 0 5px 0; }  /* нижний */
+.theme-arc.open .opt-1 { transform: translate(-45px, -60px); box-sizing: border-box; padding: 0 0 3.2px 0; background-color: #888888; } /* верхний */
+.theme-arc.open .opt-2 { transform: translate(-63px, -20px); box-sizing: border-box; padding: 0 0 1.5px 0; background-color: #888888; }   /* средний */
+.theme-arc.open .opt-3 { transform: translate(-45px, 20px); box-sizing: border-box; padding: 0 0 5px 0; background-color: #888888; }  /* нижний */
 
 /* hover эффект */
 .theme-option:hover { transform: scale(1.06); box-shadow: 0 10px 26px rgba(0,0,0,.35); }
@@ -1145,12 +1167,12 @@ body.pink .theme-option::after{ background:#000000;color:#ffffff; }
 
 /* Немного стилизации для разных тем (кнопки) */
 body.light .theme-toggle,
-body.light .theme-option { background: #969696; color: var(--fg-light); border-color: #000000;  }
+body.light .theme-option { background: #ffffff00; color: var(--fg-light); border-color: #000000;  }
 body.pink .theme-toggle,
-body.pink .theme-option { background: #969696; color: var(--fg-pink); border-color: #000000; }
+body.pink .theme-option { background: #fffbee00; color: var(--fg-pink); border-color: #000000; }
 
     /*----------------------------------------------------------------------------------- Светлая тема----------------------------------------------------------------- */
-body.light {
+  body.light {
     font-family: Arial, sans-serif;
     background: white;
     color: black;
@@ -1260,6 +1282,35 @@ body.light {
   color: #616161;
 }
 
+/* Ползунок (thumb) */
+body.light ::-webkit-scrollbar-thumb {
+  background-color: #000000; /* Цвет ползунка */
+}
+
+/* Трек (track) */
+body.light ::-webkit-scrollbar-track {
+  background-color: #ffffff; /* Цвет фона трека */
+}
+
+/* Улучшение внешнего вида при наведении курсора на ползунок */
+body.light ::-webkit-scrollbar-thumb:hover {
+  background-color: #686868; /* Цвет ползунка при наведении */
+}
+
+body.light::-webkit-scrollbar-thumb {
+  background-color: #000000; /* Цвет ползунка */
+}
+
+/* Трек (track) */
+body.light::-webkit-scrollbar-track {
+  background-color: #ffffff; /* Цвет фона трека */
+}
+
+/* Улучшение внешнего вида при наведении курсора на ползунок */
+body.light::-webkit-scrollbar-thumb:hover {
+  background-color: #686868; /* Цвет ползунка при наведении */
+}
+
     /*----------------------------------------------------------------------------------- Пикми тема----------------------------------------------------------------- */
 
   body.pink {
@@ -1294,7 +1345,7 @@ body.light {
     border-radius: 100px;
     box-shadow: 0 0 15px #ff77a2;
     border: 1px solid #000000;
-    background-image: linear-gradient(160deg, #ffd6e3, #ffb4cc);
+    background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
     }
 
     body.pink .item-text {
@@ -1302,7 +1353,7 @@ body.light {
   }
 
     body.pink .table-title {
-    background-image: linear-gradient(160deg, #ffd6e3, #ffb4cc);
+    background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
     }
 
   body.pink .item.highlight {
@@ -1314,7 +1365,7 @@ body.light {
   }
 
   body.pink .section-header {
-    background-image: linear-gradient(160deg, #ffd6e3, #ffb4cc);
+    background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
   }
 
   body.pink .section-header:hover {
@@ -1324,27 +1375,27 @@ body.light {
   body.pink .text-block {
     box-shadow: 0 0 15px #ff77a2;
     border: 1px solid #000000;
-    background-image: linear-gradient(160deg, #ffd6e3, #ffb4cc);
+    background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
 }
 
   body.pink .search-input {
             font-family: Arial, sans-serif;
             border: 2px solid #000000;
             border-radius: 100px;
-            background-image: linear-gradient(160deg, #ffd6e3, #ffb4cc);
+            background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
             color: #000000;
         }
 
   body.pink .draft-area {
             border: 2px solid #000000;
-            background-image: linear-gradient(160deg, #ffd6e3, #ffb4cc);
+            background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
             border-radius: 100px;
         }
 
   body.pink .cell {
             box-shadow: 0 0 15px #ff77a2;
             border: 1px solid #000000;
-            background-image: linear-gradient(160deg, #ffd6e3, #ffb4cc);
+            background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
             border-radius: 100px;
             padding: 20px 20px 20px 30px; 
         }
@@ -1356,7 +1407,7 @@ body.light {
 
   body.pink .column {
       border: 2px solid #000000;
-      background-image: linear-gradient(160deg, #ffd6e3, #ffb4cc);
+      background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
     }
 
   body.pink select {
@@ -1367,14 +1418,14 @@ body.light {
 
   body.pink #result {
       border: 2px solid #000000;
-      background-image: linear-gradient(160deg, #ffd6e3, #ffb4cc);
+      background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
       border-radius: 100px;
     }
 
   body.pink #copyButton {
     border: 2px solid #000000;
     border-radius: 100px;
-    background-image: linear-gradient(160deg, #ffd6e3, #ffb4cc);
+    background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
     color: #000000;
 }
 
@@ -1386,7 +1437,7 @@ body.light {
   body.pink #clearButton {
     border: 2px solid #000000;
     border-radius: 100px;
-    background-image: linear-gradient(160deg, #ffd6e3, #ffb4cc);
+    background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
     color: #000000;
 }
 
@@ -1399,20 +1450,20 @@ body.light {
   body.pink #itemmSearch {
   border: 2px solid #000000;
   border-radius: 100px;
-  background-image: linear-gradient(160deg, #ffd6e3, #ffb4cc);
+  background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
   color: #000000;
 }
 
   body.pink #itemmmSearch {
   border: 2px solid #000000;
   border-radius: 100px;
-  background-image: linear-gradient(160deg, #ffd6e3, #ffb4cc);
+  background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
   color: #000000;
 }
 
   body.pink #draft-area-5 {
             border: 2px solid #000000;
-            background-image: linear-gradient(160deg, #ffd6e3, #ffb4cc);
+            background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
             border-radius: 100px;
             padding: 17px 20px 17px 20px;
         }
@@ -1424,19 +1475,19 @@ body.light {
 
   body.pink #customPrice {
     border: 1px solid #000000;
-    background-image: linear-gradient(160deg, #ffd6e3, #ffb4cc);
+    background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
     border-radius: 100px;
 }
 
   body.pink #setPrice {
     border: 1px solid #000000;
-    background-image: linear-gradient(160deg, #ffd6e3, #ffb4cc);
+    background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
     border-radius: 100px;
 }
 
   body.pink .dropdown-content {
   border: 2px solid #000000;
-  background-image: linear-gradient(160deg, #ffd6e3, #ffb4cc);
+  background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
 }
 
   body.pink .dropdown-content a {
@@ -1494,4 +1545,33 @@ body.light {
 
   body.pink .close-button:hover {
   color: #616161;
+}
+
+/* Ползунок (thumb) */
+body.pink::-webkit-scrollbar-thumb {
+  background-color: #fbc0d2; /* Цвет ползунка */
+}
+
+/* Трек (track) */
+body.pink::-webkit-scrollbar-track {
+  background-color: #fffbee; /* Цвет фона трека */
+}
+
+/* Улучшение внешнего вида при наведении курсора на ползунок */
+body.pink::-webkit-scrollbar-thumb:hover {
+  background-color: #e5b2c1; /* Цвет ползунка при наведении */
+}
+
+body.pink ::-webkit-scrollbar-thumb {
+  background-color: #fbc0d2; /* Цвет ползунка */
+}
+
+/* Трек (track) */
+body.pink ::-webkit-scrollbar-track {
+  background-color: #fffbee; /* Цвет фона трека */
+}
+
+/* Улучшение внешнего вида при наведении курсора на ползунок */
+body.pink ::-webkit-scrollbar-thumb:hover {
+  background-color: #e5b2c1; /* Цвет ползунка при наведении */
 }
