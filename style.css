@@ -1149,8 +1149,8 @@ margin-left: -2.8px;
 }
 
 /* Адаптация подсказки под текущую тему (чтобы на светлой теме подсказка была темной и наоборот) */
-body.light .theme-option::after{ background:#000000;color:#ffffff; }
-body.pink .theme-option::after{ background:#000000;color:#ffffff; }
+html.light .theme-option::after{ background:#000000;color:#ffffff; }
+html.pink .theme-option::after{ background:#000000;color:#ffffff; }
 
 /* Показ подсказки при hover и focus */
 .theme-option:hover::after,
@@ -1166,79 +1166,79 @@ body.pink .theme-option::after{ background:#000000;color:#ffffff; }
 .theme-toggle, .theme-option { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 /* Немного стилизации для разных тем (кнопки) */
-body.light .theme-toggle,
-body.light .theme-option { background: #ffffff00; color: var(--fg-light); border-color: #000000;  }
-body.pink .theme-toggle,
-body.pink .theme-option { background: #fffbf000; color: var(--fg-pink); border-color: #fbc3d5; }
+html.light .theme-toggle,
+html.light .theme-option { background: #ffffff00; color: var(--fg-light); border-color: #000000;  }
+html.pink .theme-toggle,
+html.pink .theme-option { background: #fffbf000; color: var(--fg-pink); border-color: #fbc3d5; }
 
     /*----------------------------------------------------------------------------------- Светлая тема----------------------------------------------------------------- */
-  body.light {
+  html.light body {
     font-family: Arial, sans-serif;
     background: white;
     color: black;
   }
 
-  body.light #toggleControlsButton {
+  html.light #toggleControlsButton {
     background-color: #00000000;
     color: #000000;
   }
 
-  body.light .dropdown-button {
+  html.light .dropdown-button {
     color: #000000;
   }  
 
-  body.light .dropdown-content {
+  html.light .dropdown-content {
   background-color: #ffffff;
 }
 
-  body.light .dropdown-content a {
+  html.light .dropdown-content a {
   color: #000000;
 }
 
-  body.light .dropdown-content a:hover {
+  html.light .dropdown-content a:hover {
   background-color: #b9b9b9;
 }
 
-  body.light .image-link-text {
+  html.light .image-link-text {
   color: #000000;
 }
 
-  body.light select {
+  html.light select {
       color: #000000;
       background-color: #ffffff;
     }
 
-  body.light #copyButton {
+  html.light #copyButton {
     color: #000000;
 }
 
-  body.light #clearButton {
+  html.light #clearButton {
     color: #000000;
 }
 
-  body.light #itemmSearch {
+  html.light #itemmSearch {
   color: #000000;
 }
 
-  body.light #itemm {
+  html.light #itemm {
     color: #000000;
     background-color: #ffffff;
 }
 
-  body.light #itemmmSearch {
+  html.light #itemmmSearch {
   color: #000000;
 }
 
-  body.light #itemmm {
+  html.light #itemmm {
     color: #000000;
     background-color: #ffffff;
 }
 
-  body.light .search-input {
+  html.light .search-input {
             color: #000000;
         }
 
-  body.light #setShortcutButton {
+  html.light #setShortcutButton {
         margin: 15px 0px;
         padding: 10px 10px;
         border-radius: 8px;
@@ -1247,21 +1247,21 @@ body.pink .theme-option { background: #fffbf000; color: var(--fg-pink); border-c
         background-color: #ffffff;
         }
 
-  body.light #setShortcutButton:hover {
+  html.light #setShortcutButton:hover {
         background: #e3e3e3;
       }
 
-  body.light #clearShortcutButton {
+  html.light #clearShortcutButton {
         border: 1px solid #000000;
         background: #ffffff;
         color: #000000;
         }
 
-  body.light #clearShortcutButton:hover {
+  html.light #clearShortcutButton:hover {
         background: #e3e3e3;
       }
 
-  body.light #shortcutInput {
+  html.light #shortcutInput {
         padding: 10px 10px;
         border-radius: 8px;
         border: 1px solid #000000;
@@ -1269,116 +1269,116 @@ body.pink .theme-option { background: #fffbf000; color: var(--fg-pink); border-c
         color: #949494db;
       }
 
-  body.light .notification-container {
+  html.light .notification-container {
   background-color: #ffffff;
   border: 2px solid #000000;
 }
 
-  body.light .close-button {
+  html.light .close-button {
   color: #000000;
 }
 
-  body.light .close-button:hover {
+  html.light .close-button:hover {
   color: #616161;
 }
 
 /* Ползунок (thumb) */
-body.light ::-webkit-scrollbar-thumb {
+html.light ::-webkit-scrollbar-thumb {
   background-color: #000000; /* Цвет ползунка */
 }
 
 /* Трек (track) */
-body.light ::-webkit-scrollbar-track {
+html.light ::-webkit-scrollbar-track {
   background-color: #ffffff; /* Цвет фона трека */
 }
 
 /* Улучшение внешнего вида при наведении курсора на ползунок */
-body.light ::-webkit-scrollbar-thumb:hover {
+html.light ::-webkit-scrollbar-thumb:hover {
   background-color: #686868; /* Цвет ползунка при наведении */
 }
 
-body.light::-webkit-scrollbar-thumb {
+html.light::-webkit-scrollbar-thumb {
   background-color: #000000; /* Цвет ползунка */
 }
 
 /* Трек (track) */
-body.light::-webkit-scrollbar-track {
+html.light::-webkit-scrollbar-track {
   background-color: #ffffff; /* Цвет фона трека */
 }
 
 /* Улучшение внешнего вида при наведении курсора на ползунок */
-body.light::-webkit-scrollbar-thumb:hover {
+html.light::-webkit-scrollbar-thumb:hover {
   background-color: #686868; /* Цвет ползунка при наведении */
 }
 
     /*----------------------------------------------------------------------------------- Пикми тема----------------------------------------------------------------- */
 
-  body.pink {
+  html.pink body {
     font-family: Arial, sans-serif;
     background: #fffbee;
     color: #000000;
   }
 
-  body.pink #toggleControlsButton {
+  html.pink #toggleControlsButton {
     color: #000000;
   }
 
-  body.pink .dropdown-button {
+  html.pink .dropdown-button {
     color: #000000;
   }  
 
-  body.pink .image-link-text {
+  html.pink .image-link-text {
   color: #000000;
 }
 
-  body.pink #itemm {
+  html.pink #itemm {
     color: #000000;
     background-color: #fbc3d5;
 }
 
-  body.pink #itemmm {
+  html.pink #itemmm {
     color: #000000;
     background-color: #fbc3d5;
 }
 
-    body.pink .item {
+    html.pink .item {
     border-radius: 100px;
     box-shadow: 0 0 15px #ff77a2;
     border: 1px solid #000000;
     background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
     }
 
-    body.pink .item-text {
+    html.pink .item-text {
     padding: 20px 20px 20px 30px; 
   }
 
-    body.pink .table-title {
+    html.pink .table-title {
     background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
     }
 
-  body.pink .item.highlight {
+  html.pink .item.highlight {
   box-shadow: 0 0 15px 3px #5b5b5b; /* яркая зелёная подсветка */
 }
 
-  body.pink .section {
+  html.pink .section {
     border: 2px solid #000000;
   }
 
-  body.pink .section-header {
+  html.pink .section-header {
     background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
   }
 
-  body.pink .section-header:hover {
+  html.pink .section-header:hover {
     background-image: linear-gradient(160deg, #eecbd6, #e4a2b7);
   }
 
-  body.pink .text-block {
+  html.pink .text-block {
     box-shadow: 0 0 15px #ff77a2;
     border: 1px solid #000000;
     background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
 }
 
-  body.pink .search-input {
+  html.pink .search-input {
             font-family: Arial, sans-serif;
             border: 2px solid #000000;
             border-radius: 100px;
@@ -1386,13 +1386,13 @@ body.light::-webkit-scrollbar-thumb:hover {
             color: #000000;
         }
 
-  body.pink .draft-area {
+  html.pink .draft-area {
             border: 2px solid #000000;
             background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
             border-radius: 100px;
         }
 
-  body.pink .cell {
+  html.pink .cell {
             box-shadow: 0 0 15px #ff77a2;
             border: 1px solid #000000;
             background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
@@ -1400,105 +1400,105 @@ body.light::-webkit-scrollbar-thumb:hover {
             padding: 20px 20px 20px 30px; 
         }
 
-  body.pink .cell.highlight {
+  html.pink .cell.highlight {
     box-shadow: 0 0 15px 3px #5b5b5b; /* яркая зелёная подсветка */
     transition: box-shadow 0.3s ease;
   }
 
-  body.pink .column {
+  html.pink .column {
       border: 2px solid #000000;
       background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
     }
 
-  body.pink select {
+  html.pink select {
       border: 2px solid #000000;
       background-color: #fbc3d5;
       color: #000000;
     }
 
-  body.pink #result {
+  html.pink #result {
       border: 2px solid #000000;
       background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
       border-radius: 100px;
     }
 
-  body.pink #copyButton {
+  html.pink #copyButton {
     border: 2px solid #000000;
     border-radius: 100px;
     background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
     color: #000000;
 }
 
-  body.pink #copyButton.copied {
+  html.pink #copyButton.copied {
     border: 2px solid #838383;
     border-radius: 100px;
 }
 
-  body.pink #clearButton {
+  html.pink #clearButton {
     border: 2px solid #000000;
     border-radius: 100px;
     background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
     color: #000000;
 }
 
-  body.pink #clearButton.copied {
+  html.pink #clearButton.copied {
     border: 2px solid #838383;
     border-radius: 100px;
     font-size: 20px;
 }
 
-  body.pink #itemmSearch {
+  html.pink #itemmSearch {
   border: 2px solid #000000;
   border-radius: 100px;
   background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
   color: #000000;
 }
 
-  body.pink #itemmmSearch {
+  html.pink #itemmmSearch {
   border: 2px solid #000000;
   border-radius: 100px;
   background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
   color: #000000;
 }
 
-  body.pink #draft-area-5 {
+  html.pink #draft-area-5 {
             border: 2px solid #000000;
             background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
             border-radius: 100px;
             padding: 17px 20px 17px 20px;
         }
 
-  body.pink .select-wrapper select {
+  html.pink .select-wrapper select {
       border: 2px solid #000000;
       border-radius: 100px;
     }
 
-  body.pink #customPrice {
+  html.pink #customPrice {
     border: 1px solid #000000;
     background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
     border-radius: 100px;
 }
 
-  body.pink #setPrice {
+  html.pink #setPrice {
     border: 1px solid #000000;
     background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
     border-radius: 100px;
 }
 
-  body.pink .dropdown-content {
+  html.pink .dropdown-content {
   border: 2px solid #000000;
   background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
 }
 
-  body.pink .dropdown-content a {
+  html.pink .dropdown-content a {
   color: #000000;
 }
 
-  body.pink .dropdown-content a:hover {
+  html.pink .dropdown-content a:hover {
   background-image: linear-gradient(160deg, #eecbd6, #e4a2b7);
 }
 
-  body.pink #setShortcutButton {
+  html.pink #setShortcutButton {
         margin: 15px 0px;
         padding: 10px 10px;
         border-radius: 100px;
@@ -1507,22 +1507,22 @@ body.light::-webkit-scrollbar-thumb:hover {
         background-color: #ffffff;
         }
 
-  body.pink #setShortcutButton:hover {
+  html.pink #setShortcutButton:hover {
         background: #e3e3e3;
       }
 
-  body.pink #clearShortcutButton {
+  html.pink #clearShortcutButton {
         border-radius: 100px;
         border: 1px solid #000000;
         background: #ffffff;
         color: #000000;
         }
 
-  body.pink #clearShortcutButton:hover {
+  html.pink #clearShortcutButton:hover {
         background: #e3e3e3;
       }
 
-  body.pink #shortcutInput {
+  html.pink #shortcutInput {
         padding: 10px 10px;
         border-radius: 100px;
         border: 1px solid #000000;
@@ -1530,48 +1530,48 @@ body.light::-webkit-scrollbar-thumb:hover {
         color: #949494db;
       }
 
-  body.pink .notification-container {
+  html.pink .notification-container {
   background-color: #ffffff;
   border: 2px solid #000000;
   padding: 20px;
   border-radius: 50px;
 }
 
-  body.pink .close-button {
+  html.pink .close-button {
   top: 10px;
   right: 20px;
   color: #000000;
 }
 
-  body.pink .close-button:hover {
+  html.pink .close-button:hover {
   color: #616161;
 }
 
 /* Ползунок (thumb) */
-body.pink::-webkit-scrollbar-thumb {
+html.pink::-webkit-scrollbar-thumb {
   background-color: #fbc0d2; /* Цвет ползунка */
 }
 
 /* Трек (track) */
-body.pink::-webkit-scrollbar-track {
+html.pink::-webkit-scrollbar-track {
   background-color: #fffbee; /* Цвет фона трека */
 }
 
 /* Улучшение внешнего вида при наведении курсора на ползунок */
-body.pink::-webkit-scrollbar-thumb:hover {
+html.pink::-webkit-scrollbar-thumb:hover {
   background-color: #e5b2c1; /* Цвет ползунка при наведении */
 }
 
-body.pink ::-webkit-scrollbar-thumb {
+html.pink ::-webkit-scrollbar-thumb {
   background-color: #fbc0d2; /* Цвет ползунка */
 }
 
 /* Трек (track) */
-body.pink ::-webkit-scrollbar-track {
+html.pink ::-webkit-scrollbar-track {
   background-color: #fffbee; /* Цвет фона трека */
 }
 
 /* Улучшение внешнего вида при наведении курсора на ползунок */
-body.pink ::-webkit-scrollbar-thumb:hover {
+html.pink ::-webkit-scrollbar-thumb:hover {
   background-color: #e5b2c1; /* Цвет ползунка при наведении */
 }
