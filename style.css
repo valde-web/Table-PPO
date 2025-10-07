@@ -1793,16 +1793,16 @@ html.pink ::-webkit-scrollbar-thumb:hover {
       }
 
   html.gta .notification-container {
-  background-color: #ffffff;
-  border: 2px solid #5C6A7B;
+  background-color: #000000;
+  border: 2px solid #8b8b8b;
 }
 
   html.gta .close-button {
-  color: #000000;
+  color: #ffffff;
 }
 
   html.gta .close-button:hover {
-  color: #616161;
+  color: #bcbcbc;
 }
 
 /* Ползунок (thumb) */
