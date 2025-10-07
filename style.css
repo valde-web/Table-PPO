@@ -846,140 +846,6 @@ margin-left: -2.8px;
   display: none;
 }
 
-/* ---- Базовые темы: по умолчанию — темная ---- */
-:root{
-  --btn-size: 40px;
-  --r1: 1px; /* радиусы смещения для дуги (можно подправить) */
-  --r2: 1px;
-  --r3: 1px;
-  --bg-dark:#000000;
-  --fg-dark:#ffffff;
-  --bg-light:#ffffff;
-  --fg-light:#000000;
-  --bg-pink:#ffffff;
-  --fg-pink:#fbc3d5;
-  --accent:#008979;
-  --menu-bg:#131320;
-}
-  
-/* ---- Контейнер полукруга справа ---- */
-.theme-arc {
-  position: absolute;
-  right: 12px; /* ----------- Было -16 ------------- */
-  top: 65px;
-  transform: translateY(-50%);
-  width: calc(var(--btn-size));
-  height: calc(var(--btn-size));
-  pointer-events: none; /* по умолчанию клики проходят — включаем для открытых элементов */
-  z-index: 10000;
-}
-
-/* Стрелка-тоггл (видна всегда) */
-.theme-toggle {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  box-sizing: border-box;
-  padding: 0 2px 1.9px 0;
-  transform: translateY(-50%);
-  width: var(--btn-size);
-  height: var(--btn-size);
-  border-radius: 1000px;
-  background: var(--menu-bg);
-  color: var(--fg-dark);
-  border: 2px solid var(--accent);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  pointer-events: auto;
-  transition: transform .2s ease, background .2s;
-}
-
-/* поворот стрелки когда открыт */
-.theme-arc.open .theme-toggle { transform: translateY(-50%) translateX(-10px) rotate(180deg); }
-
-/* общие стили для опций */
-.theme-option {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%); /* стартовая позиция — по центру стрелки */
-  width: var(--btn-size);
-  height: var(--btn-size);
-  border-radius: 50%;
-  background: var(--menu-bg);
-  color: var(--fg-dark);
-  border: 2px solid var(--accent);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  pointer-events: none; /* пока закрыто — не кликабельны */
-  opacity: 0;
-  transition: transform .35s cubic-bezier(.2,.9,.2,1), opacity .25s, box-shadow .2s;
-  box-shadow: 0 6px 18px rgba(0,0,0,.25);
-  font-size: 20px;
-  user-select: none;
-}
-
-/* Когда меню открыто — делаем опции видимыми и кликабельными */
-.theme-arc.open { pointer-events: auto; }
-.theme-arc.open .theme-option {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Положение опций в дуге (подберите под себя) */
-.theme-arc.open .opt-1 { transform: translate(-45px, -60px); box-sizing: border-box; padding: 0 0 3.2px 0; background-color: #888888; } /* верхний */
-.theme-arc.open .opt-2 { transform: translate(-63px, -20px); box-sizing: border-box; padding: 0 0 1.5px 0; background-color: #888888; }   /* средний */
-.theme-arc.open .opt-3 { transform: translate(-45px, 20px); box-sizing: border-box; padding: 0 0 5px 0; background-color: #888888; }  /* нижний */
-
-/* hover эффект */
-.theme-option:hover { transform: scale(1.06); box-shadow: 0 10px 26px rgba(0,0,0,.35); }
-
-/* ---- Подсказки (tooltip) ---- */
-.theme-option::after{
-  content: attr(data-tip);
-  position: absolute;
-  right: calc(100% + 12px);
-  top: 50%;
-  transform: translateY(-50%) translateX(6px);
-  white-space: nowrap;
-  background: #ffffff;
-  color: #000000;
-  padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 16px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .12s, transform .12s;
-  box-shadow: 0 6px 18px rgba(0,0,0,.15);
-}
-
-/* Адаптация подсказки под текущую тему (чтобы на светлой теме подсказка была темной и наоборот) */
-html.light .theme-option::after{ background:#000000;color:#ffffff; }
-html.pink .theme-option::after{ background:#000000;color:#ffffff; }
-
-/* Показ подсказки при hover и focus */
-.theme-option:hover::after,
-.theme-option:focus::after{
-  opacity: 1;
-  transform: translateY(-50%) translateX(0);
-}
-
-/* Скрываем стрелку фокуса outline, но оставляем доступность */
-.theme-toggle:focus, .theme-option:focus { outline: 2px solid #00685a7e; outline-offset: 2px; }
-
-/* Убираем текстовый выбор */
-.theme-toggle, .theme-option { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
-
-/* Немного стилизации для разных тем (кнопки) */
-html.light .theme-toggle,
-html.light .theme-option { background: #ffffff00; color: var(--fg-light); border-color: #000000;  }
-html.pink .theme-toggle,
-html.pink .theme-option { background: #fffbf000; color: var(--fg-pink); border-color: #fbc3d5; }
-
     /*---------------------------------------------------------------------------------------- Медиа запросы----------------------------------------------------------------- */
 
     @media (min-width: 1921px) {
@@ -1188,6 +1054,146 @@ html.pink .theme-option { background: #fffbf000; color: var(--fg-pink); border-c
             grid-template-columns: repeat(1, 1fr); /* 5 колонок равной ширины */
         }
   }
+
+/* ------------------------------------------------------------------------------------------------ Кнопка переключенния тем --------------------------------------- */
+:root{
+  --btn-size: 40px;
+  --r1: 1px; /* радиусы смещения для дуги (можно подправить) */
+  --r2: 1px;
+  --r3: 1px;
+  --r4: 1px;
+  --bg-dark:#000000;
+  --fg-dark:#ffffff;
+  --bg-light:#ffffff;
+  --fg-light:#000000;
+  --bg-pink:#ffffff;
+  --fg-pink:#fbc3d5;
+  --bg-gta:#ffffff;
+  --fg-gta:#FF7F50;
+  --accent:#008979;
+  --menu-bg:#131320;
+}
+
+/* Положение опций в дуге (подберите под себя) */
+.theme-arc.open .opt-1 { transform: translate(-45px, -60px); box-sizing: border-box; padding: 0 0 3.2px 0; background-color: #888888; } /* верхний */
+.theme-arc.open .opt-2 { transform: translate(-63px, -20px); box-sizing: border-box; padding: 0 0 1.5px 0; background-color: #888888; }   /* средний */
+.theme-arc.open .opt-3 { transform: translate(-45px, 20px); box-sizing: border-box; padding: 0 0 5px 0; background-color: #888888; }  /* нижний */
+.theme-arc.open .opt-4 { transform: translate(-2px, 30px); box-sizing: border-box; padding: 2px 0 0 0; background-color: #888888; }  /* нижний */
+
+/* Адаптация подсказки под текущую тему (чтобы на светлой теме подсказка была темной и наоборот) */
+html.light .theme-option::after{ background:#000000;color:#ffffff; }
+html.pink .theme-option::after{ background:#000000;color:#ffffff; }
+html.gta .theme-option::after{ background:#ffffff;color:#000000; }
+
+/* Немного стилизации для разных тем (кнопки) */
+html.light .theme-toggle,
+html.light .theme-option { background: #ffffff00; color: var(--fg-light); border-color: #000000;  }
+html.pink .theme-toggle,
+html.pink .theme-option { background: #fffbf000; color: var(--fg-pink); border-color: #fbc3d5; }
+html.gta .theme-toggle,
+html.gta .theme-option { background: #fffbf000; color: var(--fg-gta); border-color: #FF7F50; }
+  
+.theme-arc {
+  position: absolute;
+  right: 12px; /* ----------- Было -16 ------------- */
+  top: 65px;
+  transform: translateY(-50%);
+  width: calc(var(--btn-size));
+  height: calc(var(--btn-size));
+  pointer-events: none; /* по умолчанию клики проходят — включаем для открытых элементов */
+  z-index: 10000;
+}
+
+/* Стрелка-тоггл (видна всегда) */
+.theme-toggle {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  box-sizing: border-box;
+  padding: 0 2px 1.9px 0;
+  transform: translateY(-50%);
+  width: var(--btn-size);
+  height: var(--btn-size);
+  border-radius: 1000px;
+  background: var(--menu-bg);
+  color: var(--fg-dark);
+  border: 2px solid var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform .2s ease, background .2s;
+}
+
+/* поворот стрелки когда открыт */
+.theme-arc.open .theme-toggle { transform: translateY(-50%) translateX(-10px) rotate(180deg); }
+
+/* общие стили для опций */
+.theme-option {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%); /* стартовая позиция — по центру стрелки */
+  width: var(--btn-size);
+  height: var(--btn-size);
+  border-radius: 50%;
+  background: var(--menu-bg);
+  color: var(--fg-dark);
+  border: 2px solid var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  pointer-events: none; /* пока закрыто — не кликабельны */
+  opacity: 0;
+  transition: transform .35s cubic-bezier(.2,.9,.2,1), opacity .25s, box-shadow .2s;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  font-size: 20px;
+  user-select: none;
+}
+
+/* Когда меню открыто — делаем опции видимыми и кликабельными */
+.theme-arc.open { pointer-events: auto; }
+.theme-arc.open .theme-option {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* hover эффект */
+.theme-option:hover { transform: scale(1.06); box-shadow: 0 10px 26px rgba(0,0,0,.35); }
+
+/* ---- Подсказки (tooltip) ---- */
+.theme-option::after{
+  content: attr(data-tip);
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  white-space: nowrap;
+  background: #ffffff;
+  color: #000000;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .12s, transform .12s;
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);
+}
+
+/* Показ подсказки при hover и focus */
+.theme-option:hover::after,
+.theme-option:focus::after{
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Скрываем стрелку фокуса outline, но оставляем доступность */
+.theme-toggle:focus, .theme-option:focus { outline: 2px solid #00685a7e; outline-offset: 2px; }
+
+/* Убираем текстовый выбор */
+.theme-toggle, .theme-option { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
     /*----------------------------------------------------------------------------------- Светлая тема----------------------------------------------------------------- */
   html.light body {
@@ -1593,3 +1599,237 @@ html.pink ::-webkit-scrollbar-track {
 html.pink ::-webkit-scrollbar-thumb:hover {
   background-color: #e5b2c1; /* Цвет ползунка при наведении */
 }
+
+/*----------------------------------------------------------------------------------- GTA тема----------------------------------------------------------------- */
+
+  html.gta body {
+    font-family: Arial, sans-serif;
+    background: #1A2B3C;
+    color: #E0E0E0;
+  }
+
+  html.gta #toggleControlsButton {
+    color: #E0E0E0;
+  }
+
+  html.gta .dropdown-button {
+    color: #E0E0E0;
+  }  
+
+  html.gta .image-link-text {
+  color: #E0E0E0;
+}
+
+  html.gta #itemm {
+    color: #E0E0E0;
+    background-color: #2D3E50;
+}
+
+  html.gta #itemmm {
+    color: #E0E0E0;
+    background-color: #2D3E50;
+}
+
+    html.gta .item {
+    box-shadow: 0 0 15px #FF7F50;
+    border: 1px solid #FF7F50;
+    background-color: #2D3E50;
+    }
+
+    html.gta .table-title {
+    background-color: #2D3E50;
+    }
+
+  html.gta .item.highlight {
+  box-shadow: 0 0 15px 3px #ff9d7a; 
+}
+
+  html.gta .section {
+    border: 2px solid #c76542;
+  }
+
+  html.gta .section-header {
+    background-color: #c76542;
+    }
+
+  html.gta .section-header:hover {
+    background-color: #ab5739;
+    }
+
+  html.gta .text-block {
+    box-shadow: 0 0 15px #FF7F50;
+    border: 1px solid #FF7F50;
+    background-color: #2D3E50;
+    }
+
+  html.gta .search-input {
+            font-family: Arial, sans-serif;
+            border: 2px solid #FF7F50;
+            color: #E0E0E0;
+            background-color: #2D3E50;
+    }
+
+  html.gta .draft-area {
+            border: 2px solid #FF7F50;
+            background-color: #2D3E50;
+        }
+
+  html.gta .cell {
+            box-shadow: 0 0 15px #FF7F50;
+            border: 1px solid #FF7F50;
+            background-color: #2D3E50;
+        }
+
+  html.gta .cell.highlight {
+    box-shadow: 0 0 15px 3px #ff9d7a; /* яркая зелёная подсветка */
+    transition: box-shadow 0.3s ease;
+  }
+
+  html.gta .column {
+      border: 2px solid #FF7F50;
+    background-color: #2D3E50;
+    }
+
+  html.gta select {
+      border: 2px solid #FF7F50;
+      color: #E0E0E0;
+      background-color: #2D3E50;
+    }
+
+  html.gta #result {
+      border: 2px solid #FF7F50;
+      background-color: #2D3E50;
+    }
+
+  html.gta #copyButton {
+    border: 2px solid #FF7F50;
+    color: #E0E0E0;
+    background-color: #2D3E50;
+    }
+
+  html.gta #copyButton.copied {
+    border: 2px solid #ff9d7a;
+}
+
+  html.gta #clearButton {
+    border: 2px solid #FF7F50;
+    color: #E0E0E0;
+    background-color: #2D3E50;
+    }
+
+  html.gta #clearButton.copied {
+    border: 2px solid #ff9d7a;
+    font-size: 20px;
+}
+
+  html.gta #itemmSearch {
+  border: 2px solid #FF7F50;
+  color: #E0E0E0;
+  background-color: #2D3E50;
+  }
+
+  html.gta #itemmmSearch {
+  border: 2px solid #FF7F50;
+  color: #E0E0E0;
+  background-color: #2D3E50;
+  }
+
+  html.gta #draft-area-5 {
+            border: 2px solid #FF7F50;
+            background-color: #2D3E50;
+    }
+
+  html.gta .select-wrapper select {
+      border: 2px solid #FF7F50;
+    }
+
+  html.gta #customPrice {
+    border: 1px solid #FF7F50;
+    background-color: #2D3E50;
+    }
+
+  html.gta #setPrice {
+    border: 1px solid #FF7F50;
+    background-color: #2D3E50;
+    }
+
+  html.gta .dropdown-content {
+  border: 2px solid #FF7F50;
+    background-color: #2D3E50;
+    }
+
+  html.gta .dropdown-content a {
+  color: #E0E0E0;
+}
+
+  html.gta .dropdown-content a:hover {
+    background-color: #1b2530;
+    }
+
+  html.gta #setShortcutButton {
+        border: 1px solid #FF7F50;
+        color: #E0E0E0;
+        background-color: #000000;
+        }
+
+  html.gta #setShortcutButton:hover {
+        background: #000000;
+      }
+
+  html.gta #clearShortcutButton {
+        border: 1px solid #FF7F50;
+        background: #000000;
+        color: #E0E0E0;
+        }
+
+  html.gta #clearShortcutButton:hover {
+        background: #000000;
+      }
+
+  html.gta #shortcutInput {
+        border: 1px solid #FF7F50;
+        background: #000000;
+        color: #555555db;
+      }
+
+  html.gta .notification-container {
+  background-color: #ffffff;
+  border: 2px solid #5C6A7B;
+}
+
+  html.gta .close-button {
+  color: #000000;
+}
+
+  html.gta .close-button:hover {
+  color: #616161;
+}
+
+/* Ползунок (thumb) */
+html.gta::-webkit-scrollbar-thumb {
+    background-color: #FF7F50;
+    }
+
+/* Трек (track) */
+html.gta::-webkit-scrollbar-track {
+    background-color: #1A2B3C;
+    }
+
+/* Улучшение внешнего вида при наведении курсора на ползунок */
+html.gta::-webkit-scrollbar-thumb:hover {
+    background-color: #ff9d7a;
+    }
+
+html.gta ::-webkit-scrollbar-thumb {
+    background-color: #FF7F50;
+    }
+
+/* Трек (track) */
+html.gta ::-webkit-scrollbar-track {
+    background-color: #1A2B3C;
+    }
+
+/* Улучшение внешнего вида при наведении курсора на ползунок */
+html.gta ::-webkit-scrollbar-thumb:hover {
+    background-color: #ff9d7a;
+    }
