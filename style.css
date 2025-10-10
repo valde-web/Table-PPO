@@ -350,9 +350,8 @@ display: none;
 }
 
 #copyButton.copied {
-    border: 2px solid #00c58a;
+    box-shadow: 0 0 15px #006919;
     border-radius: 8px;
-    font-size: 20px;
 }
 
 #clearButton {
@@ -366,11 +365,17 @@ display: none;
     color: white;
 }
 
-#clearButton.copied {
-    border: 2px solid #00c58a;
-    border-radius: 8px;
-    font-size: 20px;
+    #clearButton:active {
+    box-shadow: 0 0 15px #006919;
 }
+
+    #copyButton:hover {
+    background-color: #1b1b2d;
+  }
+
+    #clearButton:hover {
+    background-color: #1b1b2d;
+  }
 
    .search-container {
   position: relative; /*  Для позиционирования списка */
@@ -585,6 +590,8 @@ display: none;
     border-radius: 5px;
     margin-bottom: -2px;
     margin-top: -5px;
+    background-color: #00000000;
+    color: white;
 }
 
 #setPrice {
@@ -594,6 +601,8 @@ display: none;
     border-radius: 5px;
     margin-top: 0px;
     margin-bottom: -5px;
+    background-color: #00000000;
+    color: white;
 }
 
         p {
@@ -1207,6 +1216,16 @@ html.gta .theme-option { background: #fffbf000; color: var(--fg-gta); border-col
     color: #000000;
   }
 
+  html.light #customPrice {
+    background: white;
+    color: #000000;
+}
+
+  html.light #setPrice {
+    background: white;
+    color: #000000;
+}
+
   html.light .dropdown-button {
     color: #000000;
   }  
@@ -1239,6 +1258,14 @@ html.gta .theme-option { background: #fffbf000; color: var(--fg-gta); border-col
   html.light #clearButton {
     color: #000000;
 }
+
+    html.light #copyButton:hover {
+    background-color: #b9b9b9;
+  }
+
+  html.light #clearButton:hover {
+    background-color: #b9b9b9;
+  }
 
   html.light #itemmSearch {
   color: #000000;
@@ -1456,6 +1483,7 @@ html.light::-webkit-scrollbar-thumb:hover {
   html.pink #copyButton.copied {
     border: 2px solid #838383;
     border-radius: 100px;
+    box-shadow: 0 0 15px 3px #000000;
 }
 
   html.pink #clearButton {
@@ -1465,11 +1493,17 @@ html.light::-webkit-scrollbar-thumb:hover {
     color: #000000;
 }
 
-  html.pink #clearButton.copied {
-    border: 2px solid #838383;
-    border-radius: 100px;
-    font-size: 20px;
+    html.pink #copyButton:hover {
+    background-image: linear-gradient(160deg, #fcc4d5, #ffb7cc);
+  }
+
+  html.pink #clearButton:active {
+    box-shadow: 0 0 15px 2px #000000;
 }
+
+  html.pink #clearButton:hover {
+    background-image: linear-gradient(160deg, #fcc4d5, #ffb7cc);
+  }
 
   html.pink #itemmSearch {
   border: 2px solid #000000;
@@ -1501,12 +1535,14 @@ html.light::-webkit-scrollbar-thumb:hover {
     border: 1px solid #000000;
     background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
     border-radius: 100px;
+    color: #000000;
 }
 
   html.pink #setPrice {
     border: 1px solid #000000;
     background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
     border-radius: 100px;
+    color: #000000;
 }
 
   html.pink .dropdown-content {
@@ -1681,7 +1717,7 @@ html.pink ::-webkit-scrollbar-thumb:hover {
         }
 
   html.gta .cell.highlight {
-    box-shadow: 0 0 15px 3px #ff9d7a; /* яркая зелёная подсветка */
+    box-shadow: 0 0 15px 3px #ff9d7a; 
     transition: box-shadow 0.3s ease;
   }
 
@@ -1707,20 +1743,28 @@ html.pink ::-webkit-scrollbar-thumb:hover {
     background-color: #2D3E50;
     }
 
-  html.gta #copyButton.copied {
-    border: 2px solid #ff9d7a;
-}
-
   html.gta #clearButton {
     border: 2px solid #FF7F50;
     color: #E0E0E0;
     background-color: #2D3E50;
     }
 
-  html.gta #clearButton.copied {
+    html.gta #copyButton.copied {
     border: 2px solid #ff9d7a;
-    font-size: 20px;
+    box-shadow: 0 0 15px 3px #ff9d7a;
 }
+
+  html.gta #clearButton:active {
+    box-shadow: 0 0 15px 2px #ff9d7a;
+}
+
+    html.gta #copyButton:hover {
+    background-color: #364b60;
+  }
+
+  html.gta #clearButton:hover {
+    background-color: #364b60;
+  }
 
   html.gta #itemmSearch {
   border: 2px solid #FF7F50;
@@ -1746,11 +1790,13 @@ html.pink ::-webkit-scrollbar-thumb:hover {
   html.gta #customPrice {
     border: 1px solid #FF7F50;
     background-color: #2D3E50;
+    color: #E0E0E0;
     }
 
   html.gta #setPrice {
     border: 1px solid #FF7F50;
     background-color: #2D3E50;
+    color: #E0E0E0;
     }
 
   html.gta .dropdown-content {
@@ -1763,7 +1809,7 @@ html.pink ::-webkit-scrollbar-thumb:hover {
 }
 
   html.gta .dropdown-content a:hover {
-    background-color: #1b2530;
+    background-color: #0f0f0f;
     }
 
   html.gta #setShortcutButton {
@@ -1773,7 +1819,7 @@ html.pink ::-webkit-scrollbar-thumb:hover {
         }
 
   html.gta #setShortcutButton:hover {
-        background: #000000;
+        background: #0f0f0f;
       }
 
   html.gta #clearShortcutButton {
@@ -1783,7 +1829,7 @@ html.pink ::-webkit-scrollbar-thumb:hover {
         }
 
   html.gta #clearShortcutButton:hover {
-        background: #000000;
+        background: #141414;
       }
 
   html.gta #shortcutInput {
