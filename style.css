@@ -132,7 +132,7 @@
 .text-block.right > div {
   columns: 2; /* Два столбца */
   column-gap: 20px; /* Расстояние между столбцами */
-  column-rule: 1px solid #ccc; /* Вертикальная черта между столбцами */
+  column-rule: 1px solid #ffffff; /* Вертикальная черта между столбцами */
 }
 
 .text-block.right strong {
@@ -1224,6 +1224,10 @@ html.gta .theme-option { background: #fffbf000; color: var(--fg-gta); border-col
     color: black;
   }
 
+  html.light .text-block.right > div {
+  column-rule: 1px solid #000000; /* Вертикальная черта между столбцами */
+}
+
   html.light #toggleControlsButton {
     background-color: #00000000;
     color: #000000;
@@ -1382,6 +1386,10 @@ html.light::-webkit-scrollbar-thumb:hover {
     background: #fffbee;
     color: #000000;
   }
+
+  html.pink .text-block.right > div {
+  column-rule: 1px solid #000000; /* Вертикальная черта между столбцами */
+}
 
   html.pink #toggleControlsButton {
     color: #000000;
@@ -1656,6 +1664,10 @@ html.pink ::-webkit-scrollbar-thumb:hover {
     background: #1A2B3C;
     color: #E0E0E0;
   }
+
+  html.gta .text-block.right > div {
+  column-rule: 1px solid #E0E0E0; /* Вертикальная черта между столбцами */
+}
 
   html.gta #toggleControlsButton {
     color: #E0E0E0;
