@@ -84,26 +84,32 @@
   }
 
   .item {
-    border-radius: 8px;
     text-align: left;
     cursor: pointer;
-    box-shadow: 0 0 15px #006919;
-    border: 1px solid #006919;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 0px solid transparent;
+    border-image-source: url("Ramka.svg"); 
+    border-image-slice: 0 0 0 0 fill;  
+    border-image-width: 0px; 
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    max-width: 300px;  
+    min-width: 100px; 
+    box-sizing: border-box; 
     }
 
   .item-text {
-    padding: 10px 11px 10px; 
+    padding: 14px 18px; 
     font-size: 17px;
-    flex-shrink: 0;
     line-height: 1.2;
+    flex-shrink: 0;
+    box-sizing: border-box; /*  Важно!  Чтобы padding не ломал размеры */
   }
 
 .item.highlight {
-  box-shadow: 0 0 15px 3px #00de9b; /* яркая зелёная подсветка */
-  transition: box-shadow 0.3s ease;
+  filter: drop-shadow(0 0 8px #006919);
 }
 
     .text-block {
@@ -259,24 +265,36 @@ display: none;
         }
 
         .cell {
-            box-shadow: 0 0 15px #006919;
-            border: 1px solid #006919;
-            text-align: left;
-            border-radius: 8px;
-            width: 100%; /* Важный момент: каждая ячейка занимает всю ширину своей колонки */
-            box-sizing: border-box;  /* Важно для учета padding и border */
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer; /* Изменяем курсор при наведении, чтобы показать, что ячейка кликабельна */
-            padding: 10px 11px; 
-            font-size: 17px;
-            flex-shrink: 0;
-            line-height: 1.2;
-        }
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 0px solid transparent;
+    border-image-source: url("Ramka.svg"); 
+    border-image-slice: 0 0 0 0 fill;  
+    border-image-width: 0px; 
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    max-width: 300px;  
+    min-width: 100px; 
+    box-sizing: border-box; 
+  }
 
     .cell.highlight {
-    box-shadow: 0 0 15px 3px #00b881; /* яркая зелёная подсветка */
-    transition: box-shadow 0.3s ease;
+    filter: drop-shadow(0 0 8px #006919);
+  }
+
+  .cell-text {
+    padding: 14px 18px; 
+    font-size: 17px;
+    line-height: 1.2;
+    flex-shrink: 0;
+    box-sizing: border-box; 
+  }
+
+  .hidden-cell {
+  display: none;
   }
 
 .container4 {
@@ -363,8 +381,9 @@ display: none;
 }
 
 #copyButton.copied {
-    box-shadow: 0 0 15px #006919;
+    border: 2px solid #00c58a;
     border-radius: 8px;
+    font-size: 20px;
 }
 
 #clearButton {
@@ -378,7 +397,7 @@ display: none;
     color: white;
 }
 
-    #clearButton:active {
+#clearButton:active {
     box-shadow: 0 0 15px #006919;
 }
 
@@ -600,11 +619,11 @@ display: none;
     font-size: 16px;
     width: 96%;
     border: 1px solid #00685a;
+    color: #ffffff;
+    background-color: #131320;
     border-radius: 5px;
     margin-bottom: -2px;
     margin-top: -5px;
-    background-color: #00000000;
-    color: white;
 }
 
 #setPrice {
@@ -614,8 +633,8 @@ display: none;
     border-radius: 5px;
     margin-top: 0px;
     margin-bottom: -5px;
-    background-color: #00000000;
-    color: white;
+    color: #ffffff;
+    background-color: #131320;
 }
 
         p {
@@ -702,7 +721,7 @@ display: none;
 
   /* Добавьте значок (например, шестеренку) с помощью CSS или Font Awesome */
   #toggleControlsButton::before {
-    content: "\2699"; /* Unicode символ шестеренки */
+    content: "\2699"; /* Unicode символ шестеренки */ 
     margin-right: 7px;
     font-size: 24px;
   }
@@ -863,219 +882,24 @@ margin-left: -2.8px;
   height: 12px; /* Высота горизонтальной полосы прокрутки */
 }
 
-  /*---------------------------------------================================------------ Скрываем маски по умолчанию------------------------------------------------ */
+.filterok {
+    /* margin-top: 150px; */
+    position: absolute; /*  Удаляем элемент из потока документа  */
+  width: 0;           /*  Зануляем ширину  */
+  height: 0;          /*  Зануляем высоту  */
+  overflow: hidden;    /*  Скрываем все, что выходит за границы  */
+  opacity: 0;         /* Делаем невидимым */
+  pointer-events: none; /*  Предотвращаем перехват событий мыши  */
+  }
+
+  /*--------------------------------------------------------------------------------------- Скрываем маски по умолчанию------------------------------------------------ */
 #itemm option:contains("маск") {
   display: none;
 }
 
-    /*---------------------------------------------------------------------------------------- Медиа запросы----------------------------------------------------------------- */
-
-    @media (min-width: 1921px) {
-    .items {
-        grid-template-columns: repeat(7, 1fr); /* 7 колонок на широкоформатных мониторах */
-        gap: 20px; /* Увеличим отступ */
-        padding: 20px 250px; /* Увеличим padding */
-    }
-    .item-text {
-        font-size: 20px; /* Немного увеличим размер шрифта */
-    }
-    .container-columns {
-  padding: 200px 450px; /* большой отступ слева и справа от колонок до краёв */
-    }
+.masked-hidden {
+  display: none !important;
 }
-
-    @media (max-width: 1920px) {
-  .container-columns {
-    align-items: center;             /* Центрируем элементы по горизонтали */
-    padding: 20%;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
-  }
-}
-
-    @media (max-width: 1700px) {
-  .container-columns {
-    padding: 13%;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
-  }
-}
-
-  @media (max-width: 1450px) {
-    .container-columns {
-    align-items: center;             /* Центрируем элементы по горизонтали */
-    padding: 5%;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
-  }
-
-  .items {
-      padding: 15px 15px;
-    }
-
-  .container3 {
-            display: grid; /* Используем Grid */
-            grid-template-columns: repeat(4, 1fr); /* 5 колонок равной ширины */
-            flex-wrap: wrap;        /* Разрешаем перенос на новую строку */
-            padding: 15px;
-            margin: 15px 15px; /* Отступ контейнера от краев страницы */
-            gap: 15px; /* Отступ между ячейками */
-        }
-
-        .container4 {
-            display: grid; /* Используем Grid */
-            grid-template-columns: repeat(4, 1fr); /* 5 колонок равной ширины */
-            flex-wrap: wrap;        /* Разрешаем перенос на новую строку */
-            padding: 15px;
-            margin: 15px 15px; /* Отступ контейнера от краев страницы */
-            gap: 15px; /* Отступ между ячейками */
-        }
-
-        .search-input {
-            margin-left: 10px;
-        }
-
-        .draft-area {
-            margin-left: 10px;
-        }
-
-        #result {
-          width: 98%;
-        }
-      }
-
-  @media (max-width: 1200px) {
-    .items {
-      grid-template-columns: repeat(4, 1fr); /* на средних экранах 4 в ряд */
-    }
-
-    .container-columns {
-    flex-direction: column;          /* Располагаем элементы вертикально */
-    align-items: center;             /* Центрируем элементы по горизонтали */
-    padding: 1px;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
-  }
-
-  .text-block {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
-    width: 60%;                      /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
-    margin-left: 2%; /* Отступ слева (5% от ширины контейнера) */
-    margin-right: 2%; /* Отступ справа (5% от ширины контейнера) */
-    padding: 13px 30px;
-    margin-bottom: 7px;
-    margin-top: -11.5px;
-    }
-
-    .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
-    width: 60%;                      /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
-    margin-left: 2%; /* Отступ слева (5% от ширины контейнера) */
-    margin-right: 2%; /* Отступ справа (5% от ширины контейнера) */
-    padding: 13px 30px;
-    margin-bottom: 7px;
-    margin-top: -20px;
-    }
-
-      .container3 {
-            display: grid; /* Используем Grid */
-            grid-template-columns: repeat(4, 1fr); /* 5 колонок равной ширины */
-            flex-wrap: wrap;
-        }
-
-        .container4 {
-            display: grid; /* Используем Grid */
-            grid-template-columns: repeat(4, 1fr); /* 5 колонок равной ширины */
-            flex-wrap: wrap;
-        }
-
-        .search-input {
-            margin-left: 1px;
-        }
-
-    .column {
-      font-size: 19px;
-    }
-  }
-
-  @media (max-width: 1000px) {
-
-    .text-block, .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
-    width: 95%;  
-    }
-
-    .draft-area {
-            margin-left: 1px;
-        }
-
-        #result {
-          width: 96%;
-        }
-
-        .items {
-      grid-template-columns: repeat(3, 1fr); /* на мобильных 1 в ряд */
-    } 
-
-    .container3 {
-            display: grid; /* Используем Grid */
-            grid-template-columns: repeat(3, 1fr); /* 5 колонок равной ширины */
-        }
-
-        .container4 {
-            display: grid; /* Используем Grid */
-            grid-template-columns: repeat(3, 1fr); /* 5 колонок равной ширины */
-        }
-  }  
-
-  @media (max-width: 800px) {
-    .items {
-      grid-template-columns: repeat(2, 1fr); /* на мобильных 1 в ряд */
-    } 
-
-    .item-text {
-      margin-left: 1%; /* Отступ слева (1% от ширины контейнера) */
-      margin-right: 1%; /* Отступ справа (1% от ширины контейнера) */
-      font-size: 16px; /* Уменьшаем размер шрифта на маленьких экранах */
-    }
-
-    .container-columns {
-    display: flex;
-    flex-direction: column;          /* Располагаем элементы вертикально */
-    align-items: center;          /* Центрируем элементы по горизонтали */
-    padding: 1px;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
-  }
-
-  .text-block, .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
-    width: 95%;                      /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
-    margin: auto;                /* Добавляем внешние отступы сверху и снизу и автоматически центрируем по горизонтали */
-    margin-left: 1%; /* Отступ слева (1% от ширины контейнера) */
-    margin-right: 1%; /* Отступ справа (1% от ширины контейнера) */
-    padding: 17px 30px;
-    margin-bottom: 7px;
-    margin-top: -5px;
-  }
-
-  .container5 {
-      display: flex;
-      flex-wrap: wrap; /* Перенос на новую строку, если не помещается */
-    }
-
-    .container3 {
-            display: grid; /* Используем Grid */
-            grid-template-columns: repeat(2, 1fr); /* 5 колонок равной ширины */
-        }
-
-        .container4 {
-            display: grid; /* Используем Grid */
-            grid-template-columns: repeat(2, 1fr); /* 5 колонок равной ширины */
-        }
-  }
-
-  @media (max-width: 600px) {
-    .items {
-      grid-template-columns: repeat(1, 1fr); /* на мобильных 1 в ряд */
-    } 
-
-    .container3 {
-            display: grid; /* Используем Grid */
-            grid-template-columns: repeat(1, 1fr); /* 5 колонок равной ширины */
-        }
-
-        .container4 {
-            display: grid; /* Используем Grid */
-            grid-template-columns: repeat(1, 1fr); /* 5 колонок равной ширины */
-        }
-  }
 
 /* ------------------------------------------------------------------------------------------------ Кнопка переключенния тем --------------------------------------- */
 :root{
@@ -1228,20 +1052,22 @@ html.gta .theme-option { background: #fffbf000; color: var(--fg-gta); border-col
   column-rule: 1px solid #000000; /* Вертикальная черта между столбцами */
 }
 
+  html.light .item {
+  border-image-source: url("RamkaLight.svg"); 
+  }
+
+  html.light .cell {
+  border-image-source: url("RamkaLight.svg"); 
+  }
+
+  html.light .hidden-cell {
+  display: none;
+  }
+
   html.light #toggleControlsButton {
     background-color: #00000000;
     color: #000000;
   }
-
-  html.light #customPrice {
-    background: white;
-    color: #000000;
-}
-
-  html.light #setPrice {
-    background: white;
-    color: #000000;
-}
 
   html.light .dropdown-button {
     color: #000000;
@@ -1277,11 +1103,11 @@ html.gta .theme-option { background: #fffbf000; color: var(--fg-gta); border-col
 }
 
     html.light #copyButton:hover {
-    background-color: #b9b9b9;
+    background-color: #e2e2e2;
   }
 
-  html.light #clearButton:hover {
-    background-color: #b9b9b9;
+    html.light #clearButton:hover {
+    background-color: #e2e2e2;
   }
 
   html.light #itemmSearch {
@@ -1305,6 +1131,16 @@ html.gta .theme-option { background: #fffbf000; color: var(--fg-gta); border-col
   html.light .search-input {
             color: #000000;
         }
+
+  html.light #customPrice {
+    color: #000000;
+    background-color: #ffffff;
+}
+
+html.light #setPrice {
+    color: #000000;
+    background-color: #ffffff;
+}
 
   html.light #setShortcutButton {
         margin: 15px 0px;
@@ -1352,7 +1188,7 @@ html.gta .theme-option { background: #fffbf000; color: var(--fg-gta); border-col
 
 /* Ползунок (thumb) */
 html.light ::-webkit-scrollbar-thumb {
-  background-color: #000000; /* Цвет ползунка */
+  background-color: #008979; /* Цвет ползунка */
 }
 
 /* Трек (track) */
@@ -1362,11 +1198,11 @@ html.light ::-webkit-scrollbar-track {
 
 /* Улучшение внешнего вида при наведении курсора на ползунок */
 html.light ::-webkit-scrollbar-thumb:hover {
-  background-color: #686868; /* Цвет ползунка при наведении */
+  background-color: #01585b; /* Цвет ползунка при наведении */
 }
 
 html.light::-webkit-scrollbar-thumb {
-  background-color: #000000; /* Цвет ползунка */
+  background-color: #008979; /* Цвет ползунка */
 }
 
 /* Трек (track) */
@@ -1376,7 +1212,7 @@ html.light::-webkit-scrollbar-track {
 
 /* Улучшение внешнего вида при наведении курсора на ползунок */
 html.light::-webkit-scrollbar-thumb:hover {
-  background-color: #686868; /* Цвет ползунка при наведении */
+  background-color: #01585b; /* Цвет ползунка при наведении */
 }
 
     /*----------------------------------------------------------------------------------- Пикми тема----------------------------------------------------------------- */
@@ -1413,24 +1249,61 @@ html.light::-webkit-scrollbar-thumb:hover {
     background-color: #fbc3d5;
 }
 
+    html.pink .items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px;
+    padding: 20px 90px;
+    box-sizing: border-box;
+  }
+
     html.pink .item {
-    border-radius: 100px;
-    box-shadow: 0 0 15px #ff77a2;
-    border: 1px solid #000000;
-    background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
+    width: 100%;
+    height: 0; /* Важно: высота 0 */
+    padding-bottom: 66%; /* соотношение 4:3*/
+    position: relative; 
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    background-image: url("cloud.svg");
+    background-size: cover;
+    background-repeat: no-repeat; 
+    box-shadow: none;
+    border: none;
+    margin-bottom: 5px;
+    background-position: center; /* Центрирует изображение фона */
+    box-sizing: border-box;
+    max-width: 1000px;  
+    min-width: 10px; 
+    }
+
+    html.pink .item.highlight {
+    filter: drop-shadow(0 0 14px #ff77a2);
     }
 
     html.pink .item-text {
-    padding: 20px 20px 20px 30px; 
+    position: absolute;
+    top: 45.7%;
+    left: 21%;
+    right: 15.5%;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    pointer-events: none; /* Позволяет кликать сквозь текст */
+    font-size: 17px;
+    line-height: 1.2;
+    flex-shrink: 0;
+    box-sizing: border-box; /*  Важно!  Чтобы padding не ломал размеры */
+    z-index: 1;
+    padding: 0 0; 
   }
 
     html.pink .table-title {
     background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
     }
-
-  html.pink .item.highlight {
-  box-shadow: 0 0 15px 3px #5b5b5b; /* яркая зелёная подсветка */
-}
 
   html.pink .section {
     border: 2px solid #000000;
@@ -1464,17 +1337,59 @@ html.light::-webkit-scrollbar-thumb:hover {
             border-radius: 100px;
         }
 
+  html.pink .container4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px;
+    margin: 20px 90px;
+    padding: 0 0;
+    box-sizing: border-box;
+  }
+
   html.pink .cell {
-            box-shadow: 0 0 15px #ff77a2;
-            border: 1px solid #000000;
-            background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
-            border-radius: 100px;
-            padding: 20px 20px 20px 30px; 
-        }
+    width: 100%;
+    height: 0; /* Важно: высота 0 */
+    padding-bottom: 66%; /* соотношение 4:3*/
+    position: relative; 
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 40px;
+    background-image: url("cloud.svg");
+    background-size: cover;
+    background-repeat: no-repeat; 
+    box-shadow: none;
+    border: none;
+    margin-bottom: 5px;
+    max-width: 1000px;  
+    min-width: 10px; 
+    }
 
   html.pink .cell.highlight {
-    box-shadow: 0 0 15px 3px #5b5b5b; /* яркая зелёная подсветка */
-    transition: box-shadow 0.3s ease;
+    filter: drop-shadow(0 0 14px #ff77a2);
+  }
+
+    html.pink .cell-text {
+    position: absolute;
+    top: 45.7%;
+    left: 21%;
+    right: 15.5%;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    pointer-events: none; /* Позволяет кликать сквозь текст */
+    font-size: 17px;
+    line-height: 1.2;
+    flex-shrink: 0;
+    box-sizing: border-box; /*  Важно!  Чтобы padding не ломал размеры */
+    z-index: 1;
+    padding: 0 0; 
+  }
+
+  html.pink .hidden-cell {
+  display: none !important;
   }
 
   html.pink .column {
@@ -1514,7 +1429,7 @@ html.light::-webkit-scrollbar-thumb:hover {
     color: #000000;
 }
 
-    html.pink #copyButton:hover {
+  html.pink #copyButton:hover {
     background-image: linear-gradient(160deg, #fcc4d5, #ffb7cc);
   }
 
@@ -1692,18 +1607,29 @@ html.pink ::-webkit-scrollbar-thumb:hover {
 }
 
     html.gta .item {
-    box-shadow: 0 0 15px #FF7F50;
-    border: 1px solid #FF7F50;
-    background-color: #2D3E50;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 0px solid transparent;
+    border-image-source: url("RamkaGTA.svg"); 
+    border-image-slice: 0 0 0 0 fill;  
+    border-image-width: 0px; 
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    max-width: 300px;  
+    min-width: 100px; 
+    box-sizing: border-box; 
+    }
+
+    html.gta .item.highlight {
+    filter: drop-shadow(0 0 8px #FF7F50);
     }
 
     html.gta .table-title {
     background-color: #2D3E50;
     }
-
-  html.gta .item.highlight {
-  box-shadow: 0 0 15px 3px #ff9d7a; 
-}
 
   html.gta .section {
     border: 2px solid #c76542;
@@ -1736,14 +1662,27 @@ html.pink ::-webkit-scrollbar-thumb:hover {
         }
 
   html.gta .cell {
-            box-shadow: 0 0 15px #FF7F50;
-            border: 1px solid #FF7F50;
-            background-color: #2D3E50;
-        }
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 0px solid transparent;
+    border-image-source: url("RamkaGTA.svg"); 
+    border-image-slice: 0 0 0 0 fill;  
+    border-image-width: 0px; 
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    max-width: 300px;  
+    min-width: 100px; 
+    box-sizing: border-box; 
+    }
 
   html.gta .cell.highlight {
-    box-shadow: 0 0 15px 3px #ff9d7a; 
-    transition: box-shadow 0.3s ease;
+    filter: drop-shadow(0 0 8px #FF7F50);
+  }
+
+  html.gta .hidden-cell {
+  display: none;
   }
 
   html.gta .column {
@@ -1774,7 +1713,7 @@ html.pink ::-webkit-scrollbar-thumb:hover {
     background-color: #2D3E50;
     }
 
-    html.gta #copyButton.copied {
+  html.gta #copyButton.copied {
     border: 2px solid #ff9d7a;
     box-shadow: 0 0 15px 3px #ff9d7a;
 }
@@ -1834,7 +1773,7 @@ html.pink ::-webkit-scrollbar-thumb:hover {
 }
 
   html.gta .dropdown-content a:hover {
-    background-color: #0f0f0f;
+    background-color: #1b2530;
     }
 
   html.gta #setShortcutButton {
@@ -1844,7 +1783,7 @@ html.pink ::-webkit-scrollbar-thumb:hover {
         }
 
   html.gta #setShortcutButton:hover {
-        background: #0f0f0f;
+        background: #000000;
       }
 
   html.gta #clearShortcutButton {
@@ -1854,7 +1793,7 @@ html.pink ::-webkit-scrollbar-thumb:hover {
         }
 
   html.gta #clearShortcutButton:hover {
-        background: #141414;
+        background: #000000;
       }
 
   html.gta #shortcutInput {
@@ -1904,3 +1843,263 @@ html.gta ::-webkit-scrollbar-track {
 html.gta ::-webkit-scrollbar-thumb:hover {
     background-color: #ff9d7a;
     }
+
+/*---------------------------------------------------------------------------------------- Медиа запросы----------------------------------------------------------------- */
+
+    @media (min-width: 1921px) {
+    .items {
+        grid-template-columns: repeat(7, 1fr); /* 7 колонок на широкоформатных мониторах */
+        gap: 20px; /* Увеличим отступ */
+        padding: 20px 250px; /* Увеличим padding */
+    }
+    .item-text {
+        font-size: 20px; /* Немного увеличим размер шрифта */
+    }
+    .container-columns {
+  padding: 200px 450px; /* большой отступ слева и справа от колонок до краёв */
+    }
+
+    html.pink .items {
+    grid-template-columns: repeat(5, 1fr) !important; 
+    padding: 20px 90px;
+  }
+
+  html.pink .container4 {
+    grid-template-columns: repeat(5, 1fr) !important; 
+    padding: 20px 90px;
+  }
+}
+
+    @media (max-width: 1920px) {
+  .container-columns {
+    align-items: center;             /* Центрируем элементы по горизонтали */
+    padding: 20%;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
+  }
+}
+
+    @media (max-width: 1700px) {
+  .container-columns {
+    padding: 13%;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
+  }
+
+  html.pink .items {
+    grid-template-columns: repeat(3, 1fr) !important; 
+    padding: 20px 90px;
+  }
+
+  html.pink .container4 {
+    grid-template-columns: repeat(3, 1fr) !important; 
+    margin: 20px 90px;
+  }
+}
+
+  @media (max-width: 1450px) {
+    .container-columns {
+    align-items: center;             /* Центрируем элементы по горизонтали */
+    padding: 1%;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
+  }
+
+  .items {
+      padding: 15px 15px;
+    }
+
+  .container3 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(4, 1fr); /* 5 колонок равной ширины */
+            flex-wrap: wrap;        /* Разрешаем перенос на новую строку */
+            padding: 15px;
+            margin: 15px 15px; /* Отступ контейнера от краев страницы */
+            gap: 15px; /* Отступ между ячейками */
+        }
+
+        .container4 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(4, 1fr); /* 5 колонок равной ширины */
+            flex-wrap: wrap;        /* Разрешаем перенос на новую строку */
+            padding: 15px;
+            margin: 15px 15px; /* Отступ контейнера от краев страницы */
+            gap: 15px; /* Отступ между ячейками */
+        }
+
+        .search-input {
+            margin-left: 10px;
+        }
+
+        .draft-area {
+            margin-left: 10px;
+        }
+
+        #result {
+          width: 98%;
+        }
+      }
+    
+  @media (max-width: 1350px) {
+    html.pink .items {
+    grid-template-columns: repeat(2, 1fr) !important; 
+    padding: 20px 50px !important;
+  }
+
+  html.pink .container4 {
+    grid-template-columns: repeat(2, 1fr) !important; 
+    margin: 20px 50px !important;
+  }
+}
+
+  @media (max-width: 1200px) {
+    .items {
+      grid-template-columns: repeat(4, 1fr); /* на средних экранах 4 в ряд */
+    }
+
+    .container-columns {
+    flex-direction: column;          /* Располагаем элементы вертикально */
+    align-items: center;             /* Центрируем элементы по горизонтали */
+    padding: 1px;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
+  }
+
+  .text-block {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
+    width: 60%;                      /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
+    margin-left: 2%; /* Отступ слева (5% от ширины контейнера) */
+    margin-right: 2%; /* Отступ справа (5% от ширины контейнера) */
+    padding: 13px 30px;
+    margin-bottom: 7px;
+    margin-top: -11.5px;
+    }
+
+    .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
+    width: 60%;                      /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
+    margin-left: 2%; /* Отступ слева (5% от ширины контейнера) */
+    margin-right: 2%; /* Отступ справа (5% от ширины контейнера) */
+    padding: 13px 30px;
+    margin-bottom: 7px;
+    margin-top: -20px;
+    }
+
+      .container3 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(4, 1fr); /* 5 колонок равной ширины */
+            flex-wrap: wrap;
+        }
+
+        .container4 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(4, 1fr); /* 5 колонок равной ширины */
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            margin-left: 1px;
+        }
+
+    .column {
+      font-size: 19px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .text-block, .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
+    width: 95%;  
+    }
+
+    .draft-area {
+            margin-left: 1px;
+        }
+
+        #result {
+          width: 96%;
+        }
+
+        .items {
+      grid-template-columns: repeat(3, 1fr); /* на мобильных 1 в ряд */
+    } 
+
+  html.pink .items {
+  grid-template-columns: repeat(2, 1fr) !important; 
+  padding: 15px 15px !important;
+  }
+
+  html.pink .container4 {
+  grid-template-columns: repeat(2, 1fr) !important; 
+  margin: 15px 15px !important;
+  }
+
+    .container3 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(3, 1fr); /* 5 колонок равной ширины */
+        }
+
+        .container4 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(3, 1fr); /* 5 колонок равной ширины */
+        }
+  }  
+
+  @media (max-width: 820px) {
+    html.pink .items {
+    grid-template-columns: repeat(1, 1fr) !important; 
+  }
+
+    html.pink .container4 {
+    grid-template-columns: repeat(1, 1fr) !important; 
+  }
+}
+
+  @media (max-width: 800px) {
+    .items {
+      grid-template-columns: repeat(2, 1fr); /* на мобильных 1 в ряд */
+    } 
+
+    .item-text {
+      margin-left: 1%; /* Отступ слева (1% от ширины контейнера) */
+      margin-right: 1%; /* Отступ справа (1% от ширины контейнера) */
+      font-size: 16px; /* Уменьшаем размер шрифта на маленьких экранах */
+    }
+
+    .container-columns {
+    display: flex;
+    flex-direction: column;          /* Располагаем элементы вертикально */
+    align-items: center;          /* Центрируем элементы по горизонтали */
+    padding: 1px;                  /* Уменьшаем отступы, чтобы колонки не были слишком далеко от краев экрана */
+  }
+
+  .text-block, .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
+    width: 95%;                      /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
+    margin: auto;                /* Добавляем внешние отступы сверху и снизу и автоматически центрируем по горизонтали */
+    margin-left: 1%; /* Отступ слева (1% от ширины контейнера) */
+    margin-right: 1%; /* Отступ справа (1% от ширины контейнера) */
+    padding: 17px 30px;
+    margin-bottom: 7px;
+    margin-top: -5px;
+  }
+
+  .container5 {
+      display: flex;
+      flex-wrap: wrap; /* Перенос на новую строку, если не помещается */
+    }
+
+    .container3 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(2, 1fr); /* 5 колонок равной ширины */
+        }
+
+        .container4 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(2, 1fr); /* 5 колонок равной ширины */
+        }
+  }
+
+  @media (max-width: 600px) {
+    .items {
+      grid-template-columns: repeat(1, 1fr); /* на мобильных 1 в ряд */
+    } 
+
+    .container3 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(1, 1fr); /* 5 колонок равной ширины */
+        }
+
+        .container4 {
+            display: grid; /* Используем Grid */
+            grid-template-columns: repeat(1, 1fr); /* 5 колонок равной ширины */
+        }
+  }
