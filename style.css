@@ -1350,7 +1350,7 @@ html.light::-webkit-scrollbar-thumb:hover {
   html.pink .cell {
     width: 100%;
     height: 0; /* Важно: высота 0 */
-    padding-bottom: 66%; /* соотношение 4:3*/
+    padding-bottom: 62%; /* соотношение 4:3*/
     position: relative; 
     text-align: left;
     cursor: pointer;
@@ -1374,9 +1374,10 @@ html.light::-webkit-scrollbar-thumb:hover {
 
     html.pink .cell-text {
     position: absolute;
-    top: 45.7%;
-    left: 21%;
-    right: 15.5%;
+    left: 18.3%;
+    right: 13.53%;
+    top: 36%;
+    bottom: 26.72%;
     font-weight: 400;
     display: flex;
     align-items: center;
