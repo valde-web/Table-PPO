@@ -1948,6 +1948,16 @@ html.gta ::-webkit-scrollbar-thumb:hover {
   }
 }
 
+  @media (max-width: 1260px) {
+    .text-block {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
+    flex-basis: 480px;                     /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
+    }
+
+    .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
+    flex-basis: 600px;                     /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
+    }
+  }
+
   @media (max-width: 1200px) {
     .items {
       grid-template-columns: repeat(4, 1fr); /* на средних экранах 4 в ряд */
@@ -1975,6 +1985,7 @@ html.gta ::-webkit-scrollbar-thumb:hover {
     padding: 13px 30px;
     margin-bottom: 7px;
     margin-top: -20px;
+    max-height: 470px;
     }
 
       .container3 {
@@ -1995,6 +2006,16 @@ html.gta ::-webkit-scrollbar-thumb:hover {
 
     .column {
       font-size: 19px;
+    }
+  }
+  @media (max-width: 1100px) {
+    .text-block {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
+    width: 70%; 
+    }
+
+    .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
+    width: 70%;                      /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
+    max-height: 470px;
     }
   }
 
@@ -2070,7 +2091,7 @@ html.gta ::-webkit-scrollbar-thumb:hover {
     margin-left: 1%; /* Отступ слева (1% от ширины контейнера) */
     margin-right: 1%; /* Отступ справа (1% от ширины контейнера) */
     padding: 17px 30px;
-    margin-bottom: 7px;
+    margin-bottom: -6px;
     margin-top: -5px;
   }
 
@@ -2090,6 +2111,16 @@ html.gta ::-webkit-scrollbar-thumb:hover {
         }
   }
 
+  @media (max-width: 680px) {
+    .text-block {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
+    font-size: 19px;
+    }
+
+    .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
+    font-size: 19px;
+    }
+  }
+
   @media (max-width: 600px) {
     .items {
       grid-template-columns: repeat(1, 1fr); /* на мобильных 1 в ряд */
@@ -2104,4 +2135,12 @@ html.gta ::-webkit-scrollbar-thumb:hover {
             display: grid; /* Используем Grid */
             grid-template-columns: repeat(1, 1fr); /* 5 колонок равной ширины */
         }
+
+    .text-block {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
+    font-size: 18px;
+    }
+
+    .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
+    font-size: 18px;
+    }
   }
