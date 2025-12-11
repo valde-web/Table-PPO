@@ -860,6 +860,115 @@ margin-left: -2.8px;
   display: block;
 }
 
+/* Стили для оверлея */
+#tutorial-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+    z-index: 9998; /* Должен быть ниже инструкций, но выше контента */
+    transition: opacity 0.3s ease;
+}
+
+/* Стили для блока с инструкциями */
+#tutorial-box {
+    position: fixed;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    z-index: 10001; /* Выше оверлея */
+    color: #333;
+    font-family: Arial, sans-serif;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0; /* Изначально скрыт */
+    transform: translateY(20px);
+}
+
+#tutorial-box p {
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Кнопка закрытия внутри блока инструкций */
+.tutorial-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #666;
+    line-height: 1;
+}
+.tutorial-close-btn:hover {
+    color: #333;
+}
+
+/* Кнопки навигации */
+.tutorial-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.tutorial-nav-btn {
+    background-color: #000f20;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.tutorial-nav-btn:hover:not(:disabled) {
+    background-color: #002f62;
+}
+
+.tutorial-nav-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#tutorial-step-counter {
+    font-size: 14px;
+    color: #555;
+    white-space: nowrap;
+}
+
+/* Стили для выделяемого элемента */
+.tutorial-highlighted {
+    position: relative; /* Важно для z-index */
+    z-index: 9999; /* Поднимаем элемент над оверлеем */
+    box-shadow: 0 0 0 5px rgba(0, 45, 93, 0.8), 0 0 15px rgba(0, 45, 93, 0.8); /* Яркая синяя рамка и свечение */
+    border-radius: 5px; /* Скругление углов для рамки */
+    transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+
+/* Optional: пульсирующий эффект для привлечения внимания */
+.tutorial-highlighted.pulsing {
+    animation: pulseHighlight 1.5s infinite alternate;
+}
+
+@keyframes pulseHighlight {
+    from {
+        box-shadow: 0 0 0 5px rgba(0, 45, 93, 0.8), 0 0 15px rgba(0, 45, 93, 0.8);
+    }
+    to {
+        box-shadow: 0 0 0 5px rgba(0, 123, 255, 0.6), 0 0 25px rgba(0, 123, 255, 1);
+    }
+}
+
 /* Ползунок (thumb) */
 ::-webkit-scrollbar-thumb {
   background-color: #008979; /* Цвет ползунка */

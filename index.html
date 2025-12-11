@@ -44,6 +44,23 @@
   </div>
 </div>
 
+  <!-- Элементы для пошаговой инструкции -->
+<div id="tutorial-overlay" style="display: none;"></div>
+
+<div id="tutorial-box" style="display: none;">
+    <button id="tutorial-close-btn" class="tutorial-close-btn">×</button>
+    <p id="tutorial-text"></p>
+    <div class="tutorial-navigation">
+        <button id="tutorial-prev-btn" class="tutorial-nav-btn" disabled>← Назад</button>
+        <span id="tutorial-step-counter"></span>
+        <button id="tutorial-next-btn" class="tutorial-nav-btn">Далее →</button>
+    </div>
+</div>
+
+<!-- Кнопка для запуска инструкции (можно разместить где угодно, например, в хедере или футере) -->
+<button id="start-tutorial-btn" style="position: absolute; top: 44px; right: 90px; padding: 10px 18px; background-color: #595959; color: white; border: none; border-radius: 5px; cursor: pointer; z-index: 9990;">Инструкция</button>
+
+
 <button id="toggleControlsButton" style="font-size: 22px;">Настройки бинда для приложения</button>
 
       <div id="controlsContainer" style="display: none;">
@@ -1122,11 +1139,11 @@
     <div>
     <h3>Уведомление об изменениях</h3>
     <p>&middot; Добавлены все новые автомобили, одежда, номерные рамки и прочее из нового БП. Заметите ошибку пишите в дискорд.</p>
+    <p>&middot; Ещё добавил инструкцию по использованию таблицы. Рекомендую всем ознакомиться, мало ли чего-то из показанного вы не знали. Просьба проверить и посмотреть ошибки, потому что вроде бы все нормально, но мог не заметить недочеты, допустим не там фокус сделан, просто не работает или вам не нравится цвет кнопок.</p>
   </div>
 </div>
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
