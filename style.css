@@ -2177,11 +2177,11 @@ html.gta ::-webkit-scrollbar-thumb:hover {
 
 @media (max-width: 812px) {
     .text-block {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
-    font-size: 19px;
+    font-size: 18.5px;
     }
 
     .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
-    font-size: 19px;
+    font-size: 18.5px;
     }
   }
 
@@ -2231,11 +2231,11 @@ html.gta ::-webkit-scrollbar-thumb:hover {
 
   @media (max-width: 695px) {
     .text-block {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
-    font-size: 18.5px;
+    font-size: 18px;
     }
 
     .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
-    font-size: 18.5px;
+    font-size: 18px;
     }
   }
 
