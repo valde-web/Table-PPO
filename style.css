@@ -2084,6 +2084,7 @@ html.gta ::-webkit-scrollbar-thumb:hover {
     padding: 13px 30px;
     margin-bottom: 7px;
     margin-top: -11.5px;
+    font-size: 19px;
     }
 
     .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
@@ -2093,7 +2094,8 @@ html.gta ::-webkit-scrollbar-thumb:hover {
     padding: 13px 30px;
     margin-bottom: 7px;
     margin-top: -20px;
-    max-height: 494px;
+    max-height: 467px;
+    font-size: 19px;
     }
 
       .container3 {
@@ -2123,7 +2125,7 @@ html.gta ::-webkit-scrollbar-thumb:hover {
 
     .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
     width: 80%;                      /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
-    max-height: 494px;
+    max-height: 467px;
     }
   }
 
@@ -2211,6 +2213,7 @@ html.gta ::-webkit-scrollbar-thumb:hover {
     padding: 17px 30px;
     margin-bottom: -6px;
     margin-top: -5px;
+    font-size: 18px;
   }
 
   .container5 {
@@ -2229,13 +2232,13 @@ html.gta ::-webkit-scrollbar-thumb:hover {
         }
   }
 
-  @media (max-width: 695px) {
+  @media (max-width: 699px) {
     .text-block {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
-    font-size: 18px;
+    font-size: 17.5px;
     }
 
     .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
-    font-size: 18px;
+    font-size: 17.5px;
     }
   }
 
