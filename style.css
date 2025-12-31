@@ -1016,6 +1016,7 @@ margin-left: -2.8px;
   --r2: 1px;
   --r3: 1px;
   --r4: 1px;
+  --r5: 1px;
   --bg-dark:#000000;
   --fg-dark:#ffffff;
   --bg-light:#ffffff;
@@ -1024,6 +1025,8 @@ margin-left: -2.8px;
   --fg-pink:#fbc3d5;
   --bg-gta:#ffffff;
   --fg-gta:#FF7F50;
+  --bg-NewYear: #ffffff;
+  --fg-NewYear: #940000;
   --accent:#008979;
   --menu-bg:#131320;
 }
@@ -1033,11 +1036,13 @@ margin-left: -2.8px;
 .theme-arc.open .opt-2 { transform: translate(-63px, -20px); box-sizing: border-box; padding: 0 0 1.5px 0; background-color: #888888; }   /* средний */
 .theme-arc.open .opt-3 { transform: translate(-45px, 20px); box-sizing: border-box; padding: 0 0 5px 0; background-color: #888888; }  /* нижний */
 .theme-arc.open .opt-4 { transform: translate(-2px, 30px); box-sizing: border-box; padding: 2px 0 0 0; background-color: #888888; }  /* нижний */
+.theme-arc.open .opt-5 { transform: translate(-3px, 75px); box-sizing: border-box; padding: -1px 0 0 0; background-color: #888888; }  /* нижний */
 
 /* Адаптация подсказки под текущую тему (чтобы на светлой теме подсказка была темной и наоборот) */
 html.light .theme-option::after{ background:#000000;color:#ffffff; }
 html.pink .theme-option::after{ background:#000000;color:#ffffff; }
 html.gta .theme-option::after{ background:#ffffff;color:#000000; }
+html.NewYear .theme-option::after{ background:#ffffff;color:#000000; }
 
 /* Немного стилизации для разных тем (кнопки) */
 html.light .theme-toggle,
@@ -1046,10 +1051,12 @@ html.pink .theme-toggle,
 html.pink .theme-option { background: #fffbf000; color: var(--fg-pink); border-color: #fbc3d5; }
 html.gta .theme-toggle,
 html.gta .theme-option { background: #fffbf000; color: var(--fg-gta); border-color: #FF7F50; }
+html.NewYear .theme-toggle,
+html.NewYear .theme-option { background: #fffbf000; color: var(--fg-NewYear); border-color: #940000; }
   
 .theme-arc {
   position: absolute;
-  right: 12px; /* ----------- Было -16 ------------- */
+  right: 12px; 
   top: 65px;
   transform: translateY(-50%);
   width: calc(var(--btn-size));
@@ -1952,6 +1959,332 @@ html.gta ::-webkit-scrollbar-track {
 /* Улучшение внешнего вида при наведении курсора на ползунок */
 html.gta ::-webkit-scrollbar-thumb:hover {
     background-color: #ff9d7a;
+    }
+
+
+/*----------------------------------------------------------------------------------- NewYear тема----------------------------------------------------------------- */
+
+  html.NewYear body {
+    font-family: Arial, sans-serif;
+    background: #022b00;
+    color: #ffffff;
+  }
+
+  html.NewYear .text-block.right > div {
+  column-rule: 1px solid #B38728; /* Вертикальная черта между столбцами */
+}
+
+  html.NewYear #toggleControlsButton {
+    background: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  html.NewYear .dropdown-button {
+    background: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }  
+
+  html.NewYear .image-link-text {
+  background: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+  html.NewYear #itemm {
+    color: #ffffff;
+    background-color: #022b00;
+}
+
+  html.NewYear #itemmm {
+    color: #ffffff;
+    background-color: #022b00;
+}
+
+    html.NewYear .item {
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 0px solid transparent;
+    border-image-source: url("RamkaNewYear.svg"); 
+    border-image-slice: 0 0 0 0 fill;  
+    border-image-width: 0px; 
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    max-width: 300px;  
+    min-width: 100px; 
+    box-sizing: border-box; 
+    
+    }
+
+    html.NewYear .item-text {
+    background: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    }
+
+    html.NewYear .item.highlight {
+    filter: drop-shadow(0 0 8px #940000);
+    }
+
+    html.NewYear .table-title {
+    background-color: #022b00;
+    background: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    }
+
+  html.NewYear .section {
+    border: 2px solid #940000;
+  }
+
+  html.NewYear .section-header {
+    background-color: #940000;
+    }
+
+  html.NewYear .section-header:hover {
+    background-color: #ac0000;
+    }
+
+  html.NewYear .text-block {
+    box-shadow: 0 0 15px #940000;
+    border: 1px solid #940000;
+    background-color: #022b00;
+    background: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    }
+
+  html.NewYear .search-input {
+            font-family: Arial, sans-serif;
+            border: 2px solid #940000;
+            color: #ffffff;
+            background-color: #022b00;
+    }
+
+  html.NewYear .draft-area {
+            border: 2px solid #940000;
+            background-color: #022b00;
+        }
+
+  html.NewYear .cell {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 0px solid transparent;
+    border-image-source: url("RamkaNewYear.svg"); 
+    border-image-slice: 0 0 0 0 fill;  
+    border-image-width: 0px; 
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    max-width: 300px;  
+    min-width: 100px; 
+    box-sizing: border-box; 
+    }
+
+    html.NewYear .cell-text {
+    background: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    }
+
+  html.NewYear .cell.highlight {
+    filter: drop-shadow(0 0 8px #940000);
+  }
+
+  html.NewYear .hidden-cell {
+  display: none;
+  }
+
+  html.NewYear .column {
+      border: 2px solid #940000;
+    background-color: #022b00;
+    
+    }
+
+  html.NewYear select {
+      border: 2px solid #940000;
+      color: #ffffff;
+      background-color: #022b00;
+    }
+
+  html.NewYear #result {
+      border: 2px solid #940000;
+      background-color: #022b00;
+      background: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    }
+
+  html.NewYear #copyButton {
+    border: 2px solid #940000;
+    background-color: #022b00;
+    background: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    }
+
+  html.NewYear #clearButton {
+    border: 2px solid #940000;
+    background-color: #022b00;
+    background: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    }
+
+  html.NewYear #copyButton.copied {
+    border: 2px solid #ac0000;
+    box-shadow: 0 0 15px 3px #ac0000;
+}
+
+  html.NewYear #clearButton:active {
+    box-shadow: 0 0 15px 2px #ac0000;
+}
+
+    html.NewYear #copyButton:hover {
+    background-color: #364b60;
+  }
+
+  html.NewYear #clearButton:hover {
+    background-color: #364b60;
+  }
+
+  html.NewYear #itemmSearch {
+  border: 2px solid #940000;
+  color: #ffffff;
+  background-color: #022b00;
+  }
+
+  html.NewYear #itemmmSearch {
+  border: 2px solid #940000;
+  color: #ffffff;
+  background-color: #022b00;
+  }
+
+  html.NewYear #draft-area-5 {
+            border: 2px solid #940000;
+            background-color: #022b00;
+    }
+
+  html.NewYear .select-wrapper select {
+      border: 2px solid #940000;
+    }
+
+  html.NewYear #customPrice {
+    border: 1px solid #940000;
+    background-color: #022b00;
+    color: #ffffff;
+    }
+
+  html.NewYear #setPrice {
+    border: 1px solid #940000;
+    background-color: #022b00;
+    color: #ffffff;
+    }
+
+  html.NewYear .dropdown-content {
+  border: 2px solid #940000;
+    background-color: #022b00;
+    }
+
+  html.NewYear .dropdown-content a {
+  background-color: #022b00;
+}
+
+  html.NewYear .dropdown-content a:hover {
+    background-color: #033e00;
+    }
+
+  html.NewYear #setShortcutButton {
+        border: 1px solid #940000;
+        color: #ffffff;
+        background-color: #000000;
+        }
+
+  html.NewYear #setShortcutButton:hover {
+        background: #000000;
+      }
+
+  html.NewYear #clearShortcutButton {
+        border: 1px solid #940000;
+        background: #000000;
+        color: #ffffff;
+        }
+
+  html.NewYear #clearShortcutButton:hover {
+        background: #000000;
+      }
+
+  html.NewYear #shortcutInput {
+        border: 1px solid #940000;
+        background: #000000;
+        color: #555555db;
+      }
+
+  html.NewYear .notification-container {
+  background-color: #000000;
+  border: 2px solid #8b8b8b;
+}
+
+  html.NewYear .close-button {
+  color: #ffffff;
+}
+
+  html.NewYear .close-button:hover {
+  color: #bcbcbc;
+}
+
+/* Ползунок (thumb) */
+html.NewYear::-webkit-scrollbar-thumb {
+    background-color: #940000;
+    }
+
+/* Трек (track) */
+html.NewYear::-webkit-scrollbar-track {
+    background-color: #022b00;
+    }
+
+/* Улучшение внешнего вида при наведении курсора на ползунок */
+html.NewYear::-webkit-scrollbar-thumb:hover {
+    background-color: #ac0000;
+    }
+
+html.NewYear ::-webkit-scrollbar-thumb {
+    background-color: #940000;
+    }
+
+/* Трек (track) */
+html.NewYear ::-webkit-scrollbar-track {
+    background-color: #022b00;
+    }
+
+/* Улучшение внешнего вида при наведении курсора на ползунок */
+html.NewYear ::-webkit-scrollbar-thumb:hover {
+    background-color: #ac0000;
     }
 
 /*---------------------------------------------------------------------------------------- Медиа запросы----------------------------------------------------------------- */
