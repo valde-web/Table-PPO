@@ -2416,8 +2416,8 @@ html.NewYear ::-webkit-scrollbar-thumb:hover {
     margin-right: 2%; /* Отступ справа (5% от ширины контейнера) */
     padding: 13px 30px;
     margin-bottom: 7px;
-    margin-top: -11.5px;
-    font-size: 19px;
+    margin-top: -8px;
+    font-size: 18.5px;
     }
 
     .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
@@ -2427,8 +2427,8 @@ html.NewYear ::-webkit-scrollbar-thumb:hover {
     padding: 13px 30px;
     margin-bottom: 7px;
     margin-top: -20px;
-    max-height: 467px;
-    font-size: 19px;
+    max-height: 478px;
+    font-size: 18.5px;
     }
 
       .container3 {
@@ -2458,7 +2458,6 @@ html.NewYear ::-webkit-scrollbar-thumb:hover {
 
     .text-block.right {   /* Применяем ко всем блокам text-block, чтобы избежать проблем с приоритетом */
     width: 80%;                      /* Делаем ширину блоков адаптивной (90% от ширины экрана) */
-    max-height: 467px;
     }
   }
 
