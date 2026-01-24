@@ -2542,10 +2542,10 @@ html.NewYear ::-webkit-scrollbar-thumb:hover {
     margin: auto;                /* Добавляем внешние отступы сверху и снизу и автоматически центрируем по горизонтали */
     margin-left: 1%; /* Отступ слева (1% от ширины контейнера) */
     margin-right: 1%; /* Отступ справа (1% от ширины контейнера) */
-    padding: 17px 30px;
+    padding: 15px 30px;
     margin-bottom: -6px;
     margin-top: -5px;
-    font-size: 18px;
+    font-size: 17.5px;
   }
 
   .container5 {
