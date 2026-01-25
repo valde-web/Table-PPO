@@ -2534,7 +2534,7 @@ html.NewYear ::-webkit-scrollbar-thumb:hover {
   grid-template-columns: repeat(2, 1fr) !important; 
   margin: 15px 15px !important;
   }
-
+  
     .container3 {
             display: grid; /* Используем Grid */
             grid-template-columns: repeat(3, 1fr); /* 5 колонок равной ширины */
@@ -2588,6 +2588,10 @@ html.NewYear ::-webkit-scrollbar-thumb:hover {
       grid-template-columns: repeat(1, 1fr); /* на мобильных 1 в ряд */
     } 
 
+    label[for="tuning"], label[for="itemmm"] {
+      font-size: 17px;
+    }
+    
     .container3 {
             display: grid; /* Используем Grid */
             grid-template-columns: repeat(1, 1fr); /* 5 колонок равной ширины */
