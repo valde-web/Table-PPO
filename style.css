@@ -282,7 +282,7 @@ display: none;
             opacity: 0;
         }
 
-        .cell {
+    .cell {
     text-align: left;
     cursor: pointer;
     display: flex;
@@ -758,6 +758,7 @@ display: none;
   margin-bottom: -75px;
   margin-top: -10px;
   margin-left: -7px;
+  z-index: 9997;
 }
 
 .link-wrapper {
