@@ -1735,7 +1735,7 @@ html.pink ::-webkit-scrollbar-thumb:hover {
   html.gta .tuning-col {
     border-right: 2px solid #E0E0E0; /* Белая линия между Тюнингом и Брендами */
     }
-
+    
   html.gta .top-section {
     border-bottom: 2px solid #E0E0E0; /* Горизонтальная линия между верхом и низом */
     }
@@ -2438,12 +2438,36 @@ html.NewYear ::-webkit-scrollbar-thumb:hover {
 
     .top-section {
       display: block; /* Выключаем сетку, делаем блоки друг под другом */
-      border-bottom: none; /* Убираем общую линию, так как добавим её блокам */
     }
     
     .tuning-col {
       border-right: none; /* Убираем вертикальную линию */
-      border-bottom: 2px solid; /* Добавляем горизонтальную линию между блоками */
+      border-bottom: 2px solid white; /* Добавляем горизонтальную линию между блоками */
+      padding: 10px 0 20px 0;
+      margin-right: 0;
+    }
+
+    html.light .tuning-col {
+      border-right: none; /* Убираем вертикальную линию */
+      border-bottom: 2px solid #000000; /* Добавляем горизонтальную линию между блоками */
+      padding: 10px 0 20px 0;
+    }
+    
+    html.pink .tuning-col {
+      border-right: none; /* Убираем вертикальную линию */
+      border-bottom: 2px solid #000000; /* Добавляем горизонтальную линию между блоками */
+      padding: 10px 0 20px 0;
+    }
+
+    html.gta .tuning-col {
+      border-right: none; /* Убираем вертикальную линию */
+      border-bottom: 2px solid #E0E0E0; /* Добавляем горизонтальную линию между блоками */
+      padding: 10px 0 20px 0;
+    }
+
+    html.NewYear .tuning-col {
+      border-right: none; /* Убираем вертикальную линию */
+      border-bottom: 2px solid #B38728; /* Добавляем горизонтальную линию между блоками */
       padding: 10px 0 20px 0;
     }
     
