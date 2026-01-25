@@ -2588,10 +2588,10 @@ html.NewYear ::-webkit-scrollbar-thumb:hover {
       grid-template-columns: repeat(1, 1fr); /* на мобильных 1 в ряд */
     } 
 
-    label[for="tuning"], label[for="itemmm"] {
+    label[for="tuning"], label[for="itemmm"], label[for="action"], label[for="itemm"], label[for="price_type"], label[for="price"], label[for="trade"] { 
       font-size: 17px;
     }
-    
+
     .container3 {
             display: grid; /* Используем Grid */
             grid-template-columns: repeat(1, 1fr); /* 5 колонок равной ширины */
