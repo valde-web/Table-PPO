@@ -2608,26 +2608,27 @@ html.NewYear ::-webkit-scrollbar-thumb:hover {
 
     .container93 {
       flex-direction: row; 
-      margin-bottom: 15px;
+      margin-bottom: 25px;
       margin-top: 15px;
     }  
 
     #start-tutorial-btn {
-      top: 90px; 
+      top: 80px; 
       right: 110px;
     }
 
     .theme-arc {
-      top: 100.2px;
+      top: 100px;
     }
   
     .link-wrapper.left-linkk {
-      margin-right: 140px;
+      margin-right: 145px;
     }
 
     .table-title {
       font-size: 24px;
     }
+
     .container3 {
             display: grid; /* Используем Grid */
             grid-template-columns: repeat(1, 1fr); /* 5 колонок равной ширины */
