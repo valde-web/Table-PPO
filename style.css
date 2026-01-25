@@ -2593,6 +2593,19 @@ html.NewYear ::-webkit-scrollbar-thumb:hover {
       font-size: 17px;
     }
 
+    .container93 {
+      flex-direction: row; 
+      margin-bottom: 15px;
+      margin-top: 15px;
+    }  
+  
+    .link-wrapper.left-linkk {
+      margin-right: 140px;
+    }
+
+    .table-title {
+      font-size: 24px;
+    }
     .container3 {
             display: grid; /* Используем Grid */
             grid-template-columns: repeat(1, 1fr); /* 5 колонок равной ширины */
