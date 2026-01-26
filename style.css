@@ -97,15 +97,15 @@
     border-image-repeat: stretch;
     max-width: 300px;  
     min-width: 100px; 
-    box-sizing: border-box; 
-    }
+    box-sizing: border-box;
+}
 
   .item-text {
     padding: 14px 18px; 
     font-size: 17px;
     line-height: 1.2;
     flex-shrink: 0;
-    box-sizing: border-box; /*  Важно!  Чтобы padding не ломал размеры */
+    box-sizing: border-box; 
   }
 
 .item.highlight {
