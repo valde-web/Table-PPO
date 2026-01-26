@@ -25,8 +25,8 @@
     }
 
    .table-header {
-     display: flex;
-     justify-content: space-between; /* Распределяем пространство между заголовком и кнопкой */
+    display: flex;
+    justify-content: space-between; /* Распределяем пространство между заголовком и кнопкой */
     align-items: center; /*  элементы по вертикали */
     position: relative; /*  для абсолютного позиционирования заголовка */
     padding: 0 2px; /*  отступы по бокам */
