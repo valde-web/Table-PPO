@@ -121,7 +121,7 @@
   border: 2px solid #006919;
   padding: 15px 25px;
   border-radius: 30px;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.3; /* Междустрочный интервал */
   word-wrap: break-word;      /* Для большинства браузеров */
   overflow-wrap: break-word; /* Для новых версий браузеров */
@@ -137,11 +137,11 @@
 .tuning-col {
   padding: 10px;
   border-right: 2px solid white; /* Белая линия между Тюнингом и Брендами */
-  margin-right: -70px;
+  margin-right: -90px;
 }
 
 .brands-wrapper {
-  padding: 10px 10px 10px 103px;
+  padding: 10px 10px 10px 113px;
 }
 
 /* АВТОМАТИЧЕСКОЕ РАЗБИЕНИЕ НА 2 КОЛОНКИ */
