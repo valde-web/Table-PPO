@@ -93,21 +93,26 @@
     max-width: 300px;  
     min-width: 100px; 
     box-sizing: border-box;
-  --accent-color: #008f7e; 
-  --bg-color: #131320;     
-  --border-width: 6px;    
-  --cut-size: 15px;        
-  position: relative;
-  width: 100%;
-  min-height: 80px;
-  display: flex;
-  cursor: pointer;
-  transition: transform 0.1s;
-  background: #008f7e;
-  padding: var(--border-width); 
-
-  clip-path: polygon(
-    var(--cut-size) 0%, 100% 0%, 100% calc(100% - var(--cut-size)), calc(100% - var(--cut-size)) 100%, 0% 100%, 0% var(--cut-size));
+    --accent-color: #008f7e; 
+    --bg-color: #131320;     
+    --border-width: 6px;    
+    --cut-size: 17px;        
+    position: relative;
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    cursor: pointer;
+    transition: transform 0.1s;
+    background: #008f7e;
+    padding: var(--border-width); 
+    clip-path: polygon(
+    var(--cut-size) 0%, 
+    100% 0%, 
+    100% calc(100% - var(--cut-size)), 
+    calc(100% - var(--cut-size)) 100%, 
+    0% 100%, 
+    0% var(--cut-size)
+    );
   }
 
   .item-text {
@@ -120,10 +125,14 @@
     display: flex;
     width: 100%;
     background: #131320;
-
-  clip-path: polygon(
-    calc(1.5% + (var(--cut-size) - var(--border-width))) 0%, 100% 0%, 100% calc(97% - (var(--cut-size) - var(--border-width))), 
-    calc(98.5% - (var(--cut-size) - var(--border-width))) 100%, 0% 100%, 0% calc(3% + (var(--cut-size) - var(--border-width)))
+    --inner-cut: calc(var(--cut-size) - var(--border-width) * 0.6);
+    clip-path: polygon(
+    var(--inner-cut) 0%, 
+    100% 0%, 
+    100% calc(100% - var(--inner-cut)), 
+    calc(100% - var(--inner-cut)) 100%, 
+    0% 100%, 
+    0% var(--inner-cut)
     );
   }
 
@@ -330,21 +339,26 @@ display: none;
     max-width: 300px;  
     min-width: 100px; 
     box-sizing: border-box;
-  --accent-color: #008f7e; 
-  --bg-color: #131320;     
-  --border-width: 6px;    
-  --cut-size: 15px;        
-  position: relative;
-  width: 100%;
-  min-height: 80px;
-  display: flex;
-  cursor: pointer;
-  transition: transform 0.1s;
-  background: #008f7e;
-  padding: var(--border-width); 
-
-  clip-path: polygon(
-    var(--cut-size) 0%, 100% 0%, 100% calc(100% - var(--cut-size)), calc(100% - var(--cut-size)) 100%, 0% 100%, 0% var(--cut-size));
+    --accent-color: #008f7e; 
+    --bg-color: #131320;     
+    --border-width: 6px;    
+    --cut-size: 17px;        
+    position: relative;
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    cursor: pointer;
+    transition: transform 0.1s;
+    background: #008f7e;
+    padding: var(--border-width); 
+    clip-path: polygon(
+    var(--cut-size) 0%, 
+    100% 0%, 
+    100% calc(100% - var(--cut-size)), 
+    calc(100% - var(--cut-size)) 100%, 
+    0% 100%, 
+    0% var(--cut-size)
+    );
   }
 
   .cell-text {
@@ -357,10 +371,14 @@ display: none;
     display: flex;
     width: 100%;
     background: #131320;
-
-  clip-path: polygon(
-    calc(1.5% + (var(--cut-size) - var(--border-width))) 0%, 100% 0%, 100% calc(97% - (var(--cut-size) - var(--border-width))), 
-    calc(98.5% - (var(--cut-size) - var(--border-width))) 100%, 0% 100%, 0% calc(3% + (var(--cut-size) - var(--border-width)))
+    --inner-cut: calc(var(--cut-size) - var(--border-width) * 0.6);
+    clip-path: polygon(
+    var(--inner-cut) 0%, 
+    100% 0%, 
+    100% calc(100% - var(--inner-cut)), 
+    calc(100% - var(--inner-cut)) 100%, 
+    0% 100%, 
+    0% var(--inner-cut)
     );
   }
 
