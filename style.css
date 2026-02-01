@@ -957,13 +957,18 @@ margin-left: -2.8px;
 position: absolute; 
 top: 43px; 
 right: 70px; 
-padding: 10px 18px; 
-background-color: #595959; 
-color: white; 
+padding: 10px 14px; 
+background-color: #008979; 
+color: #ffffff; 
 border: none; 
 border-radius: 5px; 
 cursor: pointer; 
 z-index: 9990;
+}
+
+#start-tutorial-btn:hover {
+background-color: #01585b;
+transform: scale(1.1);
 }
 
 /* Стили для оверлея */
@@ -1004,17 +1009,17 @@ z-index: 9990;
 /* Кнопка закрытия внутри блока инструкций */
 .tutorial-close-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 5px;
+    right: 5px;
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 29px;
     cursor: pointer;
-    color: #666;
+    color: #000000;
     line-height: 1;
 }
 .tutorial-close-btn:hover {
-    color: #333;
+    color: #666;
 }
 
 /* Кнопки навигации */
@@ -1426,6 +1431,10 @@ html.light #setPrice {
   color: #616161;
 }
 
+html.light #start-tutorial-btn {
+color: #000000; 
+}
+
 /* Ползунок (thumb) */
 html.light ::-webkit-scrollbar-thumb {
   background-color: #008979; /* Цвет ползунка */
@@ -1801,6 +1810,15 @@ html.light::-webkit-scrollbar-thumb:hover {
   color: #616161;
 }
 
+html.pink #start-tutorial-btn {
+background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
+color: #000000; 
+}
+
+html.pink #start-tutorial-btn:hover {
+background-image: linear-gradient(160deg, #eecbd6, #e4a2b7);
+}
+
 /* Ползунок (thumb) */
 html.pink::-webkit-scrollbar-thumb {
   background-color: #fbc0d2; /* Цвет ползунка */
@@ -2075,6 +2093,15 @@ html.pink ::-webkit-scrollbar-thumb:hover {
   color: #bcbcbc;
 }
 
+html.gta #start-tutorial-btn {
+background-color: #c76542; 
+color: #ffffff; 
+}
+
+html.gta #start-tutorial-btn:hover {
+background-color: #ab5739;
+}
+c76542 ab5739
 /* Ползунок (thumb) */
 html.gta::-webkit-scrollbar-thumb {
     background-color: #FF7F50;
@@ -2419,6 +2446,15 @@ html.gta ::-webkit-scrollbar-thumb:hover {
 
   html.NewYear .close-button:hover {
   color: #bcbcbc;
+}
+
+html.NewYear #start-tutorial-btn {
+background-color: #940000; 
+color: #ffffff; 
+}
+
+html.NewYear #start-tutorial-btn:hover {
+background-color: #ac0000;
 }
 
 /* Ползунок (thumb) */
