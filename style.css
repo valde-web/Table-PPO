@@ -645,7 +645,7 @@ display: none;
   background-color: #000000;
   border: 2px solid #b7b7b7;
   padding: 15px;
-  z-index: 1000; /* Убедитесь, что уведомление поверх всего */
+  z-index: 11000; /* Убедитесь, что уведомление поверх всего */
   border-radius: 5px;
   opacity: 0; /* Начальная прозрачность */
   visibility: hidden; /* Скрыто изначально */
