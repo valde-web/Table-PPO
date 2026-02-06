@@ -1556,6 +1556,10 @@ html.light::-webkit-scrollbar-thumb:hover {
     min-width: 10px;  
     }
 
+    html.pink .item:hover {
+    transform: scale(1.05);
+    }
+
     html.pink .item-wrapper.highlight {
     filter: drop-shadow(0 0 14px #ff77a2);
     transform: scale(1.02);
@@ -1647,6 +1651,10 @@ html.light::-webkit-scrollbar-thumb:hover {
     box-sizing: border-box;
     max-width: 1000px;  
     min-width: 10px;  
+    }
+
+    html.pink .cell:hover {
+    transform: scale(1.05);
     }
 
     html.pink .cell-wrapper.highlight {
