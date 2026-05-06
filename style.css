@@ -6,6 +6,12 @@
     margin: 0;
   }
 
+  body::selection { background: #008979; color: #000000; }
+  html.light body::selection { background: #008979; color: #ffffff; }
+  html.pink body::selection { background: #000000; color: #ffffff; }
+  html.gta body::selection { background: #FF7F50; color: #000000; }
+  html.NewYear body::selection { background: #AF0202; color: #ffffff; }
+
 .table-title {
     font-size: 26px;
     cursor: pointer;
@@ -134,6 +140,9 @@
     0% 100%, 
     0% var(--inner-cut)
     );
+    user-select: text !important; 
+    -webkit-user-select: text !important;
+    display: inline-block; 
   }
 
 .item-wrapper {
@@ -380,6 +389,9 @@ display: none;
     0% 100%, 
     0% var(--inner-cut)
     );
+    user-select: text !important; 
+    -webkit-user-select: text !important;
+    display: inline-block; 
   }
 
 .cell-wrapper {
