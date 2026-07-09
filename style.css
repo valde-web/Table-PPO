@@ -1122,7 +1122,9 @@ transform: scale(1.1);
 }
 
 /* Ползунок (thumb) */
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb,
+select::-webkit-scrollbar-thumb,
+select::-webkit-scrollbar-thumb:hover {
   background-color: #008979; /* Цвет ползунка */
   border-radius: 100px;   /* Скругление углов ползунка */
 }
@@ -1142,6 +1144,14 @@ transform: scale(1.1);
   width: 12px; /* Ширина вертикальной полосы прокрутки */
   height: 12px; /* Высота горизонтальной полосы прокрутки */
 }
+
+/* Ползунок (thumb) */
+html.anime::-webkit-scrollbar-thumb,
+html.anime ::-webkit-scrollbar-thumb,
+html.anime select::-webkit-scrollbar-thumb,
+html.anime select::-webkit-scrollbar-thumb:hover {
+    background-color: #00f0ff66;
+    }
 
 .filterok {
     /* margin-top: 150px; */
@@ -1477,33 +1487,24 @@ color: #000000;
 }
 
 /* Ползунок (thumb) */
-html.light ::-webkit-scrollbar-thumb {
-  background-color: #008979; /* Цвет ползунка */
-}
+html.light::-webkit-scrollbar-thumb,
+html.light ::-webkit-scrollbar-thumb,
+html.light select::-webkit-scrollbar-thumb,
+html.light select::-webkit-scrollbar-thumb:hover {
+    background-color: #008979;
+    }
 
 /* Трек (track) */
+html.light::-webkit-scrollbar-track,
 html.light ::-webkit-scrollbar-track {
-  background-color: #ffffff; /* Цвет фона трека */
-}
+    background-color: #ffffff;
+    }
 
 /* Улучшение внешнего вида при наведении курсора на ползунок */
+html.light::-webkit-scrollbar-thumb:hover, 
 html.light ::-webkit-scrollbar-thumb:hover {
-  background-color: #01585b; /* Цвет ползунка при наведении */
-}
-
-html.light::-webkit-scrollbar-thumb {
-  background-color: #008979; /* Цвет ползунка */
-}
-
-/* Трек (track) */
-html.light::-webkit-scrollbar-track {
-  background-color: #ffffff; /* Цвет фона трека */
-}
-
-/* Улучшение внешнего вида при наведении курсора на ползунок */
-html.light::-webkit-scrollbar-thumb:hover {
-  background-color: #01585b; /* Цвет ползунка при наведении */
-}
+    background-color: #01585b;
+    }
 
     /*----------------------------------------------------------------------------------- Пикми тема----------------------------------------------------------------- */
 
@@ -1872,33 +1873,24 @@ background-image: linear-gradient(160deg, #eecbd6, #e4a2b7);
 }
 
 /* Ползунок (thumb) */
-html.pink::-webkit-scrollbar-thumb {
-  background-color: #fbc0d2; /* Цвет ползунка */
-}
+html.pink::-webkit-scrollbar-thumb,
+html.pink ::-webkit-scrollbar-thumb,
+html.pink select::-webkit-scrollbar-thumb,
+html.pink select::-webkit-scrollbar-thumb:hover {
+    background-color: #fbc0d2;
+    }
 
 /* Трек (track) */
-html.pink::-webkit-scrollbar-track {
-  background-color: #fffbee; /* Цвет фона трека */
-}
-
-/* Улучшение внешнего вида при наведении курсора на ползунок */
-html.pink::-webkit-scrollbar-thumb:hover {
-  background-color: #e5b2c1; /* Цвет ползунка при наведении */
-}
-
-html.pink ::-webkit-scrollbar-thumb {
-  background-color: #fbc0d2; /* Цвет ползунка */
-}
-
-/* Трек (track) */
+html.pink::-webkit-scrollbar-track,
 html.pink ::-webkit-scrollbar-track {
-  background-color: #fffbee; /* Цвет фона трека */
-}
+    background-color: #fffbee;
+    }
 
 /* Улучшение внешнего вида при наведении курсора на ползунок */
+html.pink::-webkit-scrollbar-thumb:hover, 
 html.pink ::-webkit-scrollbar-thumb:hover {
-  background-color: #e5b2c1; /* Цвет ползунка при наведении */
-}
+    background-color: #e5b2c1;
+    }
 
 /*----------------------------------------------------------------------------------- GTA тема----------------------------------------------------------------- */
 
@@ -2155,34 +2147,24 @@ background-color: #ab5739;
 }
 
 /* Ползунок (thumb) */
-html.gta::-webkit-scrollbar-thumb {
+html.gta::-webkit-scrollbar-thumb,
+html.gta ::-webkit-scrollbar-thumb,
+html.gta select::-webkit-scrollbar-thumb,
+html.gta select::-webkit-scrollbar-thumb:hover {
     background-color: #FF7F50;
     }
 
 /* Трек (track) */
-html.gta::-webkit-scrollbar-track {
-    background-color: #1A2B3C;
-    }
-
-/* Улучшение внешнего вида при наведении курсора на ползунок */
-html.gta::-webkit-scrollbar-thumb:hover {
-    background-color: #ff9d7a;
-    }
-
-html.gta ::-webkit-scrollbar-thumb {
-    background-color: #FF7F50;
-    }
-
-/* Трек (track) */
+html.gta::-webkit-scrollbar-track,
 html.gta ::-webkit-scrollbar-track {
     background-color: #1A2B3C;
     }
 
 /* Улучшение внешнего вида при наведении курсора на ползунок */
+html.gta::-webkit-scrollbar-thumb:hover, 
 html.gta ::-webkit-scrollbar-thumb:hover {
     background-color: #ff9d7a;
-    }
-
+}
 
 /*----------------------------------------------------------------------------------- NewYear тема----------------------------------------------------------------- */
 
@@ -2512,34 +2494,24 @@ background-color: #ac0000;
 }
 
 /* Ползунок (thumb) */
-html.NewYear::-webkit-scrollbar-thumb {
+html.NewYear::-webkit-scrollbar-thumb,
+html.NewYear ::-webkit-scrollbar-thumb,
+html.NewYear select::-webkit-scrollbar-thumb,
+html.NewYear select::-webkit-scrollbar-thumb:hover {
     background-color: #940000;
     }
 
 /* Трек (track) */
-html.NewYear::-webkit-scrollbar-track {
-    background-color: #022b00;
-    }
-
-/* Улучшение внешнего вида при наведении курсора на ползунок */
-html.NewYear::-webkit-scrollbar-thumb:hover {
-    background-color: #ac0000;
-    }
-
-html.NewYear ::-webkit-scrollbar-thumb {
-    background-color: #940000;
-    }
-
-/* Трек (track) */
+html.NewYear::-webkit-scrollbar-track,
 html.NewYear ::-webkit-scrollbar-track {
     background-color: #022b00;
     }
 
 /* Улучшение внешнего вида при наведении курсора на ползунок */
+html.NewYear::-webkit-scrollbar-thumb:hover, 
 html.NewYear ::-webkit-scrollbar-thumb:hover {
     background-color: #ac0000;
     }
-
 /*---------------------------------------------------------------------------------------- Аниме тема ----------------------------------------------------------------- */
 
   html.anime body {
@@ -2831,34 +2803,24 @@ background-color: #00a3af66;
 }
 
 /* Ползунок (thumb) */
-html.anime::-webkit-scrollbar-thumb {
+html.anime::-webkit-scrollbar-thumb,
+html.anime ::-webkit-scrollbar-thumb,
+html.anime select::-webkit-scrollbar-thumb,
+html.anime select::-webkit-scrollbar-thumb:hover {
     background-color: #00f0ff66;
     }
 
 /* Трек (track) */
-html.anime::-webkit-scrollbar-track {
-    background-color: #1a1235;
-    }
-
-/* Улучшение внешнего вида при наведении курсора на ползунок */
-html.anime::-webkit-scrollbar-thumb:hover {
-    background-color: #00a3af66;
-    }
-
-html.anime ::-webkit-scrollbar-thumb {
-    background-color: #00f0ff66;
-    }
-
-/* Трек (track) 1a1235*/
+html.anime::-webkit-scrollbar-track,
 html.anime ::-webkit-scrollbar-track {
     background-color: #1a1235;
     }
 
 /* Улучшение внешнего вида при наведении курсора на ползунок */
+html.anime::-webkit-scrollbar-thumb:hover, 
 html.anime ::-webkit-scrollbar-thumb:hover {
     background-color: #00a3af66;
     }
-
 
 /*---------------------------------------------------------------------------------------- Медиа запросы----------------------------------------------------------------- */
 
