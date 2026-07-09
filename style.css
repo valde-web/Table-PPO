@@ -470,6 +470,10 @@ display: none;
       color: white;
     }
 
+    select option {
+    background-color: #131320; /* цвет background выпадающего списка в выбор ппо секции тюнинг и прочие все, кроме знач и знач с тюном */
+  }
+
     #result {
       margin-top: 20px;
       margin-bottom: 15px;
@@ -1372,6 +1376,10 @@ html.anime .theme-toggle, html.anime .theme-option { background: #fffbf000; colo
       background-color: #ffffff;
     }
 
+  html.light select option {
+    background-color: #ffffff;
+  }
+
   html.light #copyButton {
     color: #000000;
 }
@@ -1710,6 +1718,10 @@ html.light::-webkit-scrollbar-thumb:hover {
       color: #000000;
     }
 
+  html.pink select option {
+    background-color: #fbc3d5;
+  }
+
   html.pink #result {
       border: 2px solid #000000;
       background-image: linear-gradient(160deg, #ffd6e3, #fbc0d2);
@@ -2009,6 +2021,10 @@ html.pink ::-webkit-scrollbar-thumb:hover {
       color: #E0E0E0;
       background-color: #2D3E50;
     }
+
+  html.gta select option {
+    background-color: #2D3E50;
+  }
 
   html.gta #result {
       border: 2px solid #FF7F50;
@@ -2350,6 +2366,10 @@ html.gta ::-webkit-scrollbar-thumb:hover {
       background-color: #022b00;
     }
 
+  html.NewYear select option {
+    background-color: #022b00;
+  }
+
   html.NewYear #result {
       border: 2px solid #940000;
       background-color: #022b00;
@@ -2524,7 +2544,8 @@ html.NewYear ::-webkit-scrollbar-thumb:hover {
 
   html.anime body {
     font-family: Arial, sans-serif;
-    background: #1b1238;
+    background: url('anime.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: #e2d9f3;
   }
 
@@ -2542,6 +2563,13 @@ html.NewYear ::-webkit-scrollbar-thumb:hover {
 
   html.anime #toggleControlsButton {
     color: #e2d9f3;
+    text-shadow: 
+    -1px -1px 0 #000,  1px -1px 0 #000, -1px  1px 0 #000,  1px  1px 0 #000,
+    -2px -2px 0 #000,  2px -2px 0 #000, -2px  2px 0 #000,  2px  2px 0 #000,
+    -2px  0px 0 #000,  2px  0px 0 #000,  0px -2px 0 #000,  0px  2px 0 #000,
+    -1px -2px 0 #000,  1px -2px 0 #000, -1px  2px 0 #000,  1px  2px 0 #000,
+    -2px -1px 0 #000,  2px -1px 0 #000, -2px  1px 0 #000,  2px  1px 0 #000;
+    letter-spacing: 1px;
   }
 
   html.anime .dropdown-button {
@@ -2550,52 +2578,51 @@ html.NewYear ::-webkit-scrollbar-thumb:hover {
 
   html.anime .image-link-text {
   color: #e2d9f3;
+  text-shadow: 
+    -1px -1px 0 #000,  1px -1px 0 #000, -1px  1px 0 #000,  1px  1px 0 #000,
+    -2px -2px 0 #000,  2px -2px 0 #000, -2px  2px 0 #000,  2px  2px 0 #000,
+    -2px  0px 0 #000,  2px  0px 0 #000,  0px -2px 0 #000,  0px  2px 0 #000,
+    -1px -2px 0 #000,  1px -2px 0 #000, -1px  2px 0 #000,  1px  2px 0 #000,
+    -2px -1px 0 #000,  2px -1px 0 #000, -2px  1px 0 #000,  2px  1px 0 #000;
+    letter-spacing: 1px;
 }
 
 html.anime #itemm {
     color: #e2d9f3;
-    background-color: #120c27;
+    background-color: #120c2791;
 }
 
   html.anime #itemmm {
     color: #e2d9f3;
-    background-color: #120c27;
+    background-color: #120c2791;
 }
 
   html.anime .item {
-  background: #00f0ff66;
+  background: #00000000;
   }
 
   html.anime .item-text {
-  background: #120c27;
+  background: #120c2791;
   }
 
   html.anime .item-wrapper.highlight {
   filter: drop-shadow(0 0 10px #00f0ff66);
 }
 
-  html.anime .item:hover {
-  background-color: #00eeff83;
-}
-
 html.anime .cell {
-  background: #00f0ff66;
+  background: #00000000; 
   }
 
   html.anime .cell-text {
-  background: #120c27;
+  background: #120c2791;
   }
 
   html.anime .cell-wrapper.highlight {
   filter: drop-shadow(0 0 10px #00f0ff66);
 }
 
-  html.anime .cell:hover {
-  background-color: #00eeff83;
-}
-
     html.anime .table-title {
-    background-color: rgba(22, 16, 42, 0.75);
+    background-color: #120c27c0;
     }
 
   html.anime .section {
@@ -2604,6 +2631,13 @@ html.anime .cell {
 
   html.anime .section-header {
     background-color: #00f0ff66;
+    text-shadow: 
+    -1px -1px 0 #000,  1px -1px 0 #000, -1px  1px 0 #000,  1px  1px 0 #000,
+    -2px -2px 0 #000,  2px -2px 0 #000, -2px  2px 0 #000,  2px  2px 0 #000,
+    -2px  0px 0 #000,  2px  0px 0 #000,  0px -2px 0 #000,  0px  2px 0 #000,
+    -1px -2px 0 #000,  1px -2px 0 #000, -1px  2px 0 #000,  1px  2px 0 #000,
+    -2px -1px 0 #000,  2px -1px 0 #000, -2px  1px 0 #000,  2px  1px 0 #000;
+    letter-spacing: 1px;
     }
 
   html.anime .section-header:hover {
@@ -2612,7 +2646,7 @@ html.anime .cell {
 
   html.anime .main-container {
     border: 2px solid #00f0ff66;
-    background-color: #120c27;
+    background-color: #120c2791;
     box-shadow: none;
     }
 
@@ -2620,12 +2654,12 @@ html.anime .cell {
             font-family: Arial, sans-serif;
             border: 2px solid #00f0ff66;
             color: #e2d9f3;
-            background-color: #120c27;
+            background-color: #120c2791;
     }
 
   html.anime .draft-area {
             border: 2px solid #00f0ff66;
-            background-color: #120c27;
+            background-color: #120c2791;
         }
 
   html.anime .hidden-cell {
@@ -2634,30 +2668,34 @@ html.anime .cell {
 
   html.anime .column {
     border: 2px solid #00f0ff66;
-    background-color: #120c27;
+    background-color: #120c2791;
     }
 
   html.anime select {
       border: 2px solid #00f0ff66;
       color: #e2d9f3;
-      background-color: #120c27;
+      background-color: #120c2791;
     }
+
+  html.anime select option {
+    background-color: #1b1238;
+  }
 
   html.anime #result {
       border: 2px solid #00f0ff66;
-      background-color: #120c27;
+      background-color: #120c2791;
     }
 
   html.anime #copyButton {
     border: 2px solid #00f0ff66;
     color: #e2d9f3;
-    background-color: #120c27;
+    background-color: #120c2791;
     }
 
   html.anime #clearButton {
     border: 2px solid #00f0ff66;
     color: #e2d9f3;
-    background-color: #120c27;
+    background-color: #120c2791;
     }
 
   html.anime #copyButton.copied {
@@ -2680,18 +2718,18 @@ html.anime .cell {
   html.anime #itemmSearch {
   border: 2px solid #00f0ff66;
   color: #e2d9f3;
-  background-color: #120c27;
+  background-color: #120c2791;
   }
 
   html.anime #itemmmSearch {
   border: 2px solid #00f0ff66;
   color: #e2d9f3;
-  background-color: #120c27;
+  background-color: #120c2791;
   }
 
   html.anime #draft-area-5 {
             border: 2px solid #00f0ff66;
-            background-color: #120c27;
+            background-color: #120c2791;
     }
 
   html.anime .select-wrapper select {
@@ -2700,19 +2738,19 @@ html.anime .cell {
 
   html.anime #customPrice {
     border: 1px solid #00f0ff66;
-    background-color: #120c27;
+    background-color: #120c2791;
     color: #e2d9f3;
     }
 
   html.anime #setPrice {
     border: 1px solid #00f0ff66;
-    background-color: #120c27;
+    background-color: #120c2791;
     color: #e2d9f3;
     }
 
   html.anime .dropdown-content {
   border: 2px solid #00f0ff66;
-  background-color: #120c27;
+  background-color: #1b1238;
     }
 
   html.anime .dropdown-content a {
@@ -2749,6 +2787,20 @@ html.anime .cell {
         color: #555555db;
       }
 
+#toggleControlsButton:hover {
+    width: 430px; /* Расширяем полоску при наведении */
+}
+
+html.anime .OnlyForAnimeThemeStyleText {
+  text-shadow: 
+    -1px -1px 0 #000,  1px -1px 0 #000, -1px  1px 0 #000,  1px  1px 0 #000,
+    -2px -2px 0 #000,  2px -2px 0 #000, -2px  2px 0 #000,  2px  2px 0 #000,
+    -2px  0px 0 #000,  2px  0px 0 #000,  0px -2px 0 #000,  0px  2px 0 #000,
+    -1px -2px 0 #000,  1px -2px 0 #000, -1px  2px 0 #000,  1px  2px 0 #000,
+    -2px -1px 0 #000,  2px -1px 0 #000, -2px  1px 0 #000,  2px  1px 0 #000;
+  letter-spacing: 1px;
+}
+
   html.anime .notification-container {
   background-color: #000000;
   border: 2px solid #8b8b8b;
@@ -2764,7 +2816,14 @@ html.anime .cell {
 
 html.anime #start-tutorial-btn {
 background-color: #00f0ff66;
-color: #ffffff; 
+color: #e2d9f3;
+text-shadow: 
+    -1px -1px 0 #000,  1px -1px 0 #000, -1px  1px 0 #000,  1px  1px 0 #000,
+    -2px -2px 0 #000,  2px -2px 0 #000, -2px  2px 0 #000,  2px  2px 0 #000,
+    -2px  0px 0 #000,  2px  0px 0 #000,  0px -2px 0 #000,  0px  2px 0 #000,
+    -1px -2px 0 #000,  1px -2px 0 #000, -1px  2px 0 #000,  1px  2px 0 #000,
+    -2px -1px 0 #000,  2px -1px 0 #000, -2px  1px 0 #000,  2px  1px 0 #000;
+letter-spacing: 1px;
 }
 
 html.anime #start-tutorial-btn:hover {
@@ -2790,7 +2849,7 @@ html.anime ::-webkit-scrollbar-thumb {
     background-color: #00f0ff66;
     }
 
-/* Трек (track) */
+/* Трек (track) 1a1235*/
 html.anime ::-webkit-scrollbar-track {
     background-color: #1a1235;
     }
