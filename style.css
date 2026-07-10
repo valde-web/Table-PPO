@@ -2012,6 +2012,7 @@ html.pink ::-webkit-scrollbar-thumb:hover {
       border: 2px solid #FF7F50;
       color: #E0E0E0;
       background-color: #2D3E50;
+      color-scheme: dark !important;
     }
 
   html.gta select option {
@@ -2647,6 +2648,7 @@ html.anime .cell {
       border: 2px solid #00f0ff66;
       color: #e2d9f3;
       background-color: #120c2791;
+      color-scheme: dark !important;
     }
 
   html.anime select option {
