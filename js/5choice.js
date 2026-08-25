@@ -147,6 +147,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const copyButton = document.getElementById('copyButton');
   const clearButton = document.getElementById('clearButton'); // Получаем ссылку на кнопку Стереть
 
+  // Переменная для сохранения введенной пользователем суммы
+  let savedCustomPrice = '';
+
   function updateResult() {
     let resultText = '';
 
@@ -157,15 +160,20 @@ document.addEventListener('DOMContentLoaded', function() {
     if (priceTypeSelect.value) resultText += priceTypeSelect.value + ' ';
 
     if (priceSelect.value === 'input') {
-        // Если выбрано "Введите сумму", используем значение из поля ввода
-        if(customPriceInput.value) {
-          resultText += formatNumber(customPriceInput.value) + ' рублей. ';
-        }
+      if (customPriceInput.value) {
+        resultText += formatNumber(customPriceInput.value) + ' рублей. ';
+      } else if (savedCustomPrice) {
+        resultText += savedCustomPrice + ' ';
+      }
+    } else if (savedCustomPrice) {
+      // Используем сохраненную введенную сумму, пока не выбрано другое значение
+      resultText += savedCustomPrice + ' ';
     } else if (priceSelect.value) {
-        // Иначе используем значение из выпадающего списка price
-        resultText += priceSelect.value + ' ';
+      // Иначе используем стандартное значение из списка price
+      resultText += priceSelect.value + ' ';
     }
-        if (tradeSelect.value) resultText += tradeSelect.value + ' ';
+
+    if (tradeSelect.value) resultText += tradeSelect.value + ' ';
 
     resultDiv.textContent = resultText.trim();
   }
@@ -179,26 +187,32 @@ document.addEventListener('DOMContentLoaded', function() {
     if (this.value === 'input') {
       customPriceInput.style.display = 'block';
       setPriceButton.style.display = 'inline-block';
+      customPriceInput.focus();
     } else {
+      // Если пользователь выбрал другое значение в списке — сбрасываем введенную ранее сумму
+      savedCustomPrice = '';
+      customPriceInput.value = '';
       customPriceInput.style.display = 'none';
       setPriceButton.style.display = 'none';
-      updateResult(); // Обновляем результат при выборе предустановленной цены
+      updateResult();
     }
   });
 
   tradeSelect.addEventListener('change', updateResult);
 
   setPriceButton.addEventListener('click', function() {
-      if (customPriceInput.value) {
-        updateResult();
-        customPriceInput.value = ''; // Очищаем поле ввода
-        customPriceInput.style.display = 'none';
-        setPriceButton.style.display = 'none';
-        priceSelect.value = ""; // Сбрасываем значение select
-      } else {
-        alert('Пожалуйста, введите сумму.');
-      }
-    });
+    if (customPriceInput.value) {
+      // Запоминаем отформатированную сумму с припиской "рублей."
+      savedCustomPrice = formatNumber(customPriceInput.value) + ' рублей.';
+      customPriceInput.value = ''; // Очищаем поле ввода
+      customPriceInput.style.display = 'none';
+      setPriceButton.style.display = 'none';
+      priceSelect.value = '';
+      updateResult();
+    } else {
+      alert('Пожалуйста, введите сумму.');
+    }
+  });
 
     customPriceInput.addEventListener('keypress', function(event) {
       if (event.key === 'Enter') {
@@ -237,7 +251,10 @@ document.addEventListener('DOMContentLoaded', function() {
     priceTypeSelect.selectedIndex = 0; // Вернуть значение по умолчанию (Выберите)
     priceSelect.selectedIndex = 0; // Вернуть значение по умолчанию (Выберите)
     tradeSelect.selectedIndex = 0; // Вернуть значение по умолчанию (Выберите)
-    customPriceInput.value = ''; // Очищаем поле ввода
+    savedCustomPrice = '';
+    customPriceInput.value = '';
+    customPriceInput.style.display = 'none';
+    setPriceButton.style.display = 'none';
 
     // --- НОВОЕ: Очистка полей поиска ---
   const itemmmSearch = document.getElementById('itemmmSearch');
@@ -298,6 +315,7 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       priceTypeSelect.value = ''; // Сброс, если выбрано "Обменяю" или ничего не выбрано
     }
+    updateResult();
   });
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Функция поиска и фильтрации масок в колонке "Знач. с тюнингом" выбор ппо - кнопка выше в 1 скрипте которая за маски отвечает
@@ -322,7 +340,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let valValue = options[i].value || "";
 
     // Проверяем совпадение в тексте или в value
-    if (txtValue.toUpperCase().indexOf(filter) > -1 || valValue.toUpperCase().indexOf(filter) > -1) {
+    if (options[i].value === "" || txtValue.toUpperCase().indexOf(filter) > -1 || valValue.toUpperCase().indexOf(filter) > -1) {
       options[i].style.display = "";
     } else {
       options[i].style.display = "none";
