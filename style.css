@@ -16,6 +16,7 @@ html.pink body::selection { background: #000000; color: #ffffff; }
 html.gta body::selection { background: #FF7F50; color: #000000; }
 html.NewYear body::selection { background: #AF0202; color: #ffffff; }
 html.anime body::selection { background: #ae4177; color: #ffffff; }
+html.cpu body::selection { background: #b0b0b0; color: #000000; }
 
 .item-wrapper, .cell-wrapper, .item, .cell {
   will-change: auto !important;
@@ -1177,6 +1178,7 @@ select::-webkit-scrollbar-thumb:hover {
   --r4: 1px;
   --r5: 1px;
   --r6: 1px;
+  --r7: 1px;
   --bg-dark:#000000;
   --fg-dark:#ffffff;
   --bg-light:#ffffff;
@@ -1189,17 +1191,22 @@ select::-webkit-scrollbar-thumb:hover {
   --fg-NewYear: #940000;
   --bg-anime: #211740;
   --fg-anime: #ffffff;
+  --bg-cpu: #30363d;
+  --fg-cpu: #30363d;
   --accent:#008979;
   --menu-bg:#131320;
 }
 
-/* Положение опций в дуге (подберите под себя) */
-.theme-arc.open .opt-1 { transform: translate(-45px, -60px); box-sizing: border-box; padding: 0 0 3.2px 0; background-color: #888888; } /* верхний */
-.theme-arc.open .opt-2 { transform: translate(-63px, -20px); box-sizing: border-box; padding: 0 0 1.5px 0; background-color: #888888; }   /* средний */
-.theme-arc.open .opt-3 { transform: translate(-45px, 20px); box-sizing: border-box; padding: 0 0 5px 0; background-color: #888888; }  /* нижний */
-.theme-arc.open .opt-4 { transform: translate(-2px, 30px); box-sizing: border-box; padding: 2px 0 0 0; background-color: #888888; }  /* нижний */
-.theme-arc.open .opt-5 { transform: translate(-3px, 75px); box-sizing: border-box; padding: -1px 0 0 0; background-color: #888888; }  /* нижний */
-.theme-arc.open .opt-6 { transform: translate(-70px, 57px); box-sizing: border-box; padding: -1px 0 0 0; background-color: #888888; }  /* нижний */
+/* Положение опций в дуге */
+.theme-arc.open .opt-1 { transform: translate(-45px, -60px); box-sizing: border-box; padding: 0 0 3.2px 0; background-color: #888888; }
+.theme-arc.open .opt-2 { transform: translate(-63px, -20px); box-sizing: border-box; padding: 0 0 1.5px 0; background-color: #888888; }
+.theme-arc.open .opt-3 { transform: translate(-45px, 20px); box-sizing: border-box; padding: 0 0 5px 0; background-color: #888888; }
+.theme-arc.open .opt-4 { transform: translate(-2px, 30px); box-sizing: border-box; padding: 2px 0 0 0; background-color: #888888; }
+.theme-arc.open .opt-5 { transform: translate(-3px, 75px); box-sizing: border-box; padding: -1px 0 0 0; background-color: #888888; }
+.theme-arc.open .opt-6 { transform: translate(-52px, 65px); box-sizing: border-box; padding: -1px 0 0 0; background-color: #888888; }
+.theme-arc.open .opt-7 { transform: translate(-90px, 35px); box-sizing: border-box; padding: 0 0 2px 0; background-color: #888888; }
+/* .theme-arc.open .opt-8 { transform: translate(-109px, -10px); box-sizing: border-box; padding: -1px 0 0 0; background-color: #888888; } */
+/* .theme-arc.open .opt-9 { transform: translate(-95px, -55px); box-sizing: border-box; padding: -1px 0 0 0; background-color: #888888; } */
 
 /* Адаптация подсказки под текущую тему (чтобы на светлой теме подсказка была темной и наоборот) */
 html.light .theme-option::after{ background:#000000; color:#ffffff; }
@@ -1207,6 +1214,7 @@ html.pink .theme-option::after{ background:#000000; color:#ffffff; }
 html.gta .theme-option::after{ background:#ffffff; color:#000000; }
 html.NewYear .theme-option::after{ background:#ffffff; color:#000000; }
 html.anime .theme-option::after{ background:#ffffff; color:#000000; }
+html.cpu .theme-option::after{ background:#ffffff; color:#000000; }
 
 /* Немного стилизации для разных тем (кнопки) */
 html.light .theme-toggle, html.light .theme-option { background: #ffffff00; color: var(--fg-light); border-color: #000000;  }
@@ -1214,7 +1222,8 @@ html.pink .theme-toggle, html.pink .theme-option { background: #fffbf000; color:
 html.gta .theme-toggle, html.gta .theme-option { background: #fffbf000; color: var(--fg-gta); border-color: #FF7F50; }
 html.NewYear .theme-toggle, html.NewYear .theme-option { background: #fffbf000; color: var(--fg-NewYear); border-color: #940000; }
 html.anime .theme-toggle, html.anime .theme-option { background: #fffbf000; color: var(--fg-anime); border-color: #e2d9f3; }
-  
+html.cpu .theme-toggle, html.cpu .theme-option { background: #fffbf000; color: var(--fg-cpu); border-color: #30363d; }
+
 .theme-arc {
   position: absolute;
   right: 12px; 
@@ -1308,7 +1317,7 @@ html.anime .theme-toggle, html.anime .theme-option { background: #fffbf000; colo
 .theme-option:hover::after, .theme-option:focus::after{ opacity: 1; transform: translateY(-50%) translateX(0); }
 
 /* Скрываем стрелку фокуса outline, но оставляем доступность */
-.theme-toggle:focus, .theme-option:focus { outline: 2px solid #00685a7e; outline-offset: 2px; }
+.theme-toggle:focus, .theme-option:focus { outline: none; outline-offset: 2px; }
 
 /* Убираем текстовый выбор */
 .theme-toggle, .theme-option { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
@@ -2820,6 +2829,303 @@ html.anime::-webkit-scrollbar-thumb:hover,
 html.anime ::-webkit-scrollbar-thumb:hover {
     background-color: #00a3af66;
     }
+
+/*----------------------------------------------------------------------------------- CPU тема----------------------------------------------------------------- */
+
+  html.cpu body {
+    font-family: Arial, sans-serif;
+    background: #0d1117;
+    color: #e0e0e0;
+  }
+
+  html.cpu .tuning-col {
+    border-right: 2px solid #e0e0e0; /* Белая линия между Тюнингом и Брендами */
+    }
+    
+  html.cpu .top-section {
+    border-bottom: 2px solid #e0e0e0; /* Горизонтальная линия между верхом и низом */
+    }
+
+  html.cpu .autocolumns-4, html.cpu .autocolumns-2  {
+    column-rule: 1px solid #e0e0e0;
+    }
+
+  html.cpu #toggleControlsButton {
+    color: #e0e0e0;
+  }
+
+  html.cpu .dropdown-button {
+    color: #e0e0e0;
+  }  
+
+  html.cpu .image-link-text {
+  color: #e0e0e0;
+}
+
+  html.cpu #itemm {
+    color: #e0e0e0;
+    background-color: #161b22;
+}
+
+  html.cpu #itemmm {
+    color: #e0e0e0;
+    background-color: #161b22;
+}
+  html.cpu .item {
+  background: none;
+  transition: none;
+  clip-path: none;
+  border: 0px solid transparent;
+  --border-width: 0px; 
+  --cut-size: 0px;
+  }
+
+  html.cpu .item-text {
+  background: #161b22;
+  transition: none;
+  clip-path: none;
+  border: 2px solid #30363d;
+  border-radius: 15px;
+  }
+
+  html.cpu .item-wrapper.highlight {
+  filter: none; 
+  transform: none;
+}
+
+  html.cpu .item:hover {
+  background-color: none; 
+  transform: none;
+}
+
+  html.cpu .cell {
+    background: none;
+  transition: none;
+  clip-path: none;
+  border: 0px solid transparent;
+  --border-width: 0px; 
+  --cut-size: 0px;
+  }
+
+  html.cpu .cell-text {
+  background: #161b22;
+  transition: none;
+  clip-path: none;
+  border: 2px solid #30363d;
+  border-radius: 15px;
+  }
+
+  html.cpu .cell-wrapper.highlight {
+  filter: none; 
+  transform: none;
+}
+
+  html.cpu .cell:hover {
+  background-color: none; 
+  transform: none;
+}
+
+    html.cpu .table-title {
+    background-color: #161b22;
+    }
+
+  html.cpu .section {
+    border: 2px solid #30363d;
+  }
+
+  html.cpu .section-header {
+    background-color: #30363d;
+    }
+
+  html.cpu .section-header:hover {
+    background-color: #444d5a;
+    }
+
+  html.cpu .main-container {
+    box-shadow: 0 0 15px #30363d;
+    border: 2px solid #30363d;
+    background-color: #161b22;
+    }
+
+  html.cpu .search-input {
+            font-family: Arial, sans-serif;
+            border: 2px solid #30363d;
+            color: #e0e0e0;
+            background-color: #161b22;
+    }
+
+  html.cpu .draft-area {
+            border: 2px solid #30363d;
+            background-color: #161b22;
+        }
+
+  html.cpu .hidden-cell {
+  display: none;
+  }
+
+  html.cpu .column {
+      border: 2px solid #30363d;
+    background-color: #161b22;
+    }
+
+  html.cpu select {
+      border: 2px solid #30363d;
+      color: #e0e0e0;
+      background-color: #161b22;
+      color-scheme: dark !important;
+    }
+
+  html.cpu select option {
+    background-color: #161b22;
+  }
+
+  html.cpu #result {
+      border: 2px solid #30363d;
+      background-color: #161b22;
+    }
+
+  html.cpu #copyButton {
+    border: 2px solid #30363d;
+    color: #e0e0e0;
+    background-color: #161b22;
+    }
+
+  html.cpu #clearButton {
+    border: 2px solid #30363d;
+    color: #e0e0e0;
+    background-color: #161b22;
+    }
+
+  html.cpu #copyButton.copied {
+    border: 2px solid #444d5a;
+    box-shadow: 0 0 15px 3px #444d5a;
+}
+
+  html.cpu #clearButton:active {
+    box-shadow: 0 0 15px 2px #444d5a;
+}
+
+    html.cpu #copyButton:hover {
+    background-color: #444d5a;
+  }
+
+  html.cpu #clearButton:hover {
+    background-color: #444d5a;
+  }
+
+  html.cpu #itemmSearch {
+  border: 2px solid #30363d;
+  color: #e0e0e0;
+  background-color: #161b22;
+  }
+
+  html.cpu #itemmmSearch {
+  border: 2px solid #30363d;
+  color: #e0e0e0;
+  background-color: #161b22;
+  }
+
+  html.cpu #draft-area-5 {
+            border: 2px solid #30363d;
+            background-color: #161b22;
+    }
+
+  html.cpu .select-wrapper select {
+      border: 2px solid #30363d;
+    }
+
+  html.cpu #customPrice {
+    border: 1px solid #30363d;
+    background-color: #161b22;
+    color: #e0e0e0;
+    }
+
+  html.cpu #setPrice {
+    border: 1px solid #30363d;
+    background-color: #161b22;
+    color: #e0e0e0;
+    }
+
+  html.cpu .dropdown-content {
+  border: 2px solid #30363d;
+    background-color: #161b22;
+    }
+
+  html.cpu .dropdown-content a {
+  color: #e0e0e0;
+}
+
+  html.cpu .dropdown-content a:hover {
+    background-color: #444d5a;
+    }
+
+  html.cpu #setShortcutButton {
+        border: 1px solid #30363d;
+        color: #e0e0e0;
+        background-color: #000000;
+        }
+
+  html.cpu #setShortcutButton:hover {
+        background: #000000;
+      }
+
+  html.cpu #clearShortcutButton {
+        border: 1px solid #30363d;
+        background: #000000;
+        color: #e0e0e0;
+        }
+
+  html.cpu #clearShortcutButton:hover {
+        background: #000000;
+      }
+
+  html.cpu #shortcutInput {
+        border: 1px solid #30363d;
+        background: #000000;
+        color: #555555db;
+      }
+
+  html.cpu .notification-container {
+  background-color: #000000;
+  border: 2px solid #30363d;
+}
+
+  html.cpu .close-button {
+  color: #e0e0e0;
+}
+
+  html.cpu .close-button:hover {
+  color: #bcbcbc;
+}
+
+html.cpu #start-tutorial-btn {
+background-color: #30363d; 
+color: #e0e0e0; 
+}
+
+html.cpu #start-tutorial-btn:hover {
+background-color: #444d5a;
+}
+
+/* Ползунок (thumb) */
+html.cpu::-webkit-scrollbar-thumb,
+html.cpu ::-webkit-scrollbar-thumb,
+html.cpu select::-webkit-scrollbar-thumb,
+html.cpu select::-webkit-scrollbar-thumb:hover {
+    background-color: #30363d;
+    }
+
+/* Трек (track) */
+html.cpu::-webkit-scrollbar-track,
+html.cpu ::-webkit-scrollbar-track {
+    background-color: #0d1117;
+    }
+
+/* Улучшение внешнего вида при наведении курсора на ползунок */
+html.cpu::-webkit-scrollbar-thumb:hover, 
+html.cpu ::-webkit-scrollbar-thumb:hover {
+    background-color: #444d5a;
+}
 
 /*---------------------------------------------------------------------------------------- Медиа запросы----------------------------------------------------------------- */
 
