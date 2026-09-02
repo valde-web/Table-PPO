@@ -17,6 +17,7 @@ html.gta body::selection { background: #FF7F50; color: #000000; }
 html.NewYear body::selection { background: #AF0202; color: #ffffff; }
 html.anime body::selection { background: #ae4177; color: #ffffff; }
 html.cpu body::selection { background: #b0b0b0; color: #000000; }
+html.custom body::selection { background: #0755ad !important; color: white !important; }
 
 .item-wrapper, .cell-wrapper, .item, .cell {
   will-change: auto !important;
@@ -554,7 +555,7 @@ display: none;
   #itemmSearch {
   width: 100%; /*  Занимает всю ширину колонки */
   padding: 5px;
-  margin-bottom: 6px;
+  margin-bottom: 7px;
   box-sizing: border-box;
   border: 2px solid #008979;
   font-size: 18px;
@@ -574,7 +575,7 @@ display: none;
   #itemmmSearch {
   width: 100%; /*  Занимает всю ширину колонки */
   padding: 5px;
-  margin-bottom: 6px;
+  margin-bottom: 7px;
   box-sizing: border-box;
   border: 2px solid #008979;
   font-size: 18px;
@@ -1179,6 +1180,7 @@ select::-webkit-scrollbar-thumb:hover {
   --r5: 1px;
   --r6: 1px;
   --r7: 1px;
+  --r8: 1px;
   --bg-dark:#000000;
   --fg-dark:#ffffff;
   --bg-light:#ffffff;
@@ -1193,6 +1195,7 @@ select::-webkit-scrollbar-thumb:hover {
   --fg-anime: #ffffff;
   --bg-cpu: #30363d;
   --fg-cpu: #30363d;
+  --bg-custom:#000000;
   --accent:#008979;
   --menu-bg:#131320;
 }
@@ -1205,7 +1208,7 @@ select::-webkit-scrollbar-thumb:hover {
 .theme-arc.open .opt-5 { transform: translate(-3px, 75px); box-sizing: border-box; padding: -1px 0 0 0; background-color: #888888; }
 .theme-arc.open .opt-6 { transform: translate(-52px, 65px); box-sizing: border-box; padding: -1px 0 0 0; background-color: #888888; }
 .theme-arc.open .opt-7 { transform: translate(-90px, 35px); box-sizing: border-box; padding: 0 0 2px 0; background-color: #888888; }
-/* .theme-arc.open .opt-8 { transform: translate(-109px, -10px); box-sizing: border-box; padding: -1px 0 0 0; background-color: #888888; } */
+.theme-arc.open .opt-8 { transform: translate(-109px, -10px); box-sizing: border-box; padding: 0 0 3px 0; background-color: #888888; }
 /* .theme-arc.open .opt-9 { transform: translate(-95px, -55px); box-sizing: border-box; padding: -1px 0 0 0; background-color: #888888; } */
 
 /* Адаптация подсказки под текущую тему (чтобы на светлой теме подсказка была темной и наоборот) */
@@ -1215,6 +1218,7 @@ html.gta .theme-option::after{ background:#ffffff; color:#000000; }
 html.NewYear .theme-option::after{ background:#ffffff; color:#000000; }
 html.anime .theme-option::after{ background:#ffffff; color:#000000; }
 html.cpu .theme-option::after{ background:#ffffff; color:#000000; }
+html.custom .theme-option::after{ background:#ffffff; color:#000000; border: 2px solid #000000; }
 
 /* Немного стилизации для разных тем (кнопки) */
 html.light .theme-toggle, html.light .theme-option { background: #ffffff00; color: var(--fg-light); border-color: #000000;  }
@@ -1223,6 +1227,7 @@ html.gta .theme-toggle, html.gta .theme-option { background: #fffbf000; color: v
 html.NewYear .theme-toggle, html.NewYear .theme-option { background: #fffbf000; color: var(--fg-NewYear); border-color: #940000; }
 html.anime .theme-toggle, html.anime .theme-option { background: #fffbf000; color: var(--fg-anime); border-color: #e2d9f3; }
 html.cpu .theme-toggle, html.cpu .theme-option { background: #fffbf000; color: var(--fg-cpu); border-color: #30363d; }
+html.custom .theme-toggle, html.custom .theme-option { background: #fffbf000; color: var(--c-obvodka-theme) !important; border-color: var(--c-obvodka-theme) !important; }
 
 .theme-arc {
   position: absolute;
@@ -3125,6 +3130,187 @@ html.cpu ::-webkit-scrollbar-track {
 html.cpu::-webkit-scrollbar-thumb:hover, 
 html.cpu ::-webkit-scrollbar-thumb:hover {
     background-color: #444d5a;
+}
+
+/*----------------------------------------------------------------------------------- Своя тема----------------------------------------------------------------- */
+
+:root {
+  --c-bg: #131320;                      /* Задний фон сайта */
+  --c-text: #ffffff;                    /* Весь текст */
+  --c-section-hdr: #008979;             /* Задний фон заголовков секций */
+  --c-section-text: #ffffff;            /* Текст заголовков секций */
+  --c-item-border: #008f7e;             /* Рамка ячейки в таблице и поиске */
+  --c-item-bg: #131320;                 /* Задний фон ячеек .item-text и .cell-text */
+  --c-item-text: #ffffff;               /* Текст внутри ячеек */
+  --c-border-chernovik: #00685a;        /* Рамка черновика */
+  --c-bg-chernovik: #131320;            /* Задний фон черновика */
+  --c-text-chernovik: #ffffff;          /* Текст черновика */
+  --c-highlight: #006919;               /* Свечение при копировании */
+  --c-link-text: #ffffff;               /* Текст ссылок на дискорд и приложение */
+  --c-border-title: #008979;            /* Рамка заголовка таблицы */
+  --c-peregorodka-avtobrends: #ffffff;  /* Линии между колонками в обозначениях */
+  --c-text-oboznachenia: #ffffff;       /* Текст в секции "Обозначения" */
+  --c-border-oboznachenia: #006919;     /* Рамка в секции "Обозначения" */
+  --c-dropdown-button: #ffffff;         /* Стрелка заголовка таблицы */
+  --c-settings-bind: #ffffff;           /* Шестерёнка и текст бинда */
+  --c-start-tutorial-bg: #008979;       /* Задний фон кнопки инструкции */
+  --c-start-tutorial-text: #ffffff;     /* Текст кнопки инструкции */
+  --c-scroll: #008979;                  /* Ползунок скролла */
+  --c-scroll-track: #131320;            /* Задний фон ползунка скролла */
+  --c-scroll-hover: #01585b;            /* Ползунок скролла при наведении */
+  --c-obvodka-theme: #008979;           /* Кнопка выбора темы */
+  --c-text-search: #ffffff;             /* Текст в поле поиска */
+  --c-bg-search: #131320;               /* Задний фон в поле поиска */
+  --c-border-search: #00685a;           /* Рамка в поле поиска */
+  --c-text-column: #ffffff;             /* Текст в колонках */
+  --c-bg-column: #131320;               /* Задний фон в колонках */
+  --c-border-column: #008979;           /* Рамка в колонках */
+  --c-text-srch: #ffffff;               /* Текст поиска в значениях */
+  --c-bg-srch: #131320;                 /* Задний фон поиска в значениях */
+  --c-border-srch: #008979;             /* Рамка поиска в значениях */
+  --c-text-znach: #ffffff;              /* Текст выбираемых значений каждой колонки */
+  --c-bg-znach: #131320;                /* Задний фон выбираемых значений каждой колонки */
+  --c-border-znach: #008979;            /* Рамка выбираемых значений каждой колонки */
+  --c-bg-vblpad-spisok: #131320;        /* Задний фон выпадающего списка выбираемых значений */
+  --c-text-result: #ffffff;             /* Текст в поле результата выбора */
+  --c-bg-result: #131320;               /* Задний фон в поле результата выбора */
+  --c-border-result: #008979;           /* Рамка в поле результата выбора */
+  --c-text-copy: #ffffff;               /* Текст кнопки "Копировать" */
+  --c-bg-copy: #131320;                 /* Задний фон кнопки "Копировать" */
+  --c-border-copy: #008979;             /* Рамка кнопки "Копировать" */
+  --c-shadow-copy: #006919;             /* Подсветка вокруг кнопки при копировании */
+  --c-text-clear: #ffffff;              /* Текст кнопки "Стереть" */
+  --c-bg-clear: #131320;                /* Задний фон кнопки "Стереть" */
+  --c-border-clear: #008979;            /* Рамка кнопки "Стереть" */
+  --c-shadow-clear: #006919;            /* Подсветка вокруг кнопки при стирании */
+  --c-text-price: #ffffff;              /* Текст поля ввода суммы из Бюджет/Цена */
+  --c-bg-price: #131320;                /* Задний фон поля ввода суммы из Бюджет/Цена */
+  --c-border-price: #00685a;            /* Рамка поля ввода суммы из Бюджет/Цена */
+}
+
+/* Таблица и Поиск */
+html.custom body { background-color: var(--c-bg) !important; color: var(--c-text) !important;}
+html.custom .table-title { border-image: none !important; border: 4px solid var(--c-border-title) !important; border-radius: 0px !important;} 
+html.custom .custom-theme-row label { color: #ffffff !important; }
+html.custom .top-section { border-bottom: 2px solid var(--c-peregorodka-avtobrends) !important; }
+html.custom .tuning-col { border-right: 2px solid var(--c-peregorodka-avtobrends) !important; }
+html.custom .autocolumns-2 { column-rule: 1px solid var(--c-peregorodka-avtobrends) !important; }
+html.custom .autocolumns-4 { column-rule: 1px solid var(--c-peregorodka-avtobrends) !important; }
+html.custom .top-section, html.custom .bottom-section { color: var(--c-text-oboznachenia) !important; }
+html.custom .main-container { box-shadow: 0 0 15px var(--c-border-oboznachenia) !important; border: 2px solid var(--c-border-oboznachenia) !important; }
+html.custom .section-header { background-color: var(--c-section-hdr) !important; color: var(--c-section-text) !important; }
+html.custom .section { border: 2px solid var(--c-section-hdr) !important;}
+html.custom .section-header:hover { filter: brightness(1.2); /* Авто-подсветка при наведении */ }
+html.custom .image-link-text { color: var(--c-link-text) !important; }
+html.custom .dropdown-button { color: var(--c-dropdown-button) !important; }
+html.custom #toggleControlsButton { color: var(--c-settings-bind) !important; }
+html.custom #start-tutorial-btn { background-color: var(--c-start-tutorial-bg) !important; color: var(--c-start-tutorial-text) !important; }
+html.custom #start-tutorial-btn:hover { filter: brightness(1.2); }
+html.custom ::-webkit-scrollbar-thumb, 
+html.custom::-webkit-scrollbar-thumb,
+html.custom select::-webkit-scrollbar-thumb,
+html.custom select::-webkit-scrollbar-thumb:hover { background-color: var(--c-scroll) !important; /* Цвет ползунка */ }
+html.custom ::-webkit-scrollbar-track, html.custom::-webkit-scrollbar-track { background-color: var(--c-scroll-track) !important; /* Цвет фона трека */ }
+html.custom ::-webkit-scrollbar-thumb:hover, html.custom::-webkit-scrollbar-thumb:hover { background-color: var(--c-scroll-hover) !important; /* Цвет ползунка при наведении */ }
+html.custom .item { background: var(--c-item-border) !important; }
+html.custom .item-text { background: var(--c-item-bg) !important; color: var(--c-item-text) !important; }
+html.custom .item-wrapper.highlight { filter: drop-shadow(0 0 10px var(--c-highlight)) !important; }
+
+/* Поиск (Остальное выше) */
+html.custom .cell { background: var(--c-item-border) !important; }
+html.custom .cell-text { background: var(--c-item-bg) !important; color: var(--c-item-text) !important; }
+html.custom .cell-wrapper.highlight { filter: drop-shadow(0 0 10px var(--c-highlight)) !important; }
+html.custom .draft-area { border: 2px solid var(--c-border-chernovik) !important; background-color: var(--c-bg-chernovik) !important; color: var(--c-text-chernovik) !important; }
+html.custom .search-input { border: 2px solid var(--c-border-search) !important; background-color: var(--c-bg-search) !important; color: var(--c-text-search) !important; }
+
+/* Выбор */
+html.custom .column { border: 2px solid var(--c-border-column) !important; background-color: var(--c-bg-column) !important; color: var(--c-text-column) !important; }
+html.custom select { border: 2px solid var(--c-border-znach) !important; background-color: var(--c-bg-znach) !important; color: var(--c-text-znach) !important; }
+html.custom .select-wrapper::after { color: var(--c-text-znach) !important; }
+html.custom select option { background-color: var(--c-bg-vblpad-spisok) !important; }
+html.custom #result { border: 2px solid var(--c-border-result) !important; background-color: var(--c-bg-result) !important; color: var(--c-text-result) !important; }
+html.custom #copyButton { border: 2px solid var(--c-border-copy) !important; background-color: var(--c-bg-copy) !important; color: var(--c-text-copy) !important; }
+html.custom #copyButton.copied { box-shadow: 0 0 15px var(--c-shadow-copy) !important; }
+html.custom #copyButton:hover { filter: brightness(1.2); }
+html.custom #clearButton { border: 2px solid var(--c-border-clear) !important; background-color: var(--c-bg-clear) !important; color: var(--c-text-clear) !important; }
+html.custom #clearButton:active { box-shadow: 0 0 15px var(--c-shadow-clear) !important; }
+html.custom #clearButton:hover { filter: brightness(1.2); }
+html.custom #itemmSearch { border: 2px solid var(--c-border-srch) !important; background-color: var(--c-bg-srch) !important; color: var(--c-text-srch) !important; }
+html.custom #itemm { border: 2px solid var(--c-border-znach) !important; background-color: var(--c-bg-znach) !important; color: var(--c-text-znach) !important; }
+html.custom #itemmmSearch { border: 2px solid var(--c-border-srch) !important; background-color: var(--c-bg-srch) !important; color: var(--c-text-srch) !important; }
+html.custom #itemmm { border: 2px solid var(--c-border-znach) !important; background-color: var(--c-bg-znach) !important; color: var(--c-text-znach) !important; }
+html.custom #draft-area-5 { border: 2px solid var(--c-border-chernovik) !important; background-color: var(--c-bg-chernovik) !important; color: var(--c-text-chernovik) !important; }
+html.custom #customPrice { border: 1px solid var(--c-border-price) !important; background-color: var(--c-bg-price) !important; color: var(--c-text-price) !important; }
+html.custom #setPrice { border: 1px solid var(--c-border-price) !important; background-color: var(--c-bg-price) !important; color: var(--c-text-price) !important; }
+
+/* --- СТИЛИ ДЛЯ МОДАЛЬНОГО ОКНА КОНСТРУКТОРА --- */
+.custom-theme-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #141424;
+  border: 2px solid #008979;
+  border-radius: 12px;
+  padding: 20px;
+  z-index: 100000;
+  box-shadow: 0 0 25px rgba(0,0,0,0.85);
+  color: #fff;
+  width: 340px;
+  max-height: 75vh;
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+}
+
+.custom-theme-modal.active {
+  display: block;
+}
+
+.custom-theme-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.custom-theme-row label {
+  font-size: 16px;
+}
+
+.custom-theme-row input[type="color"] {
+  border: none;
+  width: 42px;
+  height: 28px;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 4px;
+}
+
+.custom-theme-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.custom-theme-btn {
+  flex: 1;
+  padding: 9px 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #008979;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.custom-theme-btn.reset {
+  background: #700000;
+  font-size: 14px;
 }
 
 /*---------------------------------------------------------------------------------------- Медиа запросы----------------------------------------------------------------- */

@@ -83,7 +83,7 @@
   <button class="theme-option opt-5" data-theme="NewYear"  data-tip="New Year тема" aria-label="New Year тема">🎄</button>
   <button class="theme-option opt-6" data-theme="anime"  data-tip="Anime тема" aria-label="Аниме тема">⛩️</button>
   <button class="theme-option opt-7" data-theme="cpu"  data-tip="Производительная тема" aria-label="Производительная тема">🚀</button>
-  <!--<button class="theme-option opt-8" data-theme="1"  data-tip="1 тема" aria-label="1 тема"></button>-->
+  <button class="theme-option opt-8" data-theme="custom" data-tip="Своя тема" aria-label="Своя тема" onclick="openCustomThemeModal()">🎨</button>
   <!--<button class="theme-option opt-9" data-theme="2"  data-tip="2 тема" aria-label="2 тема"></button>-->
 </div>
 
@@ -540,10 +540,126 @@
     <button id="close-notification" class="close-button">&times;</button>
     <div>
     <h3>Уведомление</h3>
-    <p>&middot; Добавлено всё из нового БП.
+    <p>&middot; Добавлена "Своя тема", где вы сами выбираете цвета на свой вкус для почти всего. Справа от кнопки "Инструкция" есть стрелка на нее нажимаете и выбираете палитру.
+    &middot; Также добавлено всё из нового БП.
     </p>
   </div>
 </div>
+</div>
+
+<!-- Модальное окно конструктора темы -->
+<div id="custom-theme-modal" class="custom-theme-modal">
+  <h3 style="margin-top:0; text-align:center; color:#ffffff;">🎨 Конструктор темы</h3>
+  
+  <div class="custom-theme-row">
+    <label>Задний фон сайта:</label>
+    <input type="color" id="p-bg" value="#131320" data-var="--c-bg">
+  </div>
+
+  <div class="custom-theme-row">
+    <label>Весь текст:</label>
+    <input type="color" id="p-text" value="#ffffff" data-var="--c-text">
+  </div>
+
+  <div class="custom-theme-row">
+    <label>Текст ссылок на дискорд и приложение:</label>
+    <input type="color" id="p-link-text" value="#ffffff" data-var="--c-link-text">
+  </div>
+
+  <div class="custom-theme-row">
+    <label>Шестерёнка и текст бинда:</label>
+    <input type="color" id="p-settings-bind" value="#ffffff" data-var="--c-settings-bind">
+  </div>
+
+  <div class="custom-theme-row">
+    <label>Задний фон кнопки инструкции:</label>
+    <input type="color" id="p-start-tutorial-bg" value="#008979" data-var="--c-start-tutorial-bg">
+  </div>
+
+  <div class="custom-theme-row">
+    <label>Текст кнопки инструкции:</label>
+    <input type="color" id="p-start-tutorial-text" value="#ffffff" data-var="--c-start-tutorial-text">
+  </div>
+
+  <div class="custom-theme-row">
+    <label>Кнопка выбора темы:</label>
+    <input type="color" id="p-obvodka-theme" value="#008979" data-var="--c-obvodka-theme">
+  </div>
+
+  <div class="custom-theme-row">
+    <label>Рамка заголовка таблицы:</label>
+    <input type="color" id="p-border-title" value="#008979" data-var="--c-border-title">
+  </div>
+
+  <div class="custom-theme-row">
+    <label>Стрелка заголовка таблицы:</label>
+    <input type="color" id="p-dropdown-button" value="#ffffff" data-var="--c-dropdown-button">
+  </div>
+
+  <div class="custom-theme-row">
+    <label>Задний фон заголовков секций:</label>
+    <input type="color" id="p-sec-hdr" value="#008979" data-var="--c-section-hdr">
+  </div>
+
+  <div class="custom-theme-row">
+    <label>Текст заголовков секций:</label>
+    <input type="color" id="p-sec-txt" value="#ffffff" data-var="--c-section-text">
+  </div>
+
+  <div class="custom-theme-row">
+    <label>Текст в секции "Обозначения":</label>
+    <input type="color" id="p-text-oboznachenia" value="#ffffff" data-var="--c-text-oboznachenia">
+  </div>
+
+  <div class="custom-theme-row">
+    <label>Рамка в секции "Обозначения":</label>
+    <input type="color" id="p-border-oboznachenia" value="#ffffff" data-var="--c-border-oboznachenia">
+  </div>
+
+  <div class="custom-theme-row">
+    <label>Линии между колонками в обозначениях:</label>
+    <input type="color" id="p-peregorodka-avtobrends" value="#ffffff" data-var="--c-peregorodka-avtobrends">
+  </div>
+
+  <div class="custom-theme-row">
+    <label>Рамка ячейки:</label>
+    <input type="color" id="p-item-border" value="#008f7e" data-var="--c-item-border">
+  </div>
+
+  <div class="custom-theme-row">
+    <label>Задний фон внутри ячейки:</label>
+    <input type="color" id="p-item-bg" value="#131320" data-var="--c-item-bg">
+  </div>
+
+  <div class="custom-theme-row">
+    <label>Текст в ячейке:</label>
+    <input type="color" id="p-item-text" value="#ffffff" data-var="--c-item-text">
+  </div>
+
+  <div class="custom-theme-row">
+    <label>Подсветка при копировании вокруг ячейки:</label>
+    <input type="color" id="p-highlight" value="#006919" data-var="--c-highlight">
+  </div>
+
+  <div class="custom-theme-row">
+    <label>Ползунок скролла:</label>
+    <input type="color" id="p-scroll" value="#008979" data-var="--c-scroll">
+  </div>
+
+  <div class="custom-theme-row">
+    <label>Задний фон ползунка скролла:</label>
+    <input type="color" id="p-scroll-track" value="#131320" data-var="--c-scroll-track">
+  </div>
+  
+  <div class="custom-theme-row">
+    <label>Ползунок скролла при наведении:</label>
+    <input type="color" id="p-scroll-hover" value="#01585b" data-var="--c-scroll-hover">
+  </div>
+
+  <div class="custom-theme-buttons">
+    <button class="custom-theme-btn reset" onclick="resetCustomTheme()">Сбросить всё</button>
+    <button class="custom-theme-btn" onclick="closeCustomThemeModal()">Готово</button>
+  </div>
 </div>
 
 <script src="js/firebase-config.js"></script>
