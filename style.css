@@ -2573,12 +2573,12 @@ html.NewYear ::-webkit-scrollbar-thumb:hover {
 
 html.anime #itemm {
     color: #e2d9f3;
-    background-color: #120c2791;
+    background-color: #120c27c8;
 }
 
   html.anime #itemmm {
     color: #e2d9f3;
-    background-color: #120c2791;
+    background-color: #120c27c8;
 }
 
   html.anime .item {
@@ -2586,7 +2586,7 @@ html.anime #itemm {
   }
 
   html.anime .item-text {
-  background: #120c2791;
+  background: #120c27c8;
   }
 
   html.anime .item-wrapper.highlight {
@@ -2598,7 +2598,7 @@ html.anime .cell {
   }
 
   html.anime .cell-text {
-  background: #120c2791;
+  background: #120c27c8;
   }
 
   html.anime .cell-wrapper.highlight {
@@ -2630,7 +2630,7 @@ html.anime .cell {
 
   html.anime .main-container {
     border: 2px solid #00f0ff66;
-    background-color: #120c2791;
+    background-color: #120c27c8;
     box-shadow: none;
     }
 
@@ -2638,12 +2638,12 @@ html.anime .cell {
             font-family: Arial, sans-serif;
             border: 2px solid #00f0ff66;
             color: #e2d9f3;
-            background-color: #120c2791;
+            background-color: #120c27c8;
     }
 
   html.anime .draft-area {
             border: 2px solid #00f0ff66;
-            background-color: #120c2791;
+            background-color: #120c27c8;
         }
 
   html.anime .hidden-cell {
@@ -2652,13 +2652,13 @@ html.anime .cell {
 
   html.anime .column {
     border: 2px solid #00f0ff66;
-    background-color: #120c2791;
+    background-color: #120c27c8;
     }
 
   html.anime select {
       border: 2px solid #00f0ff66;
       color: #e2d9f3;
-      background-color: #120c2791;
+      background-color: #120c27c8;
       color-scheme: dark !important;
     }
 
@@ -2668,19 +2668,19 @@ html.anime .cell {
 
   html.anime #result {
       border: 2px solid #00f0ff66;
-      background-color: #120c2791;
+      background-color: #120c27c8;
     }
 
   html.anime #copyButton {
     border: 2px solid #00f0ff66;
     color: #e2d9f3;
-    background-color: #120c2791;
+    background-color: #120c27c8;
     }
 
   html.anime #clearButton {
     border: 2px solid #00f0ff66;
     color: #e2d9f3;
-    background-color: #120c2791;
+    background-color: #120c27c8;
     }
 
   html.anime #copyButton.copied {
@@ -2703,18 +2703,18 @@ html.anime .cell {
   html.anime #itemmSearch {
   border: 2px solid #00f0ff66;
   color: #e2d9f3;
-  background-color: #120c2791;
+  background-color: #120c27c8;
   }
 
   html.anime #itemmmSearch {
   border: 2px solid #00f0ff66;
   color: #e2d9f3;
-  background-color: #120c2791;
+  background-color: #120c27c8;
   }
 
   html.anime #draft-area-5 {
             border: 2px solid #00f0ff66;
-            background-color: #120c2791;
+            background-color: #120c27c8;
     }
 
   html.anime .select-wrapper select {
@@ -2723,13 +2723,13 @@ html.anime .cell {
 
   html.anime #customPrice {
     border: 1px solid #00f0ff66;
-    background-color: #120c2791;
+    background-color: #120c27c8;
     color: #e2d9f3;
     }
 
   html.anime #setPrice {
     border: 1px solid #00f0ff66;
-    background-color: #120c2791;
+    background-color: #120c27c8;
     color: #e2d9f3;
     }
 
