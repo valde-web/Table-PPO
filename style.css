@@ -202,7 +202,7 @@ html.custom body::selection { background: #0755ad !important; color: white !impo
   border-bottom: 2px solid white; /* Горизонтальная линия между верхом и низом */
 }
 
-.tuning-col {
+.tuning-col { /* Для разных тем менять этот параметр */
   padding: 10px;
   border-right: 2px solid white; /* Белая линия между Тюнингом и Брендами */
   margin-right: -90px;
@@ -1334,7 +1334,7 @@ html.custom .theme-toggle, html.custom .theme-option { background: #fffbf000; co
     color: black;
   }
 
-  html.light .tuning-col {
+  html.light .tuning-col { /* Для разных тем менять этот параметр */
     border-right: 2px solid #000000; /* Белая линия между Тюнингом и Брендами */
     }
 
@@ -1524,7 +1524,7 @@ html.light ::-webkit-scrollbar-thumb:hover {
     color: #000000;
   }
 
-  html.pink .tuning-col {
+  html.pink .tuning-col { /* Для разных тем менять этот параметр */
     border-right: 2px solid #000000; /* Белая линия между Тюнингом и Брендами */
     }
     
@@ -1910,7 +1910,7 @@ html.pink ::-webkit-scrollbar-thumb:hover {
     color: #E0E0E0;
   }
 
-  html.gta .tuning-col {
+  html.gta .tuning-col { /* Для разных тем менять этот параметр */
     border-right: 2px solid #E0E0E0; /* Белая линия между Тюнингом и Брендами */
     }
     
@@ -2185,7 +2185,7 @@ html.gta ::-webkit-scrollbar-thumb:hover {
     color: #ffffff;
   }
 
-  html.NewYear .tuning-col {
+  html.NewYear .tuning-col { /* Для разных тем менять этот параметр */
     border-right: 2px solid #B38728; /* Белая линия между Тюнингом и Брендами */
     }
 
@@ -2533,7 +2533,7 @@ html.NewYear ::-webkit-scrollbar-thumb:hover {
     background-color: #1a1235;
   }
 
-  html.anime .tuning-col {
+  html.anime .tuning-col { /* Для разных тем менять этот параметр */
     border-right: 2px solid #e2d9f3; /* Белая линия между Тюнингом и Брендами */
     }
     
@@ -2843,7 +2843,7 @@ html.anime ::-webkit-scrollbar-thumb:hover {
     color: #e0e0e0;
   }
 
-  html.cpu .tuning-col {
+  html.cpu .tuning-col { /* Для разных тем менять этот параметр */
     border-right: 2px solid #e0e0e0; /* Белая линия между Тюнингом и Брендами */
     }
     
@@ -3422,29 +3422,13 @@ html.custom #setPrice { border: 1px solid var(--c-border-price) !important; back
       margin-right: 0;
     }
 
-    html.light .tuning-col {
-      border-right: none; /* Убираем вертикальную линию */
-      border-bottom: 2px solid #000000; /* Добавляем горизонтальную линию между блоками */
-      padding: 10px 0 20px 0;
-    }
-    
-    html.pink .tuning-col {
-      border-right: none; /* Убираем вертикальную линию */
-      border-bottom: 2px solid #000000; /* Добавляем горизонтальную линию между блоками */
-      padding: 10px 0 20px 0;
-    }
-
-    html.gta .tuning-col {
-      border-right: none; /* Убираем вертикальную линию */
-      border-bottom: 2px solid #E0E0E0; /* Добавляем горизонтальную линию между блоками */
-      padding: 10px 0 20px 0;
-    }
-
-    html.NewYear .tuning-col {
-      border-right: none; /* Убираем вертикальную линию */
-      border-bottom: 2px solid #B38728; /* Добавляем горизонтальную линию между блоками */
-      padding: 10px 0 20px 0;
-    }
+    html.light .tuning-col { border-right: none; border-bottom: 2px solid #000000; padding: 10px 0 20px 0; }
+    html.pink .tuning-col { border-right: none; border-bottom: 2px solid #000000; padding: 10px 0 20px 0; }
+    html.gta .tuning-col { border-right: none; border-bottom: 2px solid #E0E0E0; padding: 10px 0 20px 0; }
+    html.NewYear .tuning-col { border-right: none; border-bottom: 2px solid #B38728; padding: 10px 0 20px 0; }
+    html.anime .tuning-col { border-right: none; border-bottom: 2px solid #e2d9f3; padding: 10px 0 20px 0; }
+    html.cpu .tuning-col { border-right: none; border-bottom: 2px solid #e0e0e0; padding: 10px 0 20px 0; }
+    html.custom .tuning-col { border-right: none !important; border-bottom: 2px solid var(--c-peregorodka-avtobrends) !important; padding: 10px 0 20px 0; }
     
     .brands-wrapper {
       padding: 10px 0px;
